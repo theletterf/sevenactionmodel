@@ -1,4 +1,5 @@
-{{- /* Action page — renders entirely from data/model.yaml, bound by .Params.action */ -}}
+{{- /* Action page — renders from data/model.yaml, bound by .Params.action.
+       The body (.Content) may extend the data with narrative prose. */ -}}
 {{- $id := .Params.action | default (path.Base .File.Dir) -}}
 {{- $action := index (where site.Data.model.actions "id" $id) 0 -}}
 <div class="action-head">
@@ -8,6 +9,8 @@
   </div>
   {{ partial "heptagon.html" (dict "size" 88 "labels" false "active" $id) }}
 </div>
+
+{{ .Content }}
 
 <section class="section">
   <h3>What the user wants to do</h3>
@@ -40,7 +43,5 @@
   <h3>One metric</h3>
   <p class="metric">{{ $action.metric.name }} <span class="unit">· {{ $action.metric.description }}</span></p>
 </section>
-
-{{ .Content }}
 
 {{ partial "prevnext.html" . }}

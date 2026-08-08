@@ -4,10 +4,17 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  {{ partial "header.html" . }}
-  <main class="page">
-    {{ block "main" . }}{{ end }}
-  </main>
-  {{ partial "footer.html" . }}
+  <div class="layout">
+    {{ partial "sidebar.html" . }}
+    <div class="main-wrap">
+      <header class="site-header">
+        <a class="wordmark" href="{{ site.Home.RelPermalink }}">seven-action<span class="dot">.</span>model</a>
+      </header>
+      <main class="page">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "footer.html" . }}
+    </div>
+  </div>
 </body>
 </html>

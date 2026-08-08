@@ -1,0 +1,24 @@
+<aside class="sidebar">
+  <a class="wordmark" href="{{ site.Home.RelPermalink }}">seven-action<span class="dot">.</span>model</a>
+
+  <nav class="side-nav" aria-label="Actions">
+    <p class="side-label">Actions</p>
+    {{ range site.Data.model.actions }}
+      {{ $isActive := eq $.Params.action .id }}
+      <a href="{{ printf "/actions/%s/" .id | relURL }}" class="side-link{{ if $isActive }} active{{ end }}">
+        <span class="side-verb">{{ .verb }}</span>
+        <span class="side-alt">{{ .alt }}</span>
+      </a>
+    {{ end }}
+  </nav>
+
+  <nav class="side-nav side-nav--pages" aria-label="Pages">
+    <p class="side-label">About</p>
+    {{ $cp := .RelPermalink }}
+    <a href="{{ "rationale/" | relURL }}" class="side-link{{ if eq $cp (relURL "rationale/") }} active{{ end }}">Rationale</a>
+    <a href="{{ "with-diataxis/" | relURL }}" class="side-link{{ if eq $cp (relURL "with-diataxis/") }} active{{ end }}">With Diataxis</a>
+    <a href="{{ "adopt/" | relURL }}" class="side-link{{ if eq $cp (relURL "adopt/") }} active{{ end }}">Adopt</a>
+    <a href="{{ "colophon/" | relURL }}" class="side-link{{ if eq $cp (relURL "colophon/") }} active{{ end }}">Colophon</a>
+    <a href="{{ "changelog/" | relURL }}" class="side-link{{ if eq $cp (relURL "changelog/") }} active{{ end }}">Changelog</a>
+  </nav>
+</aside>

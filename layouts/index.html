@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{ partial "meta-block.html" . }}
   <h1 class="masthead">Documentation exists so that users can
     {{ range $i, $a := site.Data.model.actions }}
       {{ if eq $i 6 }}and {{ end }}<span class="hl">{{ $a.verb }}</span>{{ if lt $i 5 }}, {{ end }}
@@ -7,7 +6,7 @@
   </h1>
   {{ .Content }}
   <div class="hero-heptagon">
-    {{ partial "heptagon.html" (dict "size" 480 "labels" true "active" "") }}
+    {{ partial "heptagon.html" (dict "size" 720 "labels" true "active" "") }}
   </div>
   {{ partial "cite-this.html" . }}
 {{ end }}
