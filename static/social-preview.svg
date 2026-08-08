@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">The Seven-Action Documentation Model</title>
+  <desc id="desc">A labeled heptagon showing Appraise, Explore, Remember, Troubleshoot, Develop, Practice, and Understand.</desc>
+  <defs>
+    <style>
+      @font-face {
+        font-family: "Walter Turncoat";
+        src: url("fonts/walter-turncoat.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Jost";
+        src: url("fonts/jost-regular.woff2") format("woff2");
+      }
+      .action {
+        fill: #236b6c;
+        font-family: "Walter Turncoat", sans-serif;
+        font-size: 32px;
+        letter-spacing: 0.4px;
+      }
+      .alternative {
+        fill: #4a4845;
+        font-family: "Jost", sans-serif;
+        font-size: 24px;
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#f7f5f2"/>
+
+  <g fill="none" stroke="#4a8a8b" stroke-linecap="square" stroke-linejoin="miter">
+    <polygon points="600,149 729,211 761,351 672,463 528,463 439,351 471,211" stroke-width="6"/>
+  </g>
+
+  <g fill="#4a8a8b">
+    <circle cx="600" cy="149" r="12"/>
+    <circle cx="729" cy="211" r="12"/>
+    <circle cx="761" cy="351" r="12"/>
+    <circle cx="672" cy="463" r="12"/>
+    <circle cx="528" cy="463" r="12"/>
+    <circle cx="439" cy="351" r="12"/>
+    <circle cx="471" cy="211" r="12"/>
+  </g>
+
+  <g text-anchor="middle">
+    <text class="action" x="600" y="55">Appraise</text>
+    <text class="alternative" x="600" y="88">(Discern)</text>
+
+    <text class="action" x="839" y="154">Explore</text>
+    <text class="alternative" x="839" y="187">(Discover)</text>
+
+    <text class="action" x="918" y="341">Remember</text>
+    <text class="alternative" x="918" y="374">(Recall)</text>
+
+    <text class="action" x="768" y="544">Troubleshoot</text>
+    <text class="alternative" x="768" y="577">(Solve)</text>
+
+    <text class="action" x="432" y="544">Develop</text>
+    <text class="alternative" x="432" y="577">(Integrate)</text>
+
+    <text class="action" x="282" y="341">Practice</text>
+    <text class="alternative" x="282" y="374">(Train)</text>
+
+    <text class="action" x="361" y="154">Understand</text>
+    <text class="alternative" x="361" y="187">(Learn)</text>
+  </g>
+</svg>

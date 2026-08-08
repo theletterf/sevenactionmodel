@@ -6,10 +6,31 @@
   {{- $action := index (where $modelData.actions "id" .) 0 -}}
   {{- $fallbackDescription = $action.definition -}}
 {{- end }}
-<title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} — 7act.org{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ $fallbackDescription }}{{ end }}">
+{{- $pageTitle := cond .IsHome .Title (printf "%s — 7act.org" .Title) -}}
+{{- $pageDescription := $fallbackDescription -}}
+{{- with .Description }}{{ $pageDescription = . }}{{ end -}}
+{{- $socialDescription := $pageDescription -}}
+{{- if .IsHome }}{{ $socialDescription = i18n "social_blurb" }}{{ end -}}
+{{- $socialImage := "social-preview.png" | absURL -}}
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $pageDescription }}">
 <meta name="author" content="{{ site.Params.author }}">
 <meta name="theme-color" content="#2c7a7b">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $socialDescription }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="7act.org">
+<meta property="og:image" content="{{ $socialImage }}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ i18n "social_image_alt" }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ $socialDescription }}">
+<meta name="twitter:image" content="{{ $socialImage }}">
+<meta name="twitter:image:alt" content="{{ i18n "social_image_alt" }}">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 <link rel="icon" href="{{ "favicon-32x32.png" | relURL }}" type="image/png" sizes="32x32">
 <link rel="alternate icon" href="{{ "favicon.ico" | relURL }}">
