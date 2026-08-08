@@ -1,17 +1,18 @@
-# {{ site.Data.model.model.title }}
+{{ $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") }}
+# {{ $modelData.model.title }}
 
-> {{ site.Data.model.model.description }}
+> {{ $modelData.model.description }}
 
-- [Home]({{ site.Home.Permalink }}): {{ site.Data.model.model.description }}
-- [Introduction]({{ "rationale/" | absURL }}): The source essay behind the model.
+- [Home]({{ site.Home.Permalink }}): {{ $modelData.model.description }}
+- [{{ i18n "introduction" }}]({{ "rationale/" | absLangURL }}): {{ i18n "introduction_desc" }}
 
 ## Actions
 
-{{ range site.Data.model.actions }}
-- [{{ .verb }} ({{ .alt }})]({{ printf "/actions/%s/" .id | absURL }}): {{ .definition }}
+{{ range $modelData.actions }}
+- [{{ .verb }} ({{ .alt }})]({{ printf "/actions/%s/" .id | absLangURL }}): {{ .definition }}
 {{ end }}
 
 ## Formats
 
-- [model.json]({{ "model.json" | absURL }}): machine-readable model
+- [model.json]({{ "model.json" | absLangURL }}): machine-readable model
 - [Markdown mirrors]({{ site.Home.Permalink }}): every page ships as index.md

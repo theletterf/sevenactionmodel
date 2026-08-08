@@ -131,9 +131,16 @@ body {
   flex-shrink: 0;
   padding: calc(var(--space-3) + var(--space-5)) var(--space-3) var(--space-4);
   background: var(--paper-raised);
-  border-right: 1px solid var(--rule);
+  border-inline-end: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
 }
 :root[data-theme="dark"] .sidebar { background: var(--paper); }
+
+.wordmark { order: 1; }
+.sidebar-menu { order: 2; }
+.theme-toggle { order: 3; margin-top: var(--space-4); }
+.menu-toggle { order: 4; }
 
 .main-wrap {
   flex: 1;
@@ -215,7 +222,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .site-header {
   padding: var(--space-3) var(--space-4) 0;
 }
-.site-header .wordmark { display: none; }
 
 /* --------------------------------------------------------------------------
    6. SIDEBAR
@@ -247,6 +253,26 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 :root:not([data-theme="dark"]) .theme-icon--sun  { display: block; }
 :root[data-theme="dark"]       .theme-icon--moon { display: block; }
 
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.menu-toggle:hover { color: var(--teal-deep); border-color: var(--teal); }
+.menu-icon { width: 1.1rem; height: 1.1rem; display: none; }
+.menu-toggle .menu-icon--open { display: block; }
+.menu-toggle[aria-expanded="true"] .menu-icon--open { display: none; }
+.menu-toggle[aria-expanded="true"] .menu-icon--close { display: block; }
+
 .side-nav { margin-bottom: var(--space-4); }
 .side-nav--pages { border-top: 1px solid var(--rule); padding-top: var(--space-3); }
 
@@ -256,6 +282,12 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   color: var(--ink-faint);
   margin: 0 0 var(--space-1);
 }
+
+.side-accordion summary {
+  list-style: none;
+  cursor: default;
+}
+.side-accordion summary::-webkit-details-marker { display: none; }
 
 .side-link {
   display: flex;
@@ -272,19 +304,32 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .side-link.active {
   color: var(--teal-deep);
   background: var(--teal-wash);
-  border-left: 3px solid var(--teal);
-  padding-left: calc(0.5em - 3px);
+  border-inline-start: 3px solid var(--teal);
+  padding-inline-start: calc(0.5em - 3px);
 }
 .side-alt  { color: var(--ink-faint); }
 .side-link.active .side-alt { color: var(--teal); }
 
 .side-intro { margin-bottom: var(--space-4); }
 
+.lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6em;
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-s);
+}
+.lang-link { color: var(--ink-faint); border-bottom: none; }
+.lang-link:hover { color: var(--teal-deep); }
+.lang-current { color: var(--teal-deep); }
+
 .side-subnav {
   display: flex;
   flex-direction: column;
   margin: 0.2em 0 0;
-  padding-left: 1em;
+  padding-inline-start: 1em;
 }
 .side-sublink {
   padding: 0.25em 0.5em;
@@ -315,7 +360,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   line-height: 1.7;
   color: var(--ink-soft);
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--teal);
+  border-inline-start: 3px solid var(--teal);
   border-radius: var(--radius);
   padding: var(--space-2) var(--space-3);
   margin: 0 0 var(--space-4);
@@ -391,7 +436,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .example {
   border: 1px solid var(--rule);
-  border-left: 3px solid var(--teal);
+  border-inline-start: 3px solid var(--teal);
   border-radius: var(--radius);
   padding: var(--space-2) var(--space-3);
   margin: 0 0 var(--space-2);
@@ -424,7 +469,7 @@ h3 + .table-wrap { margin-top: var(--space-3); }
   border-collapse: collapse;
 }
 .content-types th {
-  text-align: left;
+  text-align: start;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -447,24 +492,68 @@ h3 + .table-wrap { margin-top: var(--space-3); }
   .layout { display: block; max-width: none; }
   .sidebar {
     position: static; height: auto; width: auto;
-    border-right: none; border-bottom: 1px solid var(--rule);
+    border-inline-end: none; border-bottom: 1px solid var(--rule);
     padding: var(--space-3);
+    display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 0.5em;
   }
-  .side-nav { display: flex; flex-wrap: wrap; gap: 0.3em; margin-bottom: var(--space-2); }
+  .wordmark { flex: 1; margin-bottom: 0; }
+  .menu-toggle { display: flex; order: 2; }
+  .theme-toggle { order: 3; margin-top: 0; }
+  .sidebar-menu {
+    order: 4;
+    flex-basis: 100%;
+    display: none;
+    margin-top: var(--space-3);
+  }
+  .sidebar-menu.open { display: block; }
   .side-nav--pages { border-top: none; padding-top: 0; }
-  .side-label { display: none; }
-  .side-link { font-size: 0.82rem; padding: 0.2em 0.4em; margin: 0; }
-  .side-link .side-alt { display: none; }
-  .side-link.active { border-left: none; border-bottom: 2px solid var(--teal); padding-left: 0.4em; }
-  .site-header .wordmark { display: block; margin-bottom: var(--space-2); }
-  .sidebar .wordmark { display: none; }
+  .side-accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0.4em 0.5em;
+    margin: 0 -0.5em 0.2em;
+    border-radius: 4px;
+  }
+  .side-accordion summary:hover { background: var(--teal-wash); color: var(--teal-deep); }
+  .side-accordion summary::after { content: "+"; color: var(--ink-faint); }
+  .side-accordion[open] summary::after { content: "\2212"; }
   .page { padding: var(--space-3) var(--space-3) var(--space-5); }
   .action-head { flex-direction: column; }
   h1, .action-title, .page-title { font-size: 2.2rem; }
 }
 
 /* --------------------------------------------------------------------------
-   12. PRINT
+   12. RIGHT-TO-LEFT LANGUAGES
+   -------------------------------------------------------------------------- */
+html[dir="rtl"] body {
+  font-family: Tahoma, Arial, sans-serif;
+}
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .page-title,
+html[dir="rtl"] .action-title,
+html[dir="rtl"] .wordmark,
+html[dir="rtl"] .side-verb,
+html[dir="rtl"] .metric,
+html[dir="rtl"] .action-list a {
+  font-family: Tahoma, Arial, sans-serif;
+}
+html[dir="rtl"] .side-label,
+html[dir="rtl"] .side-alt,
+html[dir="rtl"] .meta-block,
+html[dir="rtl"] .format-link,
+html[dir="rtl"] .content-types th,
+html[dir="rtl"] .footer-legal,
+html[dir="rtl"] .metric .unit {
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   13. PRINT
    -------------------------------------------------------------------------- */
 @media print {
   body { background: #fff; color: #000; font-size: 12pt; }

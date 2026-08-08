@@ -11,5 +11,14 @@
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
   });
+
+  var menuBtn = document.getElementById('menu-toggle');
+  var menu = document.getElementById('sidebar-menu');
+  if (menuBtn && menu) {
+    menuBtn.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
 })();
 </script>

@@ -7,7 +7,8 @@
        labels (bool) show vertex labels (hero) or not (wayfinder)
        active (str)  action id to fill ("you are here")
      ============================================================ */ -}}
-{{- $actions := site.Data.model.actions -}}
+{{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
+{{- $actions := $modelData.actions -}}
 {{- $size   := default 400 .size -}}
 {{- $labels := default true .labels -}}
 {{- $active := default "" .active -}}
@@ -23,8 +24,8 @@
      width="{{ $size }}" height="{{ $height }}"
      xmlns="http://www.w3.org/2000/svg" role="img"
      aria-labelledby="heptagon-title heptagon-desc">
-  <title id="heptagon-title">Seven-Action Documentation Model</title>
-  <desc id="heptagon-desc">{{ if $active }}You are here: {{ $active }}{{ else }}Heptagon of user actions{{ end }}</desc>
+  <title id="heptagon-title">{{ $modelData.model.title }}</title>
+  <desc id="heptagon-desc">{{ if $active }}{{ i18n "you_are_here" }}: {{ $active }}{{ else }}{{ i18n "heptagon_desc" }}{{ end }}</desc>
   <polygon points="{{ range $i, $a := $actions }}{{ $angle := add (div math.Pi -2.0) (mul (float $i) $step) }}{{ $x := mul $r (math.Cos $angle) }}{{ $y := mul $r (math.Sin $angle) }}{{ printf "%.2f,%.2f " $x $y }}{{ end }}"
            fill="none" stroke="{{ $color }}"
            stroke-width="2" stroke-linejoin="miter" stroke-linecap="square"/>
@@ -36,7 +37,7 @@
     {{- $dotR := 4.0 -}}
     {{- if $isActive }}{{ $dotR = 6.0 }}{{ else if not $labels }}{{ $dotR = 2.5 }}{{ end -}}
     <g>
-      <a href="{{ printf "/actions/%s/" $a.id | relURL }}" aria-label="{{ $a.verb }} ({{ $a.alt }})">
+      <a href="{{ printf "/actions/%s/" $a.id | relLangURL }}" aria-label="{{ $a.verb }} ({{ $a.alt }})">
         <circle cx="{{ printf "%.2f" $x }}" cy="{{ printf "%.2f" $y }}" r="{{ $dotR }}"
                 fill="{{ if $isActive }}var(--teal){{ else }}{{ $color }}{{ end }}" class="vertex-dot"/>
         {{ if $isActive }}

@@ -1,0 +1,53 @@
+# Per-language site config. English is the default (stays at the root
+# URL); the rest are prefixed (/es/, /ja/, /zh-cn/) via
+# defaultContentLanguageInSubdir = false in hugo.toml.
+[en]
+languageCode = "en"
+languageName = "English"
+title = "Seven-Action Documentation Model"
+weight = 1
+
+[es]
+languageCode = "es"
+languageName = "Español"
+title = "Modelo de Documentación de Siete Acciones"
+weight = 2
+
+[ja]
+languageCode = "ja"
+languageName = "日本語"
+title = "七アクション・ドキュメントモデル"
+weight = 3
+
+[zh-cn]
+languageCode = "zh-CN"
+languageName = "中文"
+title = "七行动文档模型"
+weight = 4
+
+[ar]
+languageCode = "ar"
+languageName = "العربية"
+languageDirection = "rtl"
+title = "نموذج التوثيق ذي الإجراءات السبعة"
+weight = 5
+
+[fa]
+languageCode = "fa"
+languageName = "فارسی"
+languageDirection = "rtl"
+title = "مدل مستندسازی هفت‌کنشی"
+weight = 6
+
+[hi]
+languageCode = "hi"
+languageName = "हिन्दी"
+title = "सात-क्रिया दस्तावेज़ीकरण मॉडल"
+weight = 7
+
+[ur]
+languageCode = "ur"
+languageName = "اردو"
+languageDirection = "rtl"
+title = "سات عملی دستاویزاتی نمونہ"
+weight = 8

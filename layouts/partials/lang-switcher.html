@@ -1,0 +1,12 @@
+{{- /* Language switcher. Only show pages that are actual translations of the
+     current page; do not send visitors to an unrelated locale home page. */ -}}
+{{- $page := . -}}
+<nav class="lang-switcher" aria-label="{{ i18n "language" }}">
+  {{- range $page.AllTranslations }}
+    {{- if eq .Lang site.Language.Lang }}
+      <span class="lang-current">{{ .Language.LanguageName }}</span>
+    {{- else }}
+      <a href="{{ .RelPermalink }}" class="lang-link">{{ .Language.LanguageName }}</a>
+    {{- end }}
+  {{- end }}
+</nav>

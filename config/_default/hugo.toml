@@ -1,6 +1,6 @@
 baseURL = "https://7act.org/"
-languageCode = "en-us"
-title = "Seven-Action Documentation Model"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
 # No tag/category taxonomies on this site.
 disableKinds = ["taxonomy", "term"]

@@ -1,10 +1,11 @@
 {{ define "main" }}
-  <h1 class="page-title">The Seven-Action Documentation Model</h1>
+  {{ $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") }}
+  <h1 class="page-title">{{ $modelData.model.title }}</h1>
   <div class="home-tagline">
     {{ .Content }}
   </div>
   <div class="hero-heptagon">
     {{ partial "heptagon.html" (dict "size" 820 "labels" true "active" "") }}
   </div>
-  <p class="home-cta"><a href="{{ "rationale/" | relURL }}">Read the introduction &rarr;</a></p>
+  <p class="home-cta"><a href="{{ "rationale/" | relLangURL }}">{{ i18n "read_introduction" }} &rarr;</a></p>
 {{ end }}

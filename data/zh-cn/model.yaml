@@ -1,0 +1,225 @@
+# ============================================================================
+# Seven-Action Documentation Model — Simplified Chinese content
+# Mirrors data/en/model.yaml. Framework labels (DITA tags, Diataxis quadrant
+# names, Good Docs Project template names) and external example titles/URLs
+# are kept in English — they reference specific English-language frameworks
+# and resources.
+# ============================================================================
+
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "七行动文档模型"
+  description: >-
+    一个描述技术文档用户需求的模型。七个行动涵盖了文档使用者可能想要实现的
+    目标：评估、理解、探索、练习、记忆、开发、排障。
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
+actions:
+  - id: appraise
+    verb: 评估
+    alt: 辨别
+    definition: "辨别产品的主要特质，并在适用时与其他产品进行比较。"
+    description: >-
+      文档的读者同时也是潜在的客户或采用者。读者必须能够辨别产品的主要特质，
+      并与其他产品进行比较。这是一个发现的过程。
+    signals:
+      - "支持和销售团队反复回答同样的『这是什么』问题。"
+      - "潜在客户是通过营销材料而不是文档来了解产品功能的。"
+      - "没有一个页面阐明产品的定位或主要优势。"
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "No direct equivalent (closest: Explanation)"
+      good_docs:
+        - "Overview"
+        - "Landing page"
+    metric:
+      name: "转化率"
+      description: "从阅读文档到采用产品的转化率。"
+
+  - id: explore
+    verb: 探索
+    alt: 发现
+    definition: "以较低的门槛尝试产品，发现它能做什么。"
+    description: >-
+      优秀的产品会邀请用户去互动、去尝试新事物。文档应当提供提示、说明和便利
+      条件，将探索作为最初的活动之一加以促进。
+    signals:
+      - "新用户找不到快速入门指南或可供试用的沙盒环境。"
+      - "初次体验是一堵参考资料的墙，而不是一次有引导的浏览。"
+      - "用户必须先读完整本手册才能上手使用产品。"
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "Tutorial"
+      good_docs:
+        - "Tutorial"
+    metric:
+      name: "首次获得价值的时间"
+      description: "从首次访问到首次成功互动所需的时间。"
+
+  - id: remember
+    verb: 记忆
+    alt: 回想
+    definition: "回想起无法记住的信息，从参数到错误代码。"
+    description: >-
+      参考资料让文档在使用多年后依然保持生命力。用户翻阅手册，是为了回想、
+      查找那些他们无法记住的信息。
+    signals:
+      - "用户搜索某个参数或错误代码却一无所获。"
+      - "参考资料分散在博客文章和聊天记录中。"
+      - "产品的语法或设置没有一份可搜索的结构化参考文档。"
+    examples:
+      - title: "Dockerfile reference"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "GitLab CI/CD YAML syntax reference"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "Reference"
+      good_docs:
+        - "Reference"
+        - "Glossary"
+    metric:
+      name: "参考命中率"
+      description: "参考资料查询返回正确页面的比例。"
+
+  - id: troubleshoot
+    verb: 排障
+    alt: 解决
+    definition: "高效诊断并解决问题，往往是在压力之下进行的。"
+    description: >-
+      遇到问题——配置错误、边缘情况或真正的缺陷——是用户的常见处境。排障
+      代表着高效诊断并解决问题的需求，往往是在系统故障或截止日期临近的压力下。
+    signals:
+      - "支持工单反复出现同样的问题，而答案只存在于聊天记录中，不在文档里。"
+      - "错误信息出现在代码中，却从未出现在文档中。"
+      - "用户搜索一段错误字符串，却打开了一个完全没有提到它的页面。"
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "How-to guide (problem-oriented)"
+      good_docs:
+        - "Troubleshooting guide"
+    metric:
+      name: "解决耗时"
+      description: "从出现症状到恢复正常状态的中位时间。"
+
+  - id: develop
+    verb: 开发
+    alt: 集成
+    definition: "在产品之上构建、扩展或集成，创造额外的价值。"
+    description: >-
+      用户常常需要在现有产品之上进行构建、扩展或集成——通过集成方案、扩展
+      功能、插件，或是全新的应用程序。其关注点几乎总是务实的。
+    signals:
+      - "有关集成和扩展的问题得不到解答，或者被丢给论坛处理。"
+      - "没有指南说明如何在产品之上进行构建。"
+      - "产品的扩展点没有文档记录。"
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "How-to guide"
+      good_docs:
+        - "How-to guide"
+        - "API reference"
+    metric:
+      name: "生态系统增长"
+      description: "用户构建的集成方案或扩展功能的数量。"
+
+  - id: practice
+    verb: 练习
+    alt: 训练
+    definition: "学会在日常标准操作中使用产品。"
+    description: >-
+      用户需要学会操作产品的大部分功能。练习描述的是一种程序性知识的需求，
+      也就是如何在日常标准操作中使用产品。
+    signals:
+      - "同样的操作类问题在支持渠道和社区中反复出现。"
+      - "操作步骤只作为口口相传的经验，存在于某个人的脑子里。"
+      - "常见的管理任务没有分步指南。"
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "How-to guide"
+      good_docs:
+        - "How-to guide"
+    metric:
+      name: "任务成功率"
+      description: "无需支持即可完成标准操作流程的用户比例。"
+
+  - id: understand
+    verb: 理解
+    alt: 学习
+    definition: "理解产品所依托的抽象概念和心智模型。"
+    description: >-
+      软件产品建立在难以理解、却是正确使用所必需的抽象概念之上。概念性文档
+      与探索、练习共同构成了学习的基础。
+    signals:
+      - "用户能够操作产品，却无法解释它为什么会这样运作。"
+      - "概念只在代码注释或内部 Wiki 中得到解释。"
+      - "产品的核心概念没有术语表或概念指南。"
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "Explanation"
+      good_docs:
+        - "Concept guide"
+        - "Glossary"
+    metric:
+      name: "概念覆盖率"
+      description: "拥有专门概念页面的核心概念所占比例。"

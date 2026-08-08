@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode | default "en" }}">
+<html lang="{{ site.Language.LanguageCode | default "en" }}" dir="{{ site.Language.LanguageDirection | default "ltr" }}">
 <head>
   {{ partial "head.html" . }}
 </head>
@@ -7,15 +7,13 @@
   <div class="layout">
     {{ partial "sidebar.html" . }}
     <div class="main-wrap">
-      <header class="site-header">
-        <a class="wordmark" href="{{ site.Home.RelPermalink }}">7act<span class="dot">.</span>org</a>
-      </header>
+      <header class="site-header"></header>
       <main class="page">
         {{ block "main" . }}{{ end }}
       </main>
       {{ partial "footer.html" . }}
     </div>
   </div>
-  {{ partial "theme-toggle.html" . }}
+  {{ partial "scripts.html" . }}
 </body>
 </html>

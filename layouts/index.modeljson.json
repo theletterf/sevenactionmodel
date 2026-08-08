@@ -1,1 +1,1 @@
-{{ site.Data.model | jsonify (dict "indent" "  ") }}
+{{ (default site.Data.en.model (index site.Data site.Language.Lang "model")) | jsonify (dict "indent" "  ") }}

@@ -1,0 +1,231 @@
+# ============================================================================
+# Seven-Action Documentation Model — Japanese content
+# Mirrors data/en/model.yaml. Framework labels (DITA tags, Diataxis quadrant
+# names, Good Docs Project template names) and external example titles/URLs
+# are kept in English — they reference specific English-language frameworks
+# and resources.
+# ============================================================================
+
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "七アクション・ドキュメントモデル"
+  description: >-
+    技術文書に対するユーザーニーズを描写するモデル。文書の利用者が達成したい
+    ゴールを7つのアクションで網羅する: 評価、理解、探索、練習、記憶、開発、解決。
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
+actions:
+  - id: appraise
+    verb: 評価
+    alt: 見極め
+    definition: "製品の主な特長を見極め、必要であれば他と比較すること。"
+    description: >-
+      ドキュメントの読者は、潜在的な顧客や導入検討者でもあります。読者は製品の
+      主な特長を見極め、他と比較できなければなりません。これは発見のプロセスです。
+    signals:
+      - "サポートや営業が「これは何か」という同じ質問に何度も答えている。"
+      - "見込み客が製品の機能を知る手段が、ドキュメントではなくマーケティング資料になっている。"
+      - "製品のポジショニングや強みを明示するページが存在しない。"
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "No direct equivalent (closest: Explanation)"
+      good_docs:
+        - "Overview"
+        - "Landing page"
+    metric:
+      name: "コンバージョン率"
+      description: "ドキュメントから製品導入に至る転換率。"
+
+  - id: explore
+    verb: 探索
+    alt: 発見
+    definition: "低い参入障壁で製品を試し、何ができるかを発見すること。"
+    description: >-
+      優れた製品はユーザーの操作や新しい試みを促します。ドキュメントは、探索を
+      最初の活動の一つとして後押しするヒント、手順、仕組みを提供すべきです。
+    signals:
+      - "新規ユーザーがクイックスタートや試用環境を見つけられない。"
+      - "最初の体験がガイド付きツアーではなく、リファレンスの壁になっている。"
+      - "製品に触れる前に完全なマニュアルを読まなければならない。"
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "Tutorial"
+      good_docs:
+        - "Tutorial"
+    metric:
+      name: "初回価値到達時間"
+      description: "初回訪問から最初の成功体験までにかかる時間。"
+
+  - id: remember
+    verb: 記憶
+    alt: 想起
+    definition: "パラメータからエラーコードまで、覚えきれない情報を思い出すこと。"
+    description: >-
+      リファレンスは、何年も使われ続けるドキュメントを生かし続ける存在です。
+      ユーザーは、覚えきれなかった情報を思い出す、取り出す、調べるために
+      マニュアルのページをめくります。
+    signals:
+      - "ユーザーがパラメータやエラーコードを検索しても何も見つからない。"
+      - "リファレンス情報がブログ記事やチャットログに散らばっている。"
+      - "製品の構文や設定について、検索可能で構造化されたリファレンスが存在しない。"
+    examples:
+      - title: "Dockerfile reference"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "GitLab CI/CD YAML syntax reference"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "Reference"
+      good_docs:
+        - "Reference"
+        - "Glossary"
+    metric:
+      name: "リファレンス的中率"
+      description: "リファレンス検索が正しいページを返す割合。"
+
+  - id: troubleshoot
+    verb: 解決
+    alt: 対処
+    definition: "多くの場合プレッシャーの中で、問題を効率的に診断し解決すること。"
+    description: >-
+      設定ミス、エッジケース、実際のバグなど、問題に直面することはユーザーに
+      とってありふれた出来事です。トラブルシューティングは、システムが不調に
+      なったり締め切りが迫ったりするプレッシャーの中で、効率的に問題を診断し
+      解決する必要性を表します。
+    signals:
+      - "サポートチケットで同じ質問が繰り返され、その答えはドキュメントではなくチャットログの中にある。"
+      - "エラーメッセージはコードには現れるが、ドキュメントには決して現れない。"
+      - "ユーザーがエラー文字列を検索しても、それに言及していないページにたどり着く。"
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "How-to guide (problem-oriented)"
+      good_docs:
+        - "Troubleshooting guide"
+    metric:
+      name: "解決までの時間"
+      description: "症状の発生から復旧までの中央値時間。"
+
+  - id: develop
+    verb: 開発
+    alt: 統合
+    definition: "製品の上に構築し、拡張し、統合して新たな価値を生み出すこと。"
+    description: >-
+      ユーザーは、統合、拡張機能、プラグイン、あるいはまったく新しいアプリ
+      ケーションを通じて、既存の製品の上に構築したり、拡張したり、統合したり
+      する必要に迫られることがよくあります。その焦点はほとんど常に実用的です。
+    signals:
+      - "統合や拡張に関する質問が放置されるか、フォーラム任せになっている。"
+      - "製品の上に構築するためのガイドが存在しない。"
+      - "製品の拡張ポイントがドキュメント化されていない。"
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "How-to guide"
+      good_docs:
+        - "How-to guide"
+        - "API reference"
+    metric:
+      name: "エコシステムの成長"
+      description: "ユーザーが構築した統合や拡張機能の数。"
+
+  - id: practice
+    verb: 練習
+    alt: 習熟
+    definition: "日常的な標準運用の中で製品の操作方法を身につけること。"
+    description: >-
+      ユーザーは製品のほとんどの部分の操作方法を学ぶ必要があります。練習は、
+      製品を日常的かつ標準的な運用の中でどう使うかという手続き的な知識の
+      必要性を表します。
+    signals:
+      - "同じ手順に関する質問がサポートやコミュニティチャネルで繰り返される。"
+      - "手順が属人的な知識として、誰かの頭の中にしか存在しない。"
+      - "一般的な管理タスクの手順ガイドが存在しない。"
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "How-to guide"
+      good_docs:
+        - "How-to guide"
+    metric:
+      name: "タスク成功率"
+      description: "サポートなしで標準的な手順を完了できたユーザーの割合。"
+
+  - id: understand
+    verb: 理解
+    alt: 学習
+    definition: "製品の基盤となる抽象概念やメンタルモデルを理解すること。"
+    description: >-
+      ソフトウェア製品は、理解しづらいが正しい利用には欠かせない抽象概念の
+      上に成り立っています。概念的なドキュメントは、探索や練習と並んで
+      学びの土台となります。
+    signals:
+      - "ユーザーは製品を操作できるが、なぜそのように動作するのか説明できない。"
+      - "概念がコードのコメントや社内Wikiでしか説明されていない。"
+      - "製品の中核となる概念についての用語集や概念ガイドが存在しない。"
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "Explanation"
+      good_docs:
+        - "Concept guide"
+        - "Glossary"
+    metric:
+      name: "概念網羅率"
+      description: "専用の概念ページを持つ中核概念の割合。"

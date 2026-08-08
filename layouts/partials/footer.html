@@ -1,17 +1,17 @@
 <footer class="site-footer">
-  <nav class="format-links" aria-label="Formats">
+  <nav class="format-links" aria-label="{{ i18n "formats" }}">
     <a class="format-link" href="{{ .RelPermalink }}">HTML</a>
-    {{ with .OutputFormats.Get "md" }}<a class="format-link" href="{{ .Permalink }}">Markdown</a>{{ end }}
-    <a class="format-link" href="{{ "model.json" | relURL }}">JSON</a>
-    <a class="format-link" href="{{ "llms.txt" | relURL }}">llms.txt</a>
+    {{ with .OutputFormats.Get "md" }}<a class="format-link" href="{{ .RelPermalink }}">Markdown</a>{{ end }}
+    <a class="format-link" href="{{ "model.json" | relLangURL }}">JSON</a>
+    <a class="format-link" href="{{ "llms.txt" | relLangURL }}">llms.txt</a>
   </nav>
   <p class="footer-legal">
     <a href="https://passo.uno">Fabrizio Ferri Benedetti</a>
     &nbsp;·&nbsp;
-    Content <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+    {{ i18n "footer_content" }} <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
     &nbsp;·&nbsp;
-    Code <a href="https://opensource.org/licenses/MIT">MIT</a>
+    {{ i18n "footer_code" }} <a href="https://opensource.org/licenses/MIT">MIT</a>
     &nbsp;·&nbsp;
-    <a href="{{ "sitemap.xml" | relURL }}">Sitemap</a>
+    <a href="{{ "sitemap.xml" | relLangURL }}">{{ i18n "sitemap" }}</a>
   </p>
 </footer>

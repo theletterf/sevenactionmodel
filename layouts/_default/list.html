@@ -2,9 +2,10 @@
   <h1 class="page-title">{{ .Title }}</h1>
   {{ .Content }}
   {{ if eq .Section "actions" }}
+    {{ $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") }}
     <ul class="action-list">
-      {{ range site.Data.model.actions }}
-        <li><a href="{{ printf "/actions/%s/" .id | relURL }}">{{ .verb }} <span class="mono">({{ .alt }})</span></a> — {{ .definition }}</li>
+      {{ range $modelData.actions }}
+        <li><a href="{{ printf "/actions/%s/" .id | relLangURL }}">{{ .verb }} <span class="mono">({{ .alt }})</span></a> — {{ .definition }}</li>
       {{ end }}
     </ul>
   {{ end }}

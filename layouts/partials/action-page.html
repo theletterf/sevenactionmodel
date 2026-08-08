@@ -1,7 +1,9 @@
 {{- /* Action page — renders from data/model.yaml, bound by .Params.action.
        The body (.Content) may extend the data with narrative prose. */ -}}
 {{- $id := .Params.action | default (path.Base .File.Dir) -}}
-{{- $action := index (where site.Data.model.actions "id" $id) 0 -}}
+{{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
+{{- $action := index (where $modelData.actions "id" $id) 0 -}}
+{{- $baseAction := index (where site.Data.en.model.actions "id" $id) 0 -}}
 <div class="action-head">
   <div class="title-wrap">
     <h1 class="action-title">{{ $action.verb }} <span class="hl">{{ $action.alt }}</span></h1>
@@ -13,20 +15,20 @@
 {{ .Content }}
 
 <section class="section">
-  <h3>What the user wants to do</h3>
+  <h3>{{ i18n "what_user_wants" }}</h3>
   <p>{{ $action.description }}</p>
 </section>
 
 <section class="section">
-  <h3>Signals that your docs miss it</h3>
+  <h3>{{ i18n "signals_heading" }}</h3>
   <ul>
     {{ range $action.signals }}<li>{{ . }}</li>{{ end }}
   </ul>
 </section>
 
 <section class="section">
-  <h3>Two examples in the wild</h3>
-  {{ range $action.examples }}
+  <h3>{{ i18n "examples_heading" }}</h3>
+  {{ range $baseAction.examples }}
     <div class="example">
       <div class="ex-title"><a href="{{ .url }}">{{ .title }}</a></div>
     </div>
@@ -34,17 +36,17 @@
 </section>
 
 <section class="section">
-  <h3>Common content types</h3>
+  <h3>{{ i18n "content_types_heading" }}</h3>
   <div class="table-wrap">
     <table class="content-types">
       <thead>
-        <tr><th>DITA</th><th>Diataxis</th><th>Good Docs Project</th></tr>
+        <tr><th>DITA</th><th>Diataxis</th><th>{{ i18n "good_docs_project" }}</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td>{{ delimit $action.frameworks.dita ", " }}</td>
-          <td>{{ delimit $action.frameworks.diataxis ", " }}</td>
-          <td>{{ delimit $action.frameworks.good_docs ", " }}</td>
+          <td>{{ delimit $baseAction.frameworks.dita ", " }}</td>
+          <td>{{ delimit $baseAction.frameworks.diataxis ", " }}</td>
+          <td>{{ delimit $baseAction.frameworks.good_docs ", " }}</td>
         </tr>
       </tbody>
     </table>
@@ -52,6 +54,6 @@
 </section>
 
 <section class="section">
-  <h3>One metric</h3>
+  <h3>{{ i18n "metric_heading" }}</h3>
   <p class="metric">{{ $action.metric.name }} <span class="unit">· {{ $action.metric.description }}</span></p>
 </section>

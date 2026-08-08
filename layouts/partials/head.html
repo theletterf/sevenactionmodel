@@ -4,10 +4,18 @@
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
 <meta name="author" content="{{ site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+{{- end }}
+{{- range .AllTranslations }}
+  {{- if eq .Lang "en" }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{- end }}
+{{- end }}
 {{ with .OutputFormats.Get "md" }}<link rel="alternate" type="text/markdown" href="{{ .Permalink }}">{{ end }}
 {{ with .OutputFormats.Get "llmstxt" }}<link rel="alternate" type="text/plain" href="{{ .Permalink }}">{{ end }}
 {{ with .OutputFormats.Get "modeljson" }}<link rel="alternate" type="application/json" href="{{ .Permalink }}">{{ end }}
-<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}">
+<link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absLangURL }}">
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 <link rel="preload" href="{{ "fonts/jost-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
