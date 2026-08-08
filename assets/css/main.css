@@ -236,10 +236,13 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .theme-toggle {
   display: flex;
+  flex: 0 0 2rem;
   align-items: center;
   justify-content: center;
   width: 2rem;
   height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
   padding: 0;
   background: none;
   border: 1px solid var(--rule);
@@ -255,10 +258,13 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .menu-toggle {
   display: none;
+  flex: 0 0 2rem;
   align-items: center;
   justify-content: center;
   width: 2rem;
   height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
   padding: 0;
   background: none;
   border: 1px solid var(--rule);
@@ -388,8 +394,12 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   padding: var(--space-4);
   border-top: 1px solid var(--rule);
 }
+.footer-edit {
+  margin: var(--space-3) 0 0;
+  color: var(--ink-soft);
+}
 .footer-legal {
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
   color: var(--ink-faint);
 }
 

@@ -5,6 +5,11 @@
     <a class="format-link" href="{{ "model.json" | relLangURL }}">JSON</a>
     <a class="format-link" href="{{ "llms.txt" | relLangURL }}">llms.txt</a>
   </nav>
+  {{ with .File }}
+    <p class="footer-edit">
+      <a href="https://github.com/theletterf/sevenactionmodel/edit/main/content/{{ .Path }}">{{ i18n "edit_page" }}</a>
+    </p>
+  {{ end }}
   <p class="footer-legal">
     <a href="https://passo.uno">Fabrizio Ferri Benedetti</a>
     &nbsp;·&nbsp;
