@@ -1,0 +1,233 @@
+# Rispecchia data/en/model.yaml. I tag DITA e gli URL degli esempi esterni
+# restano invariati; il testo esplicativo è tradotto integralmente.
+
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "Modello di documentazione a sette azioni"
+  description: >-
+    Un modello descrittivo delle esigenze degli utenti della documentazione
+    tecnica. Sette azioni coprono gli obiettivi che chi consulta la
+    documentazione può voler raggiungere: Valutare, Comprendere, Esplorare,
+    Esercitarsi, Ricordare, Sviluppare e Risolvere problemi.
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
+actions:
+  - id: appraise
+    verb: "Valutare"
+    alt: "Discernere"
+    definition: "Discernere le qualità principali del prodotto e, se opportuno, confrontarlo con altri."
+    description: >-
+      Gli utenti della documentazione sono anche potenziali clienti o persone
+      interessate ad adottare il prodotto. Chi legge deve poter discernere le
+      qualità principali del prodotto e confrontarlo con altri. È un processo
+      di scoperta.
+    signals:
+      - "L’assistenza e le vendite rispondono continuamente alle stesse domande: «Che cos’è?»"
+      - "I potenziali clienti scoprono che cosa fa il prodotto dal materiale di marketing, non dalla documentazione."
+      - "Non esiste una pagina che esponga il posizionamento o i principali punti di forza del prodotto."
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "Nessun equivalente diretto (il più vicino è Spiegazione)"
+      good_docs:
+        - "Panoramica"
+        - "Pagina di destinazione"
+    metric:
+      name: "conversione"
+      description: "Tasso di conversione dalla documentazione all’adozione del prodotto."
+
+  - id: explore
+    verb: "Esplorare"
+    alt: "Scoprire"
+    definition: "Provare il prodotto e scoprirne le possibilità con una bassa barriera all’ingresso."
+    description: >-
+      I grandi prodotti invitano gli utenti a interagire e a provare cose
+      nuove. La documentazione dovrebbe offrire suggerimenti, istruzioni e
+      possibilità di azione che facilitino l’esplorazione come una delle prime
+      attività.
+    signals:
+      - "I nuovi utenti non trovano una guida rapida o un ambiente di prova in cui sperimentare il prodotto."
+      - "La prima esperienza è un muro di materiale di riferimento, non una visita guidata."
+      - "Gli utenti devono leggere un intero manuale prima di poter usare il prodotto."
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "Tutorial"
+      good_docs:
+        - "Tutorial"
+    metric:
+      name: "tempo al primo valore"
+      description: "Tempo dalla prima visita alla prima interazione riuscita."
+
+  - id: remember
+    verb: "Ricordare"
+    alt: "Richiamare"
+    definition: "Richiamare informazioni che non si possono memorizzare, dai parametri ai codici di errore."
+    description: >-
+      Il materiale di riferimento mantiene viva la documentazione anche dopo
+      anni di utilizzo. Gli utenti sfogliano i manuali per ricordare,
+      richiamare, recuperare o cercare informazioni che non hanno potuto
+      memorizzare.
+    signals:
+      - "Gli utenti cercano un parametro o un codice di errore e non trovano nulla."
+      - "Il materiale di riferimento è sparso tra articoli di blog e cronologie delle chat."
+      - "Non esiste un riferimento strutturato e consultabile per la sintassi o le impostazioni del prodotto."
+    examples:
+      - title: "Riferimento Dockerfile"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "Riferimento alla sintassi YAML CI/CD di GitLab"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "Riferimento"
+      good_docs:
+        - "Riferimento"
+        - "Glossario"
+    metric:
+      name: "tasso di successo delle consultazioni"
+      description: "Percentuale delle consultazioni del materiale di riferimento che restituiscono la pagina corretta."
+
+  - id: troubleshoot
+    verb: "Risolvere problemi"
+    alt: "Risolvere"
+    definition: "Diagnosticare e risolvere i problemi in modo efficiente, spesso sotto pressione."
+    description: >-
+      Imbattersi in problemi — configurazioni errate, casi limite o veri e
+      propri bug — è comune. La risoluzione dei problemi rappresenta
+      l’esigenza di diagnosticarli e risolverli in modo efficiente, spesso sotto
+      pressione quando i sistemi non funzionano o le scadenze incombono.
+    signals:
+      - "I ticket di assistenza ripetono la stessa domanda e la risposta si trova nella cronologia di una chat, non nella documentazione."
+      - "I messaggi di errore compaiono nel codice, ma mai nella documentazione."
+      - "Gli utenti cercano una stringa di errore e arrivano su una pagina che non la menziona."
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "Guida pratica (orientata al problema)"
+      good_docs:
+        - "Guida alla risoluzione dei problemi"
+    metric:
+      name: "tempo di risoluzione"
+      description: "Tempo mediano dal sintomo al ripristino di uno stato funzionante."
+
+  - id: develop
+    verb: "Sviluppare"
+    alt: "Integrare"
+    definition: "Costruire sul prodotto, estenderlo o integrarlo per creare ulteriore valore."
+    description: >-
+      Gli utenti hanno spesso bisogno di costruire su prodotti esistenti,
+      estenderli o integrarli, tramite integrazioni, estensioni, plugin o
+      applicazioni completamente nuove. L’obiettivo è quasi sempre pragmatico.
+    signals:
+      - "Le domande su integrazioni ed estensioni restano senza risposta o vengono indirizzate a un forum."
+      - "Non esiste una guida per costruire sul prodotto."
+      - "I punti di estensione del prodotto non sono documentati."
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "Guida pratica"
+      good_docs:
+        - "Guida pratica"
+        - "Riferimento API"
+    metric:
+      name: "crescita dell’ecosistema"
+      description: "Numero di integrazioni o estensioni create dagli utenti."
+
+  - id: practice
+    verb: "Esercitarsi"
+    alt: "Allenarsi"
+    definition: "Imparare a utilizzare il prodotto nelle attività quotidiane e ordinarie."
+    description: >-
+      Gli utenti devono imparare a utilizzare la maggior parte delle aree di un
+      prodotto. Esercitarsi descrive l’esigenza di acquisire conoscenze
+      procedurali: come usare il prodotto nelle attività quotidiane e ordinarie.
+    signals:
+      - "Le stesse domande su come fare ricorrono nei canali di assistenza e della comunità."
+      - "Le procedure esistono solo come conoscenza informale o nella testa di qualcuno."
+      - "Non esiste una guida passo passo per le attività amministrative comuni."
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "Guida pratica"
+      good_docs:
+        - "Guida pratica"
+    metric:
+      name: "successo dell’attività"
+      description: "Percentuale di utenti che completano una procedura standard senza assistenza."
+
+  - id: understand
+    verb: "Comprendere"
+    alt: "Imparare"
+    definition: "Comprendere le astrazioni e i modelli mentali su cui si basa il prodotto."
+    description: >-
+      I prodotti software si basano su astrazioni difficili da comprendere ma
+      fondamentali per un uso corretto. La documentazione concettuale consolida
+      ciò che si apprende durante l’esplorazione e l’esercitazione.
+    signals:
+      - "Gli utenti sanno usare il prodotto, ma non spiegare perché funziona in quel modo."
+      - "I concetti sono spiegati soltanto nei commenti al codice o nei wiki interni."
+      - "Non esiste un glossario o una guida concettuale per le astrazioni fondamentali del prodotto."
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "Spiegazione"
+      good_docs:
+        - "Guida concettuale"
+        - "Glossario"
+    metric:
+      name: "copertura dei concetti"
+      description: "Percentuale delle astrazioni fondamentali con una pagina concettuale dedicata."

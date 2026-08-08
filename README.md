@@ -36,7 +36,7 @@ Use [7act.org](https://7act.org/) to:
 - choose useful measures for different documentation goals; and
 - share a common vocabulary across a team.
 
-The guide is available in English, Spanish, French, German, Japanese, Simplified Chinese, Arabic, and Persian. The Arabic and Persian editions use right-to-left layouts.
+The guide is available in English, Spanish, French, Italian, Portuguese, German, Japanese, Simplified Chinese, Arabic, and Persian. The Arabic and Persian editions use right-to-left layouts.
 
 ## Download the agent skill
 
