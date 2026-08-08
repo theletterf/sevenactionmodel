@@ -1,1 +1,5 @@
-{{ readFile (printf "content/%s" .File.Path) }}
+{{ with .File }}
+{{ readFile (printf "content/%s" .Path) }}
+{{ else }}
+{{ .RawContent }}
+{{ end }}

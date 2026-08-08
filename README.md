@@ -96,16 +96,33 @@ tags against the real fvar table before shipping:
 python3 -c "from fontTools.ttLib import TTFont; f=TTFont('static/fonts/google-sans-flex.woff2'); print([(a.axisTag, a.minValue, a.maxValue) for a in f['fvar'].axes])"
 ```
 
-## Base URL
+## Deploy to Cloudflare Workers
 
-`config/_default/hugo.toml` sets a placeholder `baseURL`. CI overrides it with
-the GitHub Pages URL. When you register the domain, set it in the repo's Pages
-settings and/or update `hugo.toml`.
+`7act.org` is the canonical domain and is declared as a Cloudflare Worker
+Custom Domain in [`wrangler.toml`](wrangler.toml). The Worker serves the Hugo
+build from `public/`; `workers.dev` is disabled.
 
-## Quality gates (GitHub Actions)
+Before the first deployment:
 
-On push/PR: build, link check (lychee), HTML validation (html-validate), Vale
-(minimal style in `styles/SevenAction/`), and deploy to GitHub Pages.
+1. Add `7act.org` as a zone in Cloudflare and change the nameservers at the
+   domain registrar to the two nameservers Cloudflare assigns. Wait for the
+   zone to become **Active**.
+2. Create a narrowly scoped Cloudflare API token for the selected account and
+   `7act.org` zone. Use Cloudflare's **Edit Cloudflare Workers** token template
+   and restrict its account and zone resources to this site.
+3. In GitHub repository settings, add these Actions secrets:
+   - `CLOUDFLARE_ACCOUNT_ID`
+   - `CLOUDFLARE_API_TOKEN`
+
+Pushing to `main` (or running the **Deploy to Cloudflare Workers** workflow
+manually) builds the site with Hugo 0.154.2 and runs `wrangler deploy`. That
+deployment creates the Custom Domain's DNS record and certificate once the
+zone is active. Do not commit tokens, `.dev.vars` files, or generated
+`.wrangler/` files.
+
+`www.7act.org` is intentionally not configured. If it is needed, add it as a
+proxied hostname and create a Cloudflare redirect rule to
+`https://7act.org/$1`, preserving `7act.org` as the sole canonical hostname.
 
 ## License
 

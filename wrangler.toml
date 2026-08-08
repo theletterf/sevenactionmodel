@@ -1,0 +1,12 @@
+name = "seven-action-model"
+main = "worker.js"
+compatibility_date = "2026-08-08"
+workers_dev = false
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[[routes]]
+pattern = "7act.org"
+custom_domain = true
