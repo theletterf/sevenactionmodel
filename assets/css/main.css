@@ -127,9 +127,11 @@ body {
 }
 
 .layout {
-  display: grid;
-  grid-template-columns: var(--sidebar-w) 1fr;
+  display: flex;
+  justify-content: center;
   min-height: 100vh;
+  max-width: 80rem;
+  margin: 0 auto;
 }
 
 /* Sidebar — sticky, full-height, subtle background */
@@ -138,6 +140,8 @@ body {
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  width: var(--sidebar-w);
+  flex-shrink: 0;
   padding: var(--space-4) var(--space-3);
   background: var(--paper-raised);
   border-right: 1px solid var(--rule);
@@ -146,6 +150,7 @@ body {
 
 /* Main content area */
 .main-wrap {
+  flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -431,11 +436,13 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
    -------------------------------------------------------------------------- */
 @media (max-width: 800px) {
   .layout {
-    grid-template-columns: 1fr;
+    display: block;
+    max-width: none;
   }
   .sidebar {
     position: static;
     height: auto;
+    width: auto;
     border-right: none;
     border-bottom: 1px solid var(--rule);
     padding: var(--space-3);
