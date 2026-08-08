@@ -31,7 +31,7 @@ jobs:
       - name: Link check
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --root-dir ${{ github.workspace }}/public public
+          args: --no-progress --exclude '^https://github\.com/theletterf/sevenactionmodel/edit/' --root-dir ${{ github.workspace }}/public public
 
       - name: HTML validation
         run: find public -type f -name '*.html' ! -path 'public/en/index.html' -print0 | xargs -0 npx --yes html-validate
