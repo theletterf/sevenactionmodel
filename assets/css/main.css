@@ -345,7 +345,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .lang-picker {
   margin-top: var(--space-4);
   font-family: var(--font-mono);
-  font-size: var(--fs-s);
+  font-size: 1.125rem;
 }
 .lang-picker summary {
   display: flex;
