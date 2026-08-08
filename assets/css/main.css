@@ -446,6 +446,23 @@ h3 + .example { margin-top: var(--space-3); }
 .example .ex-title { margin-bottom: 0.3em; }
 .example .ex-title a { border-bottom: none; }
 
+/* Installation commands and other code samples */
+.page pre {
+  max-width: var(--measure);
+  margin: var(--space-3) 0 var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  overflow-x: auto;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-inline-start: 3px solid var(--teal);
+  border-radius: var(--radius);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-m);
+  line-height: 1.55;
+}
+.page pre code { font-family: inherit; }
+
 .metric {
   color: var(--teal-deep);
   margin: var(--space-1) 0 0;
