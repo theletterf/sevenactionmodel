@@ -4,7 +4,7 @@ description: "Pourquoi le modèle de documentation à sept actions existe."
 scope: "introduction"
 ---
 
-Je pense que tous les rédacteurs techniques ressentent, à un moment ou un autre, le besoin de fonder leur travail sur quelque chose de plus systématique que « c’est ainsi que les gens documentent depuis toujours ». Les boîtes à outils et les cadres fournissent des types de contenu, ce qui a une immense valeur quand on *sait* ce que l’on veut écrire ; mais partir de là revient à acheter un marteau sans savoir que la moitié du travail consistera à tourner des vis. Le manque de discussion plus approfondie sur ce sujet me paraît suffisamment troublant pour que j’aie décidé d’apporter quelques vers.
+Je pense que tous les rédacteurs techniques ressentent, à un moment ou un autre, le besoin de fonder leur travail sur quelque chose de plus systématique que « c’est ainsi que les gens documentent depuis toujours ». Les boîtes à outils et les cadres fournissent des types de contenu, ce qui a une immense valeur quand on *sait* ce que l’on veut écrire ; mais partir de là revient à acheter un marteau sans savoir que la moitié du travail consistera à tourner des vis.
 
 ## Les cadres, outils et formats de documentation ne suffisent pas
 
@@ -34,7 +34,7 @@ Remarquez que l’ordre des actions est intentionnel, mais pas rigide : je les a
 
 ## Conclusion
 
-Le modèle présenté offre une façon de penser la documentation à travers le prisme des besoins utilisateurs plutôt que des types de contenu. Il n’a pas vocation à remplacer les cadres existants, mais à les compléter. Utilisés ensemble, ils permettent aux rédacteurs techniques de créer une documentation à la fois structurellement solide et porteuse de véritables finalités, plutôt que de simplement remplir des modèles.
+Le modèle que je présente ici offre une façon de penser la documentation à travers le prisme des besoins utilisateurs plutôt que des types de contenu. Il n’a pas vocation à remplacer les cadres existants, mais à les compléter. Utilisés ensemble, ils permettent aux rédacteurs techniques de créer une documentation à la fois structurellement solide et porteuse de véritables finalités, plutôt que de simplement remplir des modèles.
 
 Le modèle peut également servir de fondement aux [métriques de documentation et à la définition d’objectifs](https://passo.uno/docs-observability-do11y/) (do11y). Plutôt que de se concentrer uniquement sur les pages vues ou les scores de satisfaction, les équipes peuvent suivre dans quelle mesure leur documentation sert chaque action. Par exemple, les taux de conversion de la documentation vers l’adoption du produit pourraient mesurer l’efficacité de l’évaluation, tandis que les métriques de délai de résolution pourraient indiquer la réussite du dépannage.
 

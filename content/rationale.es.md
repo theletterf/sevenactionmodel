@@ -4,7 +4,7 @@ description: "Por qué existe el Modelo de Documentación de Siete Acciones."
 scope: "introduction"
 ---
 
-Creo que todo redactor técnico, en algún momento, siente la necesidad de basar su trabajo en algo más sistemático que "así es como se ha documentado siempre". Los kits de herramientas y los frameworks ofrecen tipos de contenido, lo cual es enormemente valioso cuando *sabes* qué quieres escribir, pero *partir* de ahí es como comprar un martillo sin saber que la mitad del trabajo consistirá en girar tornillos. Como encuentro bastante inquietante la falta de una conversación más profunda sobre este tema, decidí aportar mis propios versos.
+Creo que todo redactor técnico, en algún momento, siente la necesidad de basar su trabajo en algo más sistemático que "así es como se ha documentado siempre". Los kits de herramientas y los frameworks ofrecen tipos de contenido, lo cual es enormemente valioso cuando *sabes* qué quieres escribir, pero *partir* de ahí es como comprar un martillo sin saber que la mitad del trabajo consistirá en girar tornillos.
 
 ## Los frameworks, herramientas y formatos de documentación no bastan
 
@@ -34,7 +34,7 @@ Nota que el orden de las acciones es intencional, pero no estricto: las he organ
 
 ## Conclusión
 
-El modelo que he presentado ofrece una forma de pensar la documentación a través del lente de las necesidades del usuario, en lugar de los tipos de contenido. Este modelo no pretende reemplazar los frameworks existentes, sino complementarlos. Usados en conjunto, permiten a quienes redactan documentación técnica crear contenido que sea a la vez estructuralmente sólido y útil de verdad, en lugar de limitarse a rellenar plantillas.
+El modelo que presento aquí ofrece una forma de pensar la documentación a través del lente de las necesidades del usuario, en lugar de los tipos de contenido. Este modelo no pretende reemplazar los frameworks existentes, sino complementarlos. Usados en conjunto, permiten a quienes redactan documentación técnica crear contenido que sea a la vez estructuralmente sólido y útil de verdad, en lugar de limitarse a rellenar plantillas.
 
 El modelo también puede servir de base para [la definición de métricas y objetivos de documentación](https://passo.uno/docs-observability-do11y/) (do11y). En lugar de fijarse solo en las páginas vistas o las puntuaciones de satisfacción, los equipos pueden medir qué tan bien su documentación atiende cada acción. Por ejemplo, la tasa de conversión de la documentación a la adopción del producto podría medir la efectividad de Evaluar, mientras que el tiempo de resolución podría indicar el éxito de Solucionar.
 

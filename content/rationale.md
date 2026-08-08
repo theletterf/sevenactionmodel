@@ -4,7 +4,7 @@ description: "Why the Seven-Action Documentation Model exists."
 scope: "introduction"
 ---
 
-I think all technical writers, at some point or another, feel the urge to base their work on something more systematic than "it's just the way folks documented stuff since forever". Toolkits and frameworks provide content types, which is immensely valuable when you *know* what you want to write, but *starting* from there is like buying a hammer without knowing that half of the work you'll do is turning screws. As I find the lack of deeper conversation around this topic rather unsettling, I decided to contribute some verses.
+I think all technical writers, at some point or another, feel the urge to base their work on something more systematic than "it's just the way folks documented stuff since forever". Toolkits and frameworks provide content types, which is immensely valuable when you *know* what you want to write, but *starting* from there is like buying a hammer without knowing that half of the work you'll do is turning screws.
 
 ## Docs frameworks, tools, and formats aren't enough
 
@@ -34,7 +34,7 @@ Notice that the order of the actions is intentional but not strict: I've arrange
 
 ## Conclusion
 
-The model I've presented provides a way for thinking about documentation through the lens of user needs rather than content types. This model isn't meant to replace existing frameworks but rather to complement them. When used together, they enable technical writers to create docs that are both structurally sound and serve real purposes rather than merely filling templates.
+The model I present here provides a way for thinking about documentation through the lens of user needs rather than content types. This model isn't meant to replace existing frameworks but rather to complement them. When used together, they enable technical writers to create docs that are both structurally sound and serve real purposes rather than merely filling templates.
 
 The model can also serve as a foundation for [documentation metrics and goal-setting](https://passo.uno/docs-observability-do11y/) (do11y). Rather than focusing solely on page views or satisfaction scores, teams can track how well their documentation serves each action. For example, conversion rates from docs to product adoption could measure appraisal effectiveness, while time-to-resolution metrics could indicate troubleshooting success.
 

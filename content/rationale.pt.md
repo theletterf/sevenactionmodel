@@ -4,7 +4,7 @@ description: "Por que razão existe o modelo de documentação de sete ações."
 scope: "introduction"
 ---
 
-Penso que todos os redatores técnicos, mais cedo ou mais tarde, sentem a necessidade de basear o seu trabalho em algo mais sistemático do que «é simplesmente assim que as pessoas documentam as coisas desde sempre». Os conjuntos de ferramentas e os modelos oferecem tipos de conteúdo, o que tem um valor imenso quando se *sabe* o que se quer escrever; mas *começar* por aí é como comprar um martelo sem saber que metade do trabalho será apertar parafusos. Como considero bastante inquietante a falta de uma discussão mais profunda sobre este tema, decidi contribuir com alguns versos.
+Penso que todos os redatores técnicos, mais cedo ou mais tarde, sentem a necessidade de basear o seu trabalho em algo mais sistemático do que «é simplesmente assim que as pessoas documentam as coisas desde sempre». Os conjuntos de ferramentas e os modelos oferecem tipos de conteúdo, o que tem um valor imenso quando se *sabe* o que se quer escrever; mas *começar* por aí é como comprar um martelo sem saber que metade do trabalho será apertar parafusos.
 
 ## Modelos, ferramentas e formatos de documentação não são suficientes
 
@@ -28,13 +28,13 @@ O que se segue é o meu próprio modelo *descritivo* das necessidades dos utiliz
 
 A abordagem que proponho é um modelo das *ações dos utilizadores a que a documentação se destina a responder*. O modelo procura ligar a investigação de UX e os modelos de documentação através de uma camada conceptual e funcional centrada em dois aspetos: a documentação como produto e aquilo que os utilizadores devem conseguir fazer através dela. É uma tentativa de descrever o que a documentação técnica *deve* *fazer*. É tratar a documentação como um produto que alguém vai utilizar para alcançar objetivos reais.
 
-Como referi, o núcleo do modelo são as *ações*. Identifiquei sete que, na minha opinião, abrangem uma parte razoável dos objetivos que um consumidor de documentação pode querer alcançar ao utilizá-la. Representam padrões comuns na forma como os utilizadores interagem com a documentação em diferentes produtos e domínios. São as seguintes, cada uma acompanhada por um termo alternativo entre parênteses: Avaliar (Discernir), Compreender (Aprender), Explorar (Descobrir), Praticar (Treinar), Recordar (Relembrar), Desenvolver (Integrar) e Resolver problemas (Solucionar).
+Como referi, o núcleo do modelo são as *ações*. Identifiquei sete que, na minha opinião, abrangem uma parte razoável dos objetivos que um consumidor de documentação pode querer alcançar ao utilizá-la. Representam padrões comuns na forma como os utilizadores interagem com a documentação em diferentes produtos e domínios. São as seguintes, cada uma acompanhada por um termo alternativo entre parênteses: Avaliar (Discernir), Compreender (Aprender), Explorar (Descobrir), Praticar (Treinar), Recordar (Relembrar), Desenvolver (Integrar) e Resolver (Solucionar).
 
 Repare que a ordem das ações é intencional, mas não rígida: organizei-as numa sequência que se assemelha, de forma aproximada, àquilo que considero ser a abordagem dos consumidores à documentação técnica de software. Vejo estas ações a acontecer em diferentes fases ou níveis. Quando dispostas num heptágono regular, as ações do topo tendem a ocorrer nas fases iniciais da interação com o produto, ao passo que as da parte inferior acontecem quando o conhecimento e a utilização do produto já se consolidaram.
 
 ## Conclusão
 
-O modelo que apresentei oferece uma forma de pensar a documentação através das necessidades dos utilizadores, em vez dos tipos de conteúdo. Não pretende substituir os modelos existentes, mas complementá-los. Utilizados em conjunto, permitem aos redatores técnicos criar documentação que seja estruturalmente sólida e sirva propósitos reais, em vez de se limitar a preencher estruturas predefinidas.
+O modelo que apresento aqui oferece uma forma de pensar a documentação através das necessidades dos utilizadores, em vez dos tipos de conteúdo. Não pretende substituir os modelos existentes, mas complementá-los. Utilizados em conjunto, permitem aos redatores técnicos criar documentação que seja estruturalmente sólida e sirva propósitos reais, em vez de se limitar a preencher estruturas predefinidas.
 
 O modelo também pode servir de base para [métricas e definição de objetivos da documentação](https://passo.uno/docs-observability-do11y/) (do11y). Em vez de se concentrarem apenas nas visualizações de páginas ou nas pontuações de satisfação, as equipas podem acompanhar até que ponto a sua documentação serve cada ação. Por exemplo, as taxas de conversão da documentação para a adoção do produto podem medir a eficácia da avaliação, enquanto as métricas de tempo de resolução podem indicar o êxito da resolução de problemas.
 

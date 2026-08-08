@@ -4,7 +4,7 @@ description: "Warum das Sieben-Aktionen-Dokumentationsmodell existiert."
 scope: "introduction"
 ---
 
-Ich glaube, dass alle technischen Redakteure irgendwann den Wunsch verspüren, ihre Arbeit auf etwas Systematischeres zu stützen als auf „so haben die Leute eben schon immer dokumentiert“. Werkzeugkästen und Frameworks liefern Inhaltstypen; das ist ungemein wertvoll, wenn man *weiß*, was man schreiben möchte. Aber davon auszugehen, ist wie einen Hammer zu kaufen, ohne zu wissen, dass die halbe Arbeit aus dem Drehen von Schrauben bestehen wird. Weil ich den Mangel an einer tiefergehenden Auseinandersetzung mit diesem Thema ziemlich beunruhigend finde, habe ich beschlossen, ein paar Verse beizutragen.
+Ich glaube, dass alle technischen Redakteure irgendwann den Wunsch verspüren, ihre Arbeit auf etwas Systematischeres zu stützen als auf „so haben die Leute eben schon immer dokumentiert“. Werkzeugkästen und Frameworks liefern Inhaltstypen; das ist ungemein wertvoll, wenn man *weiß*, was man schreiben möchte. Aber davon auszugehen, ist wie einen Hammer zu kaufen, ohne zu wissen, dass die halbe Arbeit aus dem Drehen von Schrauben bestehen wird.
 
 ## Dokumentations-Frameworks, Werkzeuge und Formate reichen nicht aus
 
@@ -28,13 +28,13 @@ Was folgt, ist mein eigenes *beschreibendes* Modell der Nutzerbedürfnisse an Do
 
 Der hier vorgeschlagene Ansatz ist ein Modell dafür, *welchen Nutzerhandlungen die Dokumentation dienen soll*. Das Modell will UX-Forschung und Dokumentations-Frameworks durch eine konzeptionelle und funktionale Ebene verbinden, die sich auf zwei Aspekte konzentriert: Dokumentation als Produkt und das, was Nutzer mit ihr erreichen sollen. Es ist ein Versuch zu beschreiben, was technische Dokumentation *tun* *sollte*. Dokumentation wird dabei als Produkt behandelt, das jemand nutzen wird, um tatsächliche Ziele zu erreichen.
 
-Wie gesagt, sind *Aktionen* der Kern des Modells. Ich habe sieben identifiziert, die meiner Meinung nach einen guten Teil der Ziele abdecken, die ein Konsument von Dokumentation beim Lesen erreichen möchte. Sie stehen für häufige Muster, wie Nutzer über verschiedene Produkte und Bereiche hinweg mit Dokumentation umgehen. Es sind: Bewerten (Erkennen), Verstehen (Lernen), Erkunden (Entdecken), Üben (Trainieren), Erinnern (Abrufen), Entwickeln (Integrieren) und Fehler beheben (Lösen).
+Wie gesagt, sind *Aktionen* der Kern des Modells. Ich habe sieben identifiziert, die meiner Meinung nach einen guten Teil der Ziele abdecken, die ein Konsument von Dokumentation beim Lesen erreichen möchte. Sie stehen für häufige Muster, wie Nutzer über verschiedene Produkte und Bereiche hinweg mit Dokumentation umgehen. Es sind: Bewerten (Erkennen), Verstehen (Lernen), Erkunden (Entdecken), Üben (Trainieren), Erinnern (Abrufen), Entwickeln (Integrieren) und Fehlerbehebung (Lösen).
 
 Beachten Sie, dass die Reihenfolge der Aktionen bewusst gewählt, aber nicht streng ist: Ich habe sie in einer Abfolge angeordnet, die meiner Vorstellung davon mehr oder weniger entspricht, wie Konsumenten sich technischer Softwaredokumentation nähern. Ich sehe diese Aktionen auf verschiedenen Stufen oder Ebenen stattfinden. Auf einem regelmäßigen Siebeneck angeordnet, treten die oberen Aktionen eher in den frühen Phasen der Produktinteraktion auf, während die unteren stattfinden, wenn Produktwissen und -nutzung gefestigt sind.
 
 ## Fazit
 
-Das vorgestellte Modell bietet eine Möglichkeit, über Dokumentation durch die Linse von Nutzerbedürfnissen statt von Inhaltstypen nachzudenken. Es soll bestehende Frameworks nicht ersetzen, sondern ergänzen. Zusammen eingesetzt ermöglichen sie technischen Redakteuren, Dokumentation zu schaffen, die sowohl strukturell solide ist als auch echten Zwecken dient, statt bloß Vorlagen auszufüllen.
+Das Modell, das ich hier vorstelle, bietet eine Möglichkeit, über Dokumentation durch die Linse von Nutzerbedürfnissen statt von Inhaltstypen nachzudenken. Es soll bestehende Frameworks nicht ersetzen, sondern ergänzen. Zusammen eingesetzt ermöglichen sie technischen Redakteuren, Dokumentation zu schaffen, die sowohl strukturell solide ist als auch echten Zwecken dient, statt bloß Vorlagen auszufüllen.
 
 Das Modell kann auch eine Grundlage für [Dokumentationsmetriken und Zielsetzung](https://passo.uno/docs-observability-do11y/) (do11y) sein. Statt sich nur auf Seitenaufrufe oder Zufriedenheitswerte zu konzentrieren, können Teams verfolgen, wie gut ihre Dokumentation jeder Aktion dient. Beispielsweise könnten Konversionsraten von der Dokumentation zur Produktadoption die Wirksamkeit des Bewertens messen, während Kennzahlen zur Zeit bis zur Lösung den Erfolg beim Beheben von Fehlern anzeigen könnten.
 

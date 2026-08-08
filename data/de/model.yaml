@@ -6,7 +6,7 @@ model:
     Ein beschreibendes Modell der Nutzerbedürfnisse an technische Dokumentation.
     Sieben Aktionen decken Ziele ab, die Konsumenten von Dokumentation erreichen
     möchten: Bewerten, Verstehen, Erkunden, Üben, Erinnern, Entwickeln,
-    Fehler beheben.
+    Fehlerbehebung.
   canonical: "https://passo.uno/seven-action-model/"
   source: "https://passo.uno/seven-action-model/index.md"
 
@@ -89,12 +89,12 @@ actions:
       description: "Anteil der Referenzsuchen, die zur richtigen Seite führen."
 
   - id: troubleshoot
-    verb: "Fehler beheben"
+    verb: "Fehlerbehebung"
     alt: "Lösen"
     definition: "Probleme effizient diagnostizieren und lösen, oft unter Druck."
     description: >-
       Auf Probleme zu stoßen – Fehlkonfigurationen, Sonderfälle oder tatsächliche
-      Fehler – ist für Nutzer alltäglich. Fehler beheben steht für das Bedürfnis,
+      Fehler – ist für Nutzer alltäglich. Fehlerbehebung steht für das Bedürfnis,
       Probleme effizient zu diagnostizieren und zu lösen, oft unter Druck, wenn
       Systeme ausfallen oder Fristen näher rücken.
     signals:

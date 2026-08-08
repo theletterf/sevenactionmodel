@@ -9,7 +9,7 @@ model:
     Um modelo descritivo das necessidades dos utilizadores de documentação
     técnica. Sete ações abrangem os objetivos que quem consulta a documentação
     pode querer alcançar: Avaliar, Compreender, Explorar, Praticar, Recordar,
-    Desenvolver e Resolver problemas.
+    Desenvolver e Resolver.
   canonical: "https://passo.uno/seven-action-model/"
   source: "https://passo.uno/seven-action-model/index.md"
 
@@ -107,7 +107,7 @@ actions:
       description: "Percentagem das consultas ao material de referência que devolvem a página certa."
 
   - id: troubleshoot
-    verb: "Resolver problemas"
+    verb: "Resolver"
     alt: "Solucionar"
     definition: "Diagnosticar e resolver problemas de forma eficiente, muitas vezes sob pressão."
     description: >-

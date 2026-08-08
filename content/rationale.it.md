@@ -4,7 +4,7 @@ description: "Perché esiste il modello di documentazione a sette azioni."
 scope: "introduction"
 ---
 
-Credo che tutti i technical writer, prima o poi, sentano il bisogno di fondare il proprio lavoro su qualcosa di più sistematico di «è semplicemente così che si documentano le cose da sempre». Toolkit e framework offrono tipi di contenuto, il che è immensamente utile quando si *sa* che cosa si vuole scrivere; ma *partire* da lì è come comprare un martello senza sapere che metà del lavoro consisterà nel girare delle viti. Poiché trovo piuttosto inquietante la mancanza di un dibattito più profondo su questo tema, ho deciso di contribuire con qualche verso.
+Credo che tutti i technical writer, prima o poi, sentano il bisogno di fondare il proprio lavoro su qualcosa di più sistematico di «è semplicemente così che si documentano le cose da sempre». Toolkit e framework offrono tipi di contenuto, il che è immensamente utile quando si *sa* che cosa si vuole scrivere; ma *partire* da lì è come comprare un martello senza sapere che metà del lavoro consisterà nel girare delle viti.
 
 ## Framework, strumenti e formati di documentazione non bastano
 
@@ -28,13 +28,13 @@ Quello che segue è il mio modello *descrittivo* delle esigenze degli utenti del
 
 L’approccio che propongo è un modello delle *azioni degli utenti che la documentazione deve soddisfare*. Il modello mira a collegare la ricerca UX e i framework di documentazione attraverso uno strato concettuale e funzionale incentrato su due aspetti: la documentazione come prodotto e ciò che gli utenti devono poter ottenere grazie ad essa. È un tentativo di descrivere ciò che la documentazione tecnica *dovrebbe* *fare*. Significa trattare la documentazione come un prodotto che qualcuno userà per raggiungere obiettivi reali.
 
-Come ho detto, il fulcro del modello sono le *azioni*. Ne ho individuate sette che, a mio parere, coprono una buona parte degli obiettivi che chi consulta la documentazione può voler raggiungere. Rappresentano schemi comuni nel modo in cui gli utenti interagiscono con la documentazione, trasversalmente a prodotti e ambiti diversi. Sono le seguenti, ciascuna accompagnata da un termine alternativo tra parentesi: Valutare (Discernere), Comprendere (Imparare), Esplorare (Scoprire), Esercitarsi (Allenarsi), Ricordare (Richiamare), Sviluppare (Integrare) e Risolvere problemi (Risolvere).
+Come ho detto, il fulcro del modello sono le *azioni*. Ne ho individuate sette che, a mio parere, coprono una buona parte degli obiettivi che chi consulta la documentazione può voler raggiungere. Rappresentano schemi comuni nel modo in cui gli utenti interagiscono con la documentazione, trasversalmente a prodotti e ambiti diversi. Sono le seguenti, ciascuna accompagnata da un termine alternativo tra parentesi: Valutare (Discernere), Comprendere (Imparare), Esplorare (Scoprire), Esercitarsi (Allenarsi), Ricordare (Richiamare), Sviluppare (Integrare) e Risolvere (Diagnosticare).
 
 L’ordine delle azioni è intenzionale, ma non rigido: le ho disposte in una sequenza che rispecchia più o meno quello che ritengo essere l’approccio dei consumatori alla documentazione tecnica del software. Vedo queste azioni svolgersi in fasi o a livelli diversi. Se disposte su un ettagono regolare, quelle in alto tendono a verificarsi nelle fasi iniziali dell’interazione con il prodotto, mentre quelle in basso avvengono quando la conoscenza e l’uso del prodotto si sono consolidati.
 
 ## Conclusione
 
-Il modello che ho presentato offre un modo di pensare alla documentazione attraverso la lente delle esigenze degli utenti anziché dei tipi di contenuto. Non intende sostituire i framework esistenti, ma completarli. Usati insieme, permettono ai technical writer di creare documentazione che sia solida dal punto di vista strutturale e risponda a scopi reali, invece di limitarsi a riempire modelli.
+Il modello che presento qui offre un modo di pensare alla documentazione attraverso la lente delle esigenze degli utenti anziché dei tipi di contenuto. Non intende sostituire i framework esistenti, ma completarli. Usati insieme, permettono ai technical writer di creare documentazione che sia solida dal punto di vista strutturale e risponda a scopi reali, invece di limitarsi a riempire modelli.
 
 Il modello può anche servire da base per le [metriche e la definizione degli obiettivi della documentazione](https://passo.uno/docs-observability-do11y/) (do11y). Invece di concentrarsi soltanto sulle visualizzazioni di pagina o sui punteggi di soddisfazione, i team possono misurare quanto bene la loro documentazione supporti ciascuna azione. Per esempio, i tassi di conversione dalla documentazione all’adozione del prodotto potrebbero misurare l’efficacia della valutazione, mentre le metriche sul tempo di risoluzione potrebbero indicare il successo della risoluzione dei problemi.
 
