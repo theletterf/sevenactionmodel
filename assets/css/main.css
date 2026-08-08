@@ -42,13 +42,13 @@
   /* Color — teal sampled from passo.uno (#2C7A7B) */
   --paper:        #F7F5F2;
   --paper-raised: #FFFFFF;
-  --ink:          #1C1C1C;
-  --ink-soft:     #5C5A57;
-  --ink-faint:    #8A8782;
-  --teal:         #2C7A7B;
-  --teal-light:   #5E9FA0;
-  --teal-deep:    #1F5556;
-  --teal-wash:    rgba(44, 122, 123, 0.10);
+  --ink:          #1A1A1A;
+  --ink-soft:     #4A4845;
+  --ink-faint:    #7A7772;
+  --teal:         #236B6C;
+  --teal-light:   #4A8A8B;
+  --teal-deep:    #1A4A4B;
+  --teal-wash:    rgba(35, 107, 108, 0.10);
   --rule:         #D9D5CF;
   --rule-strong:  #B9B4AC;
 
@@ -58,8 +58,8 @@
   --font-body:     "EB Garamond", Georgia, serif;
   --font-mono:     "Fira Sans", system-ui, sans-serif;
 
-  /* Body tuning — 1.8rem (28.8px), 66ch measure */
-  --body-size: 1.8rem;
+  /* Body tuning — 1.375rem (22px), 66ch measure */
+  --body-size: 1.375rem;
   --leading: 1.5;
   --measure: 66ch;
 
@@ -71,7 +71,7 @@
   --space-6: 6rem;
 
   --radius: 6px;
-  --sidebar-w: 15rem;
+  --sidebar-w: 16rem;
 }
 
 /* Dark mode — same teal on near-black, faint phosphor character.
@@ -80,13 +80,13 @@
 :root[data-theme="dark"] {
   --paper:        #0E0E0E;
   --paper-raised: #161616;
-  --ink:          #E9E7E3;
-  --ink-soft:     #A3A19C;
-  --ink-faint:    #6E6C68;
-  --teal:         #2C7A7B;
-  --teal-light:   #5E9FA0;
-  --teal-deep:    #1F5556;
-  --teal-wash:    rgba(94, 159, 160, 0.12);
+  --ink:          #EDEBE7;
+  --ink-soft:     #B5B3AE;
+  --ink-faint:    #7E7C78;
+  --teal:         #3A9FA0;
+  --teal-light:   #5EBBBC;
+  --teal-deep:    #2A7A7B;
+  --teal-wash:    rgba(58, 159, 160, 0.12);
   --rule:         #2A2A2A;
   --rule-strong:  #3A3A3A;
 }
@@ -96,13 +96,13 @@
   :root:not([data-theme="light"]) {
     --paper:        #0E0E0E;
     --paper-raised: #161616;
-    --ink:          #E9E7E3;
-    --ink-soft:     #A3A19C;
-    --ink-faint:    #6E6C68;
-    --teal:         #2C7A7B;
-    --teal-light:   #5E9FA0;
-    --teal-deep:    #1F5556;
-    --teal-wash:    rgba(94, 159, 160, 0.12);
+    --ink:          #EDEBE7;
+    --ink-soft:     #B5B3AE;
+    --ink-faint:    #7E7C78;
+    --teal:         #3A9FA0;
+    --teal-light:   #5EBBBC;
+    --teal-deep:    #2A7A7B;
+    --teal-wash:    rgba(58, 159, 160, 0.12);
     --rule:         #2A2A2A;
     --rule-strong:  #3A3A3A;
   }
@@ -130,7 +130,7 @@ body {
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  max-width: 80rem;
+  max-width: 88rem;
   margin: 0 auto;
 }
 
@@ -166,10 +166,10 @@ h1, h2, h3, h4 {
   margin: 0 0 var(--space-2);
   letter-spacing: -0.01em;
 }
-h1 { font-size: 3.6rem; }
-h2 { font-size: 3rem; }
-h3 { font-size: 2.4rem; }
-h4 { font-size: 2rem; }
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.7rem; }
+h4 { font-size: 1.3rem; }
 
 p { margin: 0 0 var(--space-3); max-width: var(--measure); }
 
@@ -207,7 +207,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   display: block;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: var(--ink);
   border-bottom: none;
   margin-bottom: var(--space-4);
@@ -240,7 +240,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .side-label {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -256,7 +256,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   border-radius: 4px;
   border-bottom: none;
   color: var(--ink-soft);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   transition: background 120ms ease, color 120ms ease;
 }
 .side-link:hover { color: var(--teal-deep); background: var(--teal-wash); }
@@ -267,7 +267,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   padding-left: calc(0.5em - 3px);
 }
 .side-verb { font-family: var(--font-display); font-weight: 400; }
-.side-alt  { font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-faint); }
+.side-alt  { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-faint); }
 .side-link.active .side-alt { color: var(--teal); }
 
 /* --------------------------------------------------------------------------
@@ -286,19 +286,19 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .masthead {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 3.6rem;
+  font-size: 2.8rem;
   line-height: 1.2;
   max-width: 24ch;
   margin: 0 0 var(--space-4);
 }
-.masthead .hl { font-size: 3.6rem; }
+.masthead .hl { font-size: 2.8rem; }
 
-.page-title { font-size: 3.6rem; }
+.page-title { font-size: 2.8rem; }
 
 .lede { color: var(--ink-soft); font-style: italic; }
 
 .meta-block {
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--ink-soft);
   border: 1px solid var(--rule);
@@ -320,7 +320,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   border-top: 1px solid var(--rule);
 }
 .format-link {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: var(--ink-soft);
   border-bottom: none;
   padding: 0.2em 0.6em;
@@ -331,7 +331,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .tag {
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: var(--teal-deep);
   background: var(--teal-wash);
   border-radius: 999px;
@@ -349,7 +349,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .footer-legal {
   margin-top: var(--space-3);
   color: var(--ink-faint);
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -362,10 +362,10 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .heptagon-hero .label-main {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 0.01em;
 }
-.heptagon-hero .label-sub { font-size: 1rem; fill: var(--ink-faint); }
+.heptagon-hero .label-sub { font-size: 0.8rem; fill: var(--ink-faint); }
 .heptagon-wayfinder { flex: none; }
 .heptagon-wayfinder .wf-label { font-size: 8px; fill: var(--ink-faint); }
 :root[data-theme="dark"] .heptagon-hero .vertex-dot,
@@ -381,8 +381,8 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin-bottom: var(--space-4);
 }
 .action-head .title-wrap { flex: 1; }
-.action-title { font-size: 3.6rem; margin-bottom: var(--space-1); }
-.action-title .hl { font-size: 3.6rem; }
+.action-title { font-size: 2.8rem; margin-bottom: var(--space-1); }
+.action-title .hl { font-size: 2.8rem; }
 
 .section { margin: 0 0 var(--space-4); }
 .section h3 { margin-bottom: var(--space-1); }
@@ -398,18 +398,18 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin: 0 0 var(--space-2);
   max-width: var(--measure);
 }
-.example .ex-title { font-family: var(--font-display); font-weight: 400; font-size: 1.8rem; margin-bottom: 0.3em; }
+.example .ex-title { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; margin-bottom: 0.3em; }
 .example .ex-title a { border-bottom: none; }
 
 .metric {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2.4rem;
   color: var(--teal-deep);
   margin: var(--space-1) 0 0;
 }
 :root[data-theme="dark"] .metric { color: var(--teal-light); }
-.metric .unit { font-family: var(--font-mono); font-size: 1.4rem; color: var(--ink-soft); font-weight: 400; }
+.metric .unit { font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-soft); font-weight: 400; }
 
 .action-list { list-style: none; padding-left: 0; }
 .action-list li { margin-bottom: var(--space-2); max-width: var(--measure); }
@@ -422,11 +422,11 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin-top: var(--space-5);
   padding-top: var(--space-3);
   border-top: 1px solid var(--rule);
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 .prevnext a { color: var(--ink-soft); border-bottom: none; max-width: 40%; }
 .prevnext a:hover { color: var(--teal-deep); }
-.prevnext .dir { display: block; color: var(--ink-faint); font-size: 1.1rem; margin-bottom: 0.2em; }
+.prevnext .dir { display: block; color: var(--ink-faint); font-size: 0.85rem; margin-bottom: 0.2em; }
 .prevnext .t { font-family: var(--font-display); font-weight: 400; color: var(--ink); }
 .prevnext a:hover .t { color: var(--teal-deep); }
 .prevnext .next { text-align: right; }
@@ -458,8 +458,8 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
   .page { padding: var(--space-3) var(--space-3) var(--space-5); }
   .action-head { flex-direction: column; }
-  h1, .action-title { font-size: 3rem; }
-  .masthead, .masthead .hl { font-size: 2.4rem; }
+  h1, .action-title { font-size: 2.2rem; }
+  .masthead, .masthead .hl { font-size: 1.8rem; }
 }
 
 /* --------------------------------------------------------------------------
