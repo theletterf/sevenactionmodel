@@ -1,12 +1,20 @@
-{{- /* Language switcher. Only show pages that are actual translations of the
-     current page; do not send visitors to an unrelated locale home page. */ -}}
+{{- /* Keep the selector compact while preserving real links to each actual
+     translation of the current page. */ -}}
 {{- $page := . -}}
-<nav class="lang-switcher" aria-label="{{ i18n "language" }}">
-  {{- range $page.AllTranslations }}
-    {{- if eq .Lang site.Language.Lang }}
-      <span class="lang-current">{{ .Language.LanguageName }}</span>
-    {{- else }}
-      <a href="{{ .RelPermalink }}" class="lang-link">{{ .Language.LanguageName }}</a>
+<details class="lang-picker">
+  <summary title="{{ i18n "language" }}">
+    <svg class="lang-picker-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <span class="lang-picker-label" lang="{{ site.Language.LanguageCode }}" dir="{{ site.Language.LanguageDirection | default "ltr" }}">{{ site.Language.LanguageName }}</span>
+    <svg class="lang-picker-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+  </summary>
+  <nav class="lang-options" aria-label="{{ i18n "language" }}">
+    {{- range $page.AllTranslations }}
+      {{- $direction := .Language.LanguageDirection | default "ltr" -}}
+      {{- if eq .Lang site.Language.Lang }}
+        <span class="lang-option lang-current" lang="{{ .Language.LanguageCode }}" dir="{{ $direction }}" aria-current="true">{{ .Language.LanguageName }}</span>
+      {{- else }}
+        <a href="{{ .RelPermalink }}" class="lang-option lang-link" lang="{{ .Language.LanguageCode }}" dir="{{ $direction }}">{{ .Language.LanguageName }}</a>
+      {{- end }}
     {{- end }}
-  {{- end }}
-</nav>
+  </nav>
+</details>
