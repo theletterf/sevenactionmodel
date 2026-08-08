@@ -26,3 +26,4 @@ markdown_mirrors_desc = "すべてのページを index.md としても利用で
 social_blurb = "製品の評価から問題の解決まで、読者がドキュメントで行おうとする7つのことを示す実践的なマップ。"
 social_image_alt = "七角形の周りに配置された、ドキュメントの7つのアクション。"
 edit_page = "このページを編集"
+view_repo = "GitHubでリポジトリを見る"

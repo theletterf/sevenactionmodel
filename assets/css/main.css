@@ -139,7 +139,14 @@ body {
 
 .wordmark { order: 1; }
 .sidebar-menu { order: 2; }
-.theme-toggle { order: 3; margin-top: var(--space-4); }
+.sidebar-actions {
+  order: 3;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-4);
+}
 .menu-toggle { order: 4; }
 
 .main-wrap {
@@ -255,6 +262,23 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .theme-icon { width: 1.1rem; height: 1.1rem; display: none; }
 :root:not([data-theme="dark"]) .theme-icon--sun  { display: block; }
 :root[data-theme="dark"]       .theme-icon--moon { display: block; }
+
+.github-link {
+  display: flex;
+  flex: 0 0 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.github-link:hover { color: var(--teal-deep); border-color: var(--teal); }
+.github-icon { width: 1.1rem; height: 1.1rem; }
 
 .menu-toggle {
   display: none;
@@ -532,7 +556,7 @@ h3 + .table-wrap { margin-top: var(--space-3); }
   }
   .wordmark { flex: 1; margin-bottom: 0; }
   .menu-toggle { display: flex; order: 2; }
-  .theme-toggle { order: 3; margin-top: 0; }
+  .sidebar-actions { order: 3; margin-top: 0; }
   .sidebar-menu {
     order: 4;
     flex-basis: 100%;
