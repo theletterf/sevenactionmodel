@@ -39,7 +39,7 @@
    2. TOKENS
    -------------------------------------------------------------------------- */
 :root {
-  /* Color — teal sampled from passo.uno (#2C7A7B) */
+  /* Color */
   --paper:        #F7F5F2;
   --paper-raised: #FFFFFF;
   --ink:          #1A1A1A;
@@ -52,14 +52,19 @@
   --rule:         #D9D5CF;
   --rule-strong:  #B9B4AC;
 
-  /* Type — DM Serif Display for headings, EB Garamond for body,
-     Fira Sans for metadata. All self-hosted. */
-  --font-display:  "DM Serif Display", Georgia, serif;
-  --font-body:     "EB Garamond", Georgia, serif;
-  --font-mono:     "Fira Sans", system-ui, sans-serif;
+  /* Type — three families, strict roles */
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body:    "EB Garamond", Georgia, serif;
+  --font-mono:    "Fira Sans", system-ui, sans-serif;
 
-  /* Body tuning — 1.375rem (22px), 66ch measure */
-  --body-size: 1.375rem;
+  /* Type scale — 5 tiers */
+  --fs-xxl:  2.8rem;     /* page titles, h1 */
+  --fs-xl:   2.2rem;     /* h2 */
+  --fs-l:    1.7rem;     /* h3 */
+  --fs-body: 1.375rem;   /* body, wordmark, example titles */
+  --fs-m:    1rem;       /* h4, sidebar links, metadata, tags */
+  --fs-s:    0.85rem;    /* labels, alt text, captions */
+
   --leading: 1.5;
   --measure: 66ch;
 
@@ -74,9 +79,7 @@
   --sidebar-w: 16rem;
 }
 
-/* Dark mode — same teal on near-black, faint phosphor character.
-   Triggered by data-theme="dark" on <html>. System preference is the
-   default when no explicit choice has been made. */
+/* Dark mode */
 :root[data-theme="dark"] {
   --paper:        #0E0E0E;
   --paper-raised: #161616;
@@ -91,7 +94,7 @@
   --rule-strong:  #3A3A3A;
 }
 
-/* System preference as default when no explicit theme is set */
+/* System preference fallback */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --paper:        #0E0E0E;
@@ -120,7 +123,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: var(--body-size);
+  font-size: var(--fs-body);
   line-height: var(--leading);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -134,7 +137,6 @@ body {
   margin: 0 auto;
 }
 
-/* Sidebar — sticky, full-height, subtle background */
 .sidebar {
   position: sticky;
   top: 0;
@@ -148,7 +150,6 @@ body {
 }
 :root[data-theme="dark"] .sidebar { background: var(--paper); }
 
-/* Main content area */
 .main-wrap {
   flex: 1;
   min-width: 0;
@@ -157,21 +158,56 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   4. TYPE
+   4. TYPE — strict 5-tier scale, consistent family roles
    -------------------------------------------------------------------------- */
-h1, h2, h3, h4 {
+
+/* Display family: headings, wordmark, heptagon labels, metric, prevnext titles */
+h1, h2, h3, h4,
+.page-title, .action-title, .masthead,
+.wordmark, .side-verb, .metric,
+.heptagon-hero .label-main,
+.prevnext .t, .example .ex-title, .action-list a {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.15;
-  margin: 0 0 var(--space-2);
-  letter-spacing: -0.01em;
 }
-h1 { font-size: 2.8rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.7rem; }
-h4 { font-size: 1.3rem; }
 
+h1, .page-title, .action-title, .masthead { font-size: var(--fs-xxl); }
+h2 { font-size: var(--fs-xl); }
+h3 { font-size: var(--fs-l); }
+h4 { font-size: var(--fs-m); }
+
+h1, h2, h3, h4 { line-height: 1.15; margin: 0 0 var(--space-2); letter-spacing: -0.01em; }
+
+/* Body family: prose, ledes, example text */
+p, .lede, .section p, .section li { font-family: var(--font-body); }
 p { margin: 0 0 var(--space-3); max-width: var(--measure); }
+.lede { color: var(--ink-soft); font-style: italic; }
+
+/* Mono family: all metadata, labels, tags, format links, captions */
+.side-label, .side-alt,
+.meta-block, .format-link, .tag,
+.prevnext, .prevnext .dir,
+.footer-legal,
+.heptagon-hero .label-sub, .wf-label,
+.metric .unit {
+  font-family: var(--font-mono);
+}
+
+/* Size assignments */
+.wordmark,
+.example .ex-title { font-size: var(--fs-body); }
+
+.side-link,
+.meta-block, .format-link, .tag,
+.prevnext, .footer-legal,
+.heptagon-hero .label-main { font-size: var(--fs-m); }
+
+.side-label, .side-alt,
+.prevnext .dir,
+.heptagon-hero .label-sub { font-size: var(--fs-s); }
+
+.metric { font-size: var(--fs-xl); }
+.metric .unit { font-size: var(--fs-body); }
 
 a {
   color: var(--teal);
@@ -181,11 +217,7 @@ a {
 }
 a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
-.mono, .meta-block, .format-link, .tag, .prevnext, .label-sub, .wf-label {
-  font-family: var(--font-mono);
-}
-
-/* Highlight mark — active action, highlighter feel via CSS background */
+/* Highlight mark */
 .hl {
   background: var(--teal-wash);
   padding: 0 0.15em;
@@ -198,23 +230,19 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .site-header {
   padding: var(--space-3) var(--space-4) 0;
 }
-.site-header .wordmark { display: none; }  /* hidden on desktop, sidebar has it */
+.site-header .wordmark { display: none; }
 
 /* --------------------------------------------------------------------------
    6. SIDEBAR
    -------------------------------------------------------------------------- */
 .wordmark {
   display: block;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.4rem;
   color: var(--ink);
   border-bottom: none;
   margin-bottom: var(--space-4);
 }
 .wordmark .dot { color: var(--teal); }
 
-/* Theme toggle — sun/moon icon button in the sidebar */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -239,8 +267,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .side-nav--pages { border-top: 1px solid var(--rule); padding-top: var(--space-3); }
 
 .side-label {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-faint);
@@ -256,7 +282,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   border-radius: 4px;
   border-bottom: none;
   color: var(--ink-soft);
-  font-size: 1.2rem;
   transition: background 120ms ease, color 120ms ease;
 }
 .side-link:hover { color: var(--teal-deep); background: var(--teal-wash); }
@@ -266,8 +291,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   border-left: 3px solid var(--teal);
   padding-left: calc(0.5em - 3px);
 }
-.side-verb { font-family: var(--font-display); font-weight: 400; }
-.side-alt  { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-faint); }
+.side-alt  { color: var(--ink-faint); }
 .side-link.active .side-alt { color: var(--teal); }
 
 /* --------------------------------------------------------------------------
@@ -283,22 +307,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 /* --------------------------------------------------------------------------
    8. COMPONENTS
    -------------------------------------------------------------------------- */
-.masthead {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 2.8rem;
-  line-height: 1.2;
-  max-width: 24ch;
-  margin: 0 0 var(--space-4);
-}
-.masthead .hl { font-size: 2.8rem; }
-
-.page-title { font-size: 2.8rem; }
-
-.lede { color: var(--ink-soft); font-style: italic; }
-
 .meta-block {
-  font-size: 1rem;
   line-height: 1.7;
   color: var(--ink-soft);
   border: 1px solid var(--rule);
@@ -319,7 +328,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   padding-top: var(--space-3);
 }
 .format-link {
-  font-size: 1rem;
   color: var(--ink-soft);
   border-bottom: none;
   padding: 0.2em 0.6em;
@@ -330,7 +338,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .tag {
   display: inline-block;
-  font-size: 1rem;
   color: var(--teal-deep);
   background: var(--teal-wash);
   border-radius: 999px;
@@ -339,7 +346,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 }
 :root[data-theme="dark"] .tag { color: var(--teal-light); }
 
-/* Footer */
 .site-footer {
   margin-top: auto;
   padding: var(--space-4);
@@ -348,7 +354,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .footer-legal {
   margin-top: var(--space-3);
   color: var(--ink-faint);
-  font-size: 1rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -358,13 +363,8 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .heptagon-hero { margin: 0 auto; }
 .heptagon-hero .vertex-dot { transition: filter 120ms ease; }
 .heptagon-hero a:hover .vertex-dot { filter: brightness(1.15); }
-.heptagon-hero .label-main {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.2rem;
-  letter-spacing: 0.01em;
-}
-.heptagon-hero .label-sub { font-size: 0.8rem; fill: var(--ink-faint); }
+.heptagon-hero .label-main { letter-spacing: 0.01em; }
+.heptagon-hero .label-sub { fill: var(--ink-faint); }
 .heptagon-wayfinder { flex: none; }
 .heptagon-wayfinder .wf-label { font-size: 8px; fill: var(--ink-faint); }
 :root[data-theme="dark"] .heptagon-hero .vertex-dot,
@@ -380,8 +380,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin-bottom: var(--space-4);
 }
 .action-head .title-wrap { flex: 1; }
-.action-title { font-size: 2.8rem; margin-bottom: var(--space-1); }
-.action-title .hl { font-size: 2.8rem; }
+.action-title { margin-bottom: var(--space-1); }
 
 .section { margin: 0 0 var(--space-4); }
 .section h3 { margin-bottom: var(--space-1); }
@@ -397,22 +396,19 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin: 0 0 var(--space-2);
   max-width: var(--measure);
 }
-.example .ex-title { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; margin-bottom: 0.3em; }
+.example .ex-title { margin-bottom: 0.3em; }
 .example .ex-title a { border-bottom: none; }
 
 .metric {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 2.4rem;
   color: var(--teal-deep);
   margin: var(--space-1) 0 0;
 }
 :root[data-theme="dark"] .metric { color: var(--teal-light); }
-.metric .unit { font-family: var(--font-mono); font-size: 1.1rem; color: var(--ink-soft); font-weight: 400; }
+.metric .unit { color: var(--ink-soft); }
 
 .action-list { list-style: none; padding-left: 0; }
 .action-list li { margin-bottom: var(--space-2); max-width: var(--measure); }
-.action-list a { border-bottom: none; font-family: var(--font-display); font-weight: 400; }
+.action-list a { border-bottom: none; }
 
 .prevnext {
   display: flex;
@@ -421,12 +417,11 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin-top: var(--space-5);
   padding-top: var(--space-3);
   border-top: 1px solid var(--rule);
-  font-size: 1rem;
 }
 .prevnext a { color: var(--ink-soft); border-bottom: none; max-width: 40%; }
 .prevnext a:hover { color: var(--teal-deep); }
-.prevnext .dir { display: block; color: var(--ink-faint); font-size: 0.85rem; margin-bottom: 0.2em; }
-.prevnext .t { font-family: var(--font-display); font-weight: 400; color: var(--ink); }
+.prevnext .dir { display: block; color: var(--ink-faint); margin-bottom: 0.2em; }
+.prevnext .t { color: var(--ink); }
 .prevnext a:hover .t { color: var(--teal-deep); }
 .prevnext .next { text-align: right; }
 
@@ -434,16 +429,10 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
    11. RESPONSIVE
    -------------------------------------------------------------------------- */
 @media (max-width: 800px) {
-  .layout {
-    display: block;
-    max-width: none;
-  }
+  .layout { display: block; max-width: none; }
   .sidebar {
-    position: static;
-    height: auto;
-    width: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--rule);
+    position: static; height: auto; width: auto;
+    border-right: none; border-bottom: 1px solid var(--rule);
     padding: var(--space-3);
   }
   .side-nav { display: flex; flex-wrap: wrap; gap: 0.3em; margin-bottom: var(--space-2); }
@@ -454,11 +443,9 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   .side-link.active { border-left: none; border-bottom: 2px solid var(--teal); padding-left: 0.4em; }
   .site-header .wordmark { display: block; margin-bottom: var(--space-2); }
   .sidebar .wordmark { display: none; }
-
   .page { padding: var(--space-3) var(--space-3) var(--space-5); }
   .action-head { flex-direction: column; }
-  h1, .action-title { font-size: 2.2rem; }
-  .masthead, .masthead .hl { font-size: 1.8rem; }
+  h1, .action-title, .page-title { font-size: 2.2rem; }
 }
 
 /* --------------------------------------------------------------------------
