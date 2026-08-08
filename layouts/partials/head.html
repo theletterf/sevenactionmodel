@@ -6,7 +6,7 @@
   {{- $action := index (where $modelData.actions "id" .) 0 -}}
   {{- $fallbackDescription = $action.definition -}}
 {{- end }}
-<title>{{ .Title }} — {{ site.Title }}</title>
+<title>{{ if .IsHome }}{{ .Title }}{{ else }}{{ .Title }} — 7act.org{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ $fallbackDescription }}{{ end }}">
 <meta name="author" content="{{ site.Params.author }}">
 <meta name="theme-color" content="#2c7a7b">

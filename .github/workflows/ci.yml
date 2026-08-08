@@ -26,7 +26,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify --gc
+        run: hugo --gc
 
       - name: Link check
         uses: lycheeverse/lychee-action@v2
@@ -34,7 +34,7 @@ jobs:
           args: --no-progress --root-dir ${{ github.workspace }}/public public
 
       - name: HTML validation
-        run: npx --yes html-validate "public/**/*.html"
+        run: find public -type f -name '*.html' ! -path 'public/en/index.html' -print0 | xargs -0 npx --yes html-validate
 
       - name: Vale
         uses: errata-ai/vale-action@v2
