@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-120 -120 240 240">
-  <polygon points="0,-100 78.18,-62.35 97.49,22.25 43.39,90.10 -43.39,90.10 -97.49,22.25 -78.18,-62.35"
-           fill="none" stroke="#2C7A7B" stroke-width="8" stroke-linejoin="miter"/>
-  <circle cx="0" cy="-100" r="10" fill="#5E9FA0"/>
-  <circle cx="78.18" cy="-62.35" r="10" fill="#5E9FA0"/>
-  <circle cx="97.49" cy="22.25" r="10" fill="#2C7A7B"/>
-  <circle cx="43.39" cy="90.10" r="10" fill="#1F5556"/>
-  <circle cx="-43.39" cy="90.10" r="10" fill="#1F5556"/>
-  <circle cx="-97.49" cy="22.25" r="10" fill="#2C7A7B"/>
-  <circle cx="-78.18" cy="-62.35" r="10" fill="#5E9FA0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Seven-Action Documentation Model">
+  <polygon
+    points="32,2 55.5,13.3 61.2,38.7 44.9,59 19.1,59 2.8,38.7 8.5,13.3"
+    fill="#2c7a7b"
+  />
+  <path
+    d="M17 15h31v8L31 52H20l17-28H17z"
+    fill="#f7f3e8"
+  />
 </svg>
