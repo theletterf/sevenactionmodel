@@ -1,0 +1,15 @@
+<script>
+(function(){
+  var html = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var stored = localStorage.getItem('theme');
+  if (stored) { html.setAttribute('data-theme', stored); }
+  else if (window.matchMedia('(prefers-color-scheme: dark)').matches) { html.setAttribute('data-theme', 'dark'); }
+  btn.addEventListener('click', function(){
+    var cur = html.getAttribute('data-theme');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+})();
+</script>

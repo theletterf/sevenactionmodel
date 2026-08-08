@@ -4,8 +4,5 @@
   {{ else }}
     <h1 class="page-title">{{ .Title }}</h1>
     {{ .Content }}
-    {{ if eq .Params.scope "rationale" }}
-      {{ partial "cite-this.html" . }}
-    {{ end }}
   {{ end }}
 {{ end }}

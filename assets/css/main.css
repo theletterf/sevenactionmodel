@@ -4,39 +4,35 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. FONTS (self-hosted woff2)
+   1. FONTS (self-hosted)
    -------------------------------------------------------------------------- */
 @font-face {
-  font-family: "Zilla Slab";
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("../fonts/zilla-slab-semibold.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Zilla Slab Highlight";
+  font-family: "DM Serif Display";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/zilla-slab-highlight.woff2") format("woff2");
+  src: url("../fonts/dm-serif-display.woff2") format("woff2");
 }
-/* PLACEHOLDER — Google Sans Flex is proprietary and not on Google Fonts.
-   Drop the real woff2 into static/fonts/google-sans-flex.woff2 and verify the
-   axis tags against its fvar table (see README). Do not assume "GRAD"/"ROND". */
 @font-face {
-  font-family: "Google Sans Flex";
+  font-family: "EB Garamond";
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 400;
   font-display: swap;
-  src: url("../fonts/google-sans-flex.woff2") format("woff2-variations");
+  src: url("../fonts/eb-garamond-regular.woff") format("woff");
 }
-/* PLACEHOLDER — Google Sans Code, same caveat. */
 @font-face {
-  font-family: "Google Sans Code";
-  font-style: normal;
-  font-weight: 100 900;
+  font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: url("../fonts/google-sans-code.woff2") format("woff2");
+  src: url("../fonts/eb-garamond-italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/fira-sans.woff2") format("woff2");
 }
 
 /* --------------------------------------------------------------------------
@@ -56,18 +52,16 @@
   --rule:         #D9D5CF;
   --rule-strong:  #B9B4AC;
 
-  /* Type */
-  --font-display:  "Zilla Slab", Georgia, serif;
-  --font-highlight: "Zilla Slab Highlight", "Zilla Slab", Georgia, serif;
-  --font-body:     "Google Sans Flex", "Inter", system-ui, sans-serif;
-  --font-mono:     "Google Sans Code", "Roboto Mono", ui-monospace, monospace;
+  /* Type — DM Serif Display for headings, EB Garamond for body,
+     Fira Sans for metadata. All self-hosted. */
+  --font-display:  "DM Serif Display", Georgia, serif;
+  --font-body:     "EB Garamond", Georgia, serif;
+  --font-mono:     "Fira Sans", system-ui, sans-serif;
 
-  /* Body tuning — 18px, 66ch measure, roundness lowered, grade tuned */
+  /* Body tuning — 18px, 66ch measure */
   --body-size: 18px;
   --leading: 1.6;
   --measure: 66ch;
-  /* PLACEHOLDER axis tags — verify against the real Google Sans Flex fvar */
-  --body-variation: "GRAD" 0, "ROND" -100;
 
   --space-1: 0.5rem;
   --space-2: 1rem;
@@ -80,9 +74,26 @@
   --sidebar-w: 15rem;
 }
 
-/* Dark mode — same teal on near-black, faint phosphor character */
+/* Dark mode — same teal on near-black, faint phosphor character.
+   Triggered by data-theme="dark" on <html>. System preference is the
+   default when no explicit choice has been made. */
+:root[data-theme="dark"] {
+  --paper:        #0E0E0E;
+  --paper-raised: #161616;
+  --ink:          #E9E7E3;
+  --ink-soft:     #A3A19C;
+  --ink-faint:    #6E6C68;
+  --teal:         #2C7A7B;
+  --teal-light:   #5E9FA0;
+  --teal-deep:    #1F5556;
+  --teal-wash:    rgba(94, 159, 160, 0.12);
+  --rule:         #2A2A2A;
+  --rule-strong:  #3A3A3A;
+}
+
+/* System preference as default when no explicit theme is set */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --paper:        #0E0E0E;
     --paper-raised: #161616;
     --ink:          #E9E7E3;
@@ -111,7 +122,6 @@ body {
   font-family: var(--font-body);
   font-size: var(--body-size);
   line-height: var(--leading);
-  font-variation-settings: var(--body-variation);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -132,9 +142,7 @@ body {
   background: var(--paper-raised);
   border-right: 1px solid var(--rule);
 }
-@media (prefers-color-scheme: dark) {
-  .sidebar { background: var(--paper); }
-}
+:root[data-theme="dark"] .sidebar { background: var(--paper); }
 
 /* Main content area */
 .main-wrap {
@@ -148,7 +156,7 @@ body {
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.15;
   margin: 0 0 var(--space-2);
   letter-spacing: -0.01em;
@@ -172,16 +180,12 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   font-family: var(--font-mono);
 }
 
-/* Highlight mark — active action, highlighter feel */
+/* Highlight mark — active action, highlighter feel via CSS background */
 .hl {
-  font-family: var(--font-highlight);
-  font-weight: 400;
-  color: var(--teal-deep);
   background: var(--teal-wash);
-  padding: 0 0.1em;
+  padding: 0 0.15em;
   border-radius: 2px;
 }
-@media (prefers-color-scheme: dark) { .hl { color: var(--teal-light); } }
 
 /* --------------------------------------------------------------------------
    5. HEADER
@@ -197,13 +201,34 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .wordmark {
   display: block;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.1rem;
   color: var(--ink);
   border-bottom: none;
   margin-bottom: var(--space-4);
 }
 .wordmark .dot { color: var(--teal); }
+
+/* Theme toggle — sun/moon icon button in the sidebar */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: var(--space-3);
+  padding: 0;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.theme-toggle:hover { color: var(--teal-deep); border-color: var(--teal); }
+.theme-icon { width: 1.1rem; height: 1.1rem; display: none; }
+:root:not([data-theme="dark"]) .theme-icon--sun  { display: block; }
+:root[data-theme="dark"]       .theme-icon--moon { display: block; }
 
 .side-nav { margin-bottom: var(--space-4); }
 .side-nav--pages { border-top: 1px solid var(--rule); padding-top: var(--space-3); }
@@ -236,7 +261,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   border-left: 3px solid var(--teal);
   padding-left: calc(0.5em - 3px);
 }
-.side-verb { font-family: var(--font-display); font-weight: 600; }
+.side-verb { font-family: var(--font-display); font-weight: 400; }
 .side-alt  { font-family: var(--font-mono); font-size: 0.72rem; color: var(--ink-faint); }
 .side-link.active .side-alt { color: var(--teal); }
 
@@ -255,7 +280,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
    -------------------------------------------------------------------------- */
 .masthead {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.9rem;
   line-height: 1.25;
   max-width: 24ch;
@@ -265,7 +290,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .page-title { font-size: 2.6rem; }
 
-.lede { color: var(--ink-soft); }
+.lede { color: var(--ink-soft); font-style: italic; }
 
 .meta-block {
   font-size: 0.78rem;
@@ -308,7 +333,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   padding: 0.15em 0.7em;
   margin: 0 0.4em 0.4em 0;
 }
-@media (prefers-color-scheme: dark) { .tag { color: var(--teal-light); } }
+:root[data-theme="dark"] .tag { color: var(--teal-light); }
 
 /* Footer */
 .site-footer {
@@ -322,20 +347,6 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   font-size: 0.85rem;
 }
 
-/* Cite-this */
-.cite-this { margin-top: var(--space-5); }
-.cite-plain { font-size: 0.85rem; color: var(--ink-soft); }
-.bibtex {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  background: var(--paper-raised);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  padding: var(--space-2) var(--space-3);
-  overflow-x: auto;
-  max-width: var(--measure);
-}
-
 /* --------------------------------------------------------------------------
    9. HEPTAGON
    -------------------------------------------------------------------------- */
@@ -345,17 +356,15 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .heptagon-hero a:hover .vertex-dot { filter: brightness(1.15); }
 .heptagon-hero .label-main {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 15px;
   letter-spacing: 0.01em;
 }
 .heptagon-hero .label-sub { font-size: 10px; fill: var(--ink-faint); }
 .heptagon-wayfinder { flex: none; }
 .heptagon-wayfinder .wf-label { font-size: 8px; fill: var(--ink-faint); }
-@media (prefers-color-scheme: dark) {
-  .heptagon-hero .vertex-dot,
-  .heptagon-wayfinder .vertex-dot { filter: drop-shadow(0 0 4px var(--teal-light)); }
-}
+:root[data-theme="dark"] .heptagon-hero .vertex-dot,
+:root[data-theme="dark"] .heptagon-wayfinder .vertex-dot { filter: drop-shadow(0 0 4px var(--teal-light)); }
 
 /* --------------------------------------------------------------------------
    10. ACTION PAGE
@@ -384,22 +393,22 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin: 0 0 var(--space-2);
   max-width: var(--measure);
 }
-.example .ex-title { font-family: var(--font-display); font-weight: 600; font-size: 1rem; margin-bottom: 0.3em; }
+.example .ex-title { font-family: var(--font-display); font-weight: 400; font-size: 1rem; margin-bottom: 0.3em; }
 .example .ex-title a { border-bottom: none; }
 
 .metric {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-size: 2.2rem;
   color: var(--teal-deep);
   margin: var(--space-1) 0 0;
 }
-@media (prefers-color-scheme: dark) { .metric { color: var(--teal-light); } }
+:root[data-theme="dark"] .metric { color: var(--teal-light); }
 .metric .unit { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; }
 
 .action-list { list-style: none; padding-left: 0; }
 .action-list li { margin-bottom: var(--space-2); max-width: var(--measure); }
-.action-list a { border-bottom: none; font-family: var(--font-display); font-weight: 600; }
+.action-list a { border-bottom: none; font-family: var(--font-display); font-weight: 400; }
 
 .prevnext {
   display: flex;
@@ -413,7 +422,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .prevnext a { color: var(--ink-soft); border-bottom: none; max-width: 40%; }
 .prevnext a:hover { color: var(--teal-deep); }
 .prevnext .dir { display: block; color: var(--ink-faint); font-size: 0.7rem; margin-bottom: 0.2em; }
-.prevnext .t { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.prevnext .t { font-family: var(--font-display); font-weight: 400; color: var(--ink); }
 .prevnext a:hover .t { color: var(--teal-deep); }
 .prevnext .next { text-align: right; }
 
