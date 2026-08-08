@@ -8,7 +8,15 @@ description: "安装一个使用七行动模型规划和改进文档的智能体
 ## 为 Claude Code 安装
 
 ```sh
-npx skills add theletterf/sevenactionmodel --skill seven-action-documentation --agent claude-code
+npx skills add theletterf/sevenactionmodel \
+  --skill seven-action-documentation \
+  --agent claude-code
 ```
 
-添加 `--global` 可在所有项目中使用。它会在文档规划、写作、审查、信息架构和成功指标任务中自动触发；也可使用 `$seven-action-documentation` 显式调用。
+添加 `--global` 可让它在所有项目中使用。此技能会在文档规划、写作、审查、信息架构和成功指标等任务中激活。你也可以直接调用它：
+
+```text
+使用 $seven-action-documentation 审查我们的用户引导文档。
+```
+
+此技能可以帮助智能体确定读者的主要行动、选择有用的内容类型，并在不虚构产品事实的前提下定义成果和衡量指标。

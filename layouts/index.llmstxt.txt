@@ -3,16 +3,16 @@
 
 > {{ $modelData.model.description }}
 
-- [Home]({{ site.Home.Permalink }}): {{ $modelData.model.description }}
+- [{{ i18n "home" }}]({{ site.Home.Permalink }}): {{ $modelData.model.description }}
 - [{{ i18n "introduction" }}]({{ "rationale/" | absLangURL }}): {{ i18n "introduction_desc" }}
 
-## Actions
+## {{ i18n "actions" }}
 
 {{ range $modelData.actions }}
 - [{{ .verb }} ({{ .alt }})]({{ printf "/actions/%s/" .id | absLangURL }}): {{ .definition }}
 {{ end }}
 
-## Formats
+## {{ i18n "formats" }}
 
-- [model.json]({{ "model.json" | absLangURL }}): machine-readable model
-- [Markdown mirrors]({{ site.Home.Permalink }}): every page ships as index.md
+- [model.json]({{ "model.json" | absLangURL }}): {{ i18n "machine_readable_model" }}
+- [{{ i18n "markdown_mirrors" }}]({{ site.Home.Permalink }}): {{ i18n "markdown_mirrors_desc" }}

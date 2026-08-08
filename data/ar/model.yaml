@@ -1,57 +1,230 @@
+# ============================================================================
+# Seven-Action Documentation Model — Arabic content
+# Mirrors data/en/model.yaml. DITA tags and external example titles/URLs are
+# kept unchanged because they refer to specific frameworks and resources.
+# ============================================================================
+
 model:
   version: "2025-01-09"
   license: "CC BY 4.0"
   title: "نموذج التوثيق ذي الإجراءات السبعة"
-  description: "نموذج وصفي لاحتياجات مستخدمي الوثائق التقنية عبر سبعة إجراءات."
-  canonical: "https://7act.org/"
-  source: "https://7act.org/"
+  description: >-
+    نموذج وصفي لاحتياجات المستخدمين من الوثائق التقنية. تغطي سبعة إجراءات
+    الأهداف التي قد يرغب مستهلك الوثائق في تحقيقها: التقييم، والفهم،
+    والاستكشاف، والممارسة، والتذكّر، والتطوير، وحلّ المشكلات.
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
 actions:
   - id: appraise
     verb: "قيّم"
     alt: "ميّز"
-    definition: "ميّز خصائص المنتج الأساسية وقارنه بالبدائل عند الحاجة."
-    description: "يحتاج العميل أو المتبني المحتمل إلى فهم موقع المنتج ونقاط قوته قبل المتابعة."
-    signals: ["تتكرر أسئلة ما هذا المنتج؟", "يتعلم المهتمون من التسويق لا الوثائق.", "لا توجد صفحة للموقع والميزات الرئيسية."]
-    metric: { name: "التحويل", description: "انتقال القارئ من الوثائق إلى تبني المنتج." }
+    definition: "ميّز الخصائص الرئيسية للمنتج وقارنه بغيره عند الاقتضاء."
+    description: >-
+      مستخدمو الوثائق هم أيضاً عملاء أو متبنّون محتملون. يجب أن يتمكن القارئ
+      من تمييز الخصائص الرئيسية للمنتج ومقارنته بغيره. وهذه عملية اكتشاف.
+    signals:
+      - "يجيب فريقا الدعم والمبيعات مراراً عن أسئلة «ما هذا؟» نفسها."
+      - "يتعرّف العملاء المحتملون إلى ما يفعله المنتج من النصوص التسويقية، لا من الوثائق."
+      - "لا توجد صفحة تبيّن موقع المنتج أو نقاط قوته الرئيسية."
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "لا مقابل مباشر (الأقرب: الشرح)"
+      good_docs:
+        - "نظرة عامة"
+        - "صفحة هبوط"
+    metric:
+      name: "التحويل"
+      description: "معدل التحويل من الوثائق إلى تبنّي المنتج."
+
   - id: explore
     verb: "استكشف"
     alt: "اكتشف"
-    definition: "جرّب المنتج واكتشف ما يستطيع فعله بحاجز دخول منخفض."
-    description: "ينبغي أن تتيح الوثائق للمستخدم التفاعل والتجربة في بداية رحلته."
-    signals: ["لا توجد بداية سريعة أو بيئة تجريب.", "التجربة الأولى مرجع كثيف بلا إرشاد.", "يجب قراءة دليل كامل قبل التجربة."]
-    metric: { name: "زمن الوصول إلى القيمة", description: "المدة حتى أول تفاعل ناجح." }
+    definition: "جرّب المنتج واكتشف ما يستطيع فعله مع انخفاض عائق الدخول."
+    description: >-
+      تدعو المنتجات الرائعة المستخدمين إلى التفاعل وتجربة أشياء جديدة.
+      وينبغي للوثائق أن توفر تلميحات وتعليمات وإمكانات تيسّر الاستكشاف
+      بوصفه واحداً من الأنشطة الأولى.
+    signals:
+      - "لا يجد المستخدمون الجدد دليلاً للبدء السريع أو بيئة معزولة لتجربة المنتج."
+      - "تكون تجربة التشغيل الأولى جداراً من المواد المرجعية، لا جولة إرشادية."
+      - "يجب على المستخدمين قراءة دليل كامل قبل أن يتمكنوا من لمس المنتج."
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "برنامج تعليمي"
+      good_docs:
+        - "برنامج تعليمي"
+    metric:
+      name: "زمن الوصول إلى القيمة الأولى"
+      description: "الوقت من الزيارة الأولى حتى أول تفاعل ناجح."
+
   - id: remember
     verb: "تذكّر"
     alt: "استرجع"
-    definition: "استرجع معلومات لا يمكن حفظها، من المعاملات إلى رموز الأخطاء."
-    description: "المرجع يحفظ قابلية استخدام الوثائق بعد سنوات من الخبرة."
-    signals: ["لا يجد المستخدم معاملاً أو رمز خطأ.", "المراجع موزعة بين مدونات ومحادثات.", "لا يوجد مرجع منظم قابل للبحث."]
-    metric: { name: "معدل إصابة المرجع", description: "نسبة عمليات البحث التي تصل إلى الإجابة الصحيحة." }
+    definition: "استرجع أجزاءً من المعلومات التي تعذّر حفظها، من المعاملات إلى رموز الأخطاء."
+    description: >-
+      تُبقي المواد المرجعية الوثائق حيّة بعد سنوات من الاستخدام. يتصفح
+      المستخدمون الأدلة ليتذكّروا أو يسترجعوا أو يبحثوا عن أجزاء من
+      المعلومات التي لم يستطيعوا حفظها.
+    signals:
+      - "يبحث المستخدمون عن معامل أو رمز خطأ ولا يجدون شيئاً."
+      - "المواد المرجعية موزعة بين منشورات المدونات وسجلات المحادثات."
+      - "لا يوجد مرجع منظّم وقابل للبحث لصياغة المنتج أو إعداداته."
+    examples:
+      - title: "Dockerfile reference"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "GitLab CI/CD YAML syntax reference"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "مرجع"
+      good_docs:
+        - "مرجع"
+        - "مسرد"
+    metric:
+      name: "معدل إصابة المرجع"
+      description: "نسبة عمليات البحث المرجعية التي تعيد الصفحة الصحيحة."
+
   - id: troubleshoot
     verb: "حلّ المشكلات"
     alt: "حلّ"
-    definition: "شخّص المشكلات وحلها بكفاءة، غالباً تحت الضغط."
-    description: "تظهر الأخطاء والحالات الحدّية في كل منتج، ويحتاج المستخدم إلى مسار للتعافي."
-    signals: ["تتكرر تذاكر الدعم.", "رسائل الخطأ غير موثقة.", "البحث عن الخطأ لا يصل إلى حل."]
-    metric: { name: "زمن الحل", description: "الزمن الوسيط من العرض إلى حالة عاملة." }
+    definition: "شخّص المشكلات وحلّها بكفاءة، وغالباً تحت الضغط."
+    description: >-
+      إن التعثر في مشكلات — كسوء الإعداد أو الحالات الحدّية أو الأخطاء
+      الفعلية — أمر شائع لدى المستخدمين. ويمثل حلّ المشكلات الحاجة إلى تشخيص
+      المشكلات وحلّها بكفاءة، وغالباً تحت الضغط حين تتعطل الأنظمة أو تقترب
+      المواعيد النهائية.
+    signals:
+      - "تكرر تذاكر الدعم السؤال نفسه، وتوجد الإجابة في سجل محادثة لا في الوثائق."
+      - "تظهر رسائل الخطأ في الشفرة لكنها لا تظهر أبداً في الوثائق."
+      - "يبحث المستخدمون عن نص خطأ ويصلون إلى صفحة لا تذكره."
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "دليل إرشادي (موجّه إلى المشكلة)"
+      good_docs:
+        - "دليل حلّ المشكلات"
+    metric:
+      name: "زمن الحلّ"
+      description: "الوقت الوسيط من ظهور العَرَض إلى الوصول إلى حالة عاملة."
+
   - id: develop
     verb: "طوّر"
     alt: "ادمج"
     definition: "ابنِ فوق المنتج أو وسّعه أو ادمجه لإنشاء قيمة إضافية."
-    description: "تتيح وثائق التكامل للمستخدمين تحويل قدرات المنتج إلى نظام أوسع."
-    signals: ["أسئلة التكامل بلا إجابة.", "لا يوجد دليل للبناء فوق المنتج.", "نقاط التوسعة غير موثقة."]
-    metric: { name: "نمو النظام البيئي", description: "عدد التكاملات أو الامتدادات التي ينشئها المستخدمون." }
+    description: >-
+      كثيراً ما يحتاج المستخدمون إلى البناء فوق المنتجات القائمة أو توسيعها
+      أو دمجها — من خلال عمليات التكامل أو الامتدادات أو الإضافات أو تطبيقات
+      جديدة كلياً. ويكون التركيز عملياً في معظم الأحيان.
+    signals:
+      - "تظل أسئلة التكامل والتوسعة بلا إجابة أو تُحال إلى منتدى."
+      - "لا يوجد دليل للبناء فوق المنتج."
+      - "نقاط توسعة المنتج غير موثقة."
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "دليل إرشادي"
+      good_docs:
+        - "دليل إرشادي"
+        - "مرجع API"
+    metric:
+      name: "نمو النظام البيئي"
+      description: "عدد عمليات التكامل أو الامتدادات التي ينشئها المستخدمون."
+
   - id: practice
     verb: "مارس"
     alt: "تدرّب"
-    definition: "تعلّم تشغيل المنتج في العمل اليومي المعتاد."
-    description: "المستخدمون يحتاجون معرفة إجرائية للمهام القياسية المتكررة."
-    signals: ["تتكرر أسئلة الكيفية.", "الإجراءات معرفة شفوية فقط.", "لا يوجد دليل خطوة بخطوة للمهام الشائعة."]
-    metric: { name: "نجاح المهمة", description: "نسبة من ينجزون الإجراء بلا دعم." }
+    definition: "تعلّم كيفية تشغيل المنتج في الاستخدام اليومي المعتاد."
+    description: >-
+      يحتاج المستخدمون إلى تعلّم كيفية تشغيل معظم أجزاء المنتج. وتصف
+      الممارسة الحاجة إلى المعرفة الإجرائية — أي كيفية استخدام المنتج في
+      التشغيل اليومي المعتاد.
+    signals:
+      - "تتكرر أسئلة الكيفية نفسها في قنوات الدعم والمجتمع."
+      - "لا توجد الإجراءات إلا كمعرفة متوارثة أو في رأس أحدهم."
+      - "لا يوجد دليل خطوة بخطوة للمهام الإدارية الشائعة."
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "دليل إرشادي"
+      good_docs:
+        - "دليل إرشادي"
+    metric:
+      name: "نجاح المهمة"
+      description: "نسبة المستخدمين الذين يكملون إجراءً قياسياً من دون دعم."
+
   - id: understand
     verb: "افهم"
     alt: "تعلّم"
-    definition: "افهم التجريدات والنماذج الذهنية التي يقوم عليها المنتج."
-    description: "تثبت الوثائق المفاهيمية التعلم حول الأفكار الأساسية للمنتج."
-    signals: ["ينفذ المستخدم الخطوات بلا فهم للسبب.", "المفاهيم موجودة في التعليقات فقط.", "لا يوجد معجم أو دليل مفاهيم."]
-    metric: { name: "تغطية المفاهيم", description: "نسبة التجريدات الأساسية ذات الصفحة المفاهيمية." }
+    definition: "افهم التجريدات والنماذج الذهنية التي بُني المنتج حولها."
+    description: >-
+      تُبنى منتجات البرمجيات حول تجريدات يصعب فهمها لكنها أساسية للاستخدام
+      الصحيح. وترسّخ الوثائق المفاهيمية التعلّم إلى جانب الاستكشاف والممارسة.
+    signals:
+      - "يستطيع المستخدمون تشغيل المنتج لكنهم لا يستطيعون تفسير سبب عمله بهذه الطريقة."
+      - "لا تُشرح المفاهيم إلا في تعليقات الشفرة أو الويكيات الداخلية."
+      - "لا يوجد مسرد أو دليل مفاهيمي لتجريدات المنتج الأساسية."
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "شرح"
+      good_docs:
+        - "دليل مفاهيمي"
+        - "مسرد"
+    metric:
+      name: "تغطية المفاهيم"
+      description: "نسبة التجريدات الأساسية التي لها صفحة مفاهيمية مخصصة."

@@ -1,7 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
+{{- $fallbackDescription := $modelData.model.description -}}
+{{- with .Params.action -}}
+  {{- $action := index (where $modelData.actions "id" .) 0 -}}
+  {{- $fallbackDescription = $action.definition -}}
+{{- end }}
 <title>{{ .Title }} — {{ site.Title }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ $fallbackDescription }}{{ end }}">
 <meta name="author" content="{{ site.Params.author }}">
 <meta name="theme-color" content="#2c7a7b">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">

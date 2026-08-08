@@ -7,8 +7,8 @@ model:
     Sieben Aktionen decken Ziele ab, die Konsumenten von Dokumentation erreichen
     möchten: Bewerten, Verstehen, Erkunden, Üben, Erinnern, Entwickeln,
     Fehler beheben.
-  canonical: "https://7act.org/"
-  source: "https://7act.org/"
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
 
 actions:
   - id: appraise

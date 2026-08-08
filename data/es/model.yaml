@@ -1,9 +1,7 @@
 # ============================================================================
 # Seven-Action Documentation Model — Spanish content
-# Mirrors data/en/model.yaml. Framework labels (DITA tags, Diataxis quadrant
-# names, Good Docs Project template names) and external example titles/URLs
-# are kept in English — they reference specific English-language frameworks
-# and resources.
+# Mirrors data/en/model.yaml. DITA tags and external example titles/URLs are
+# kept unchanged because they refer to specific frameworks and resources.
 # ============================================================================
 
 model:
@@ -41,10 +39,10 @@ actions:
         - "<topic>"
         - "<concept>"
       diataxis:
-        - "No direct equivalent (closest: Explanation)"
+        - "Sin equivalente directo (lo más cercano: Explicación)"
       good_docs:
-        - "Overview"
-        - "Landing page"
+        - "Vista general"
+        - "Página de destino"
     metric:
       name: "conversión"
       description: "Tasa de conversión de la documentación a la adopción del producto."
@@ -103,10 +101,10 @@ actions:
         - "<refsyn>"
         - "<properties>"
       diataxis:
-        - "Reference"
+        - "Referencia"
       good_docs:
-        - "Reference"
-        - "Glossary"
+        - "Referencia"
+        - "Glosario"
     metric:
       name: "tasa de acierto en referencia"
       description: "Proporción de búsquedas en la referencia que devuelven la página correcta."
@@ -137,9 +135,9 @@ actions:
         - "<cause>"
         - "<remedy>"
       diataxis:
-        - "How-to guide (problem-oriented)"
+        - "Guía práctica (orientada a problemas)"
       good_docs:
-        - "Troubleshooting guide"
+        - "Guía de solución de problemas"
     metric:
       name: "tiempo de resolución"
       description: "Tiempo mediano desde el síntoma hasta un estado funcional."
@@ -168,10 +166,10 @@ actions:
         - "<codeblock>"
         - "<coderef>"
       diataxis:
-        - "How-to guide"
+        - "Guía práctica"
       good_docs:
-        - "How-to guide"
-        - "API reference"
+        - "Guía práctica"
+        - "Referencia de API"
     metric:
       name: "crecimiento del ecosistema"
       description: "Número de integraciones o extensiones creadas por los usuarios."
@@ -200,9 +198,9 @@ actions:
         - "<step>"
         - "<choicetable>"
       diataxis:
-        - "How-to guide"
+        - "Guía práctica"
       good_docs:
-        - "How-to guide"
+        - "Guía práctica"
     metric:
       name: "éxito en la tarea"
       description: "Proporción de usuarios que completan un procedimiento estándar sin soporte."
@@ -231,10 +229,10 @@ actions:
         - "<glossentry>"
         - "<section>"
       diataxis:
-        - "Explanation"
+        - "Explicación"
       good_docs:
-        - "Concept guide"
-        - "Glossary"
+        - "Guía conceptual"
+        - "Glosario"
     metric:
       name: "cobertura conceptual"
       description: "Proporción de abstracciones centrales con una página conceptual dedicada."

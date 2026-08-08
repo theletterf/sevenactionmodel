@@ -8,7 +8,15 @@ description: "یک مهارت عامل برای برنامه‌ریزی و به�
 ## نصب برای Claude Code
 
 ```sh
-npx skills add theletterf/sevenactionmodel --skill seven-action-documentation --agent claude-code
+npx skills add theletterf/sevenactionmodel \
+  --skill seven-action-documentation \
+  --agent claude-code
 ```
 
-برای دسترسی در همهٔ پروژه‌ها `--global` را اضافه کنید. این مهارت برای برنامه‌ریزی، نگارش، ممیزی، معماری اطلاعات و سنجه‌های موفقیت مستندات فعال می‌شود و با `$seven-action-documentation` نیز قابل فراخوانی صریح است.
+برای در دسترس بودن آن در همهٔ پروژه‌ها `--global` را اضافه کنید. این مهارت برای برنامه‌ریزی، نگارش، ممیزی، معماری اطلاعات و سنجه‌های موفقیت مستندات فعال می‌شود. همچنین می‌توانید آن را مستقیم فراخوانی کنید:
+
+```text
+با $seven-action-documentation مستندات راه‌اندازی کاربران ما را ممیزی کن.
+```
+
+این مهارت به عامل کمک می‌کند کنش اصلی خواننده را شناسایی کند، گونه‌های محتوای مفید را برگزیند و بدون ساختن حقایق محصول، یک نتیجه و سنجه تعریف کند.

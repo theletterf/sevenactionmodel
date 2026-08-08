@@ -8,7 +8,15 @@ Claude Code などの対応エージェントでこのスキルを使うと、�
 ## Claude Code へのインストール
 
 ```sh
-npx skills add theletterf/sevenactionmodel --skill seven-action-documentation --agent claude-code
+npx skills add theletterf/sevenactionmodel \
+  --skill seven-action-documentation \
+  --agent claude-code
 ```
 
-すべてのプロジェクトで利用するには `--global` を追加します。ドキュメントの計画、執筆、監査、情報アーキテクチャ、成功指標の検討で自動的に使われます。`$seven-action-documentation` として明示的に呼び出すこともできます。
+すべてのプロジェクトで利用できるようにするには `--global` を追加します。このスキルは、ドキュメントの計画、執筆、監査、情報アーキテクチャ、成功指標を扱うときに有効になります。明示的に呼び出すこともできます。
+
+```text
+$seven-action-documentation を使って、オンボーディングドキュメントを監査してください。
+```
+
+このスキルは、読者の主要なアクションを特定し、有用なコンテンツタイプを選び、製品について事実を捏造することなく成果と指標を定義できるようエージェントを支援します。

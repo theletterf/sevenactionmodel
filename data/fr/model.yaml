@@ -7,8 +7,8 @@ model:
     Sept actions couvrent les objectifs qu’un consommateur de documentation peut
     vouloir atteindre : Évaluer, Comprendre, Explorer, Pratiquer, Se souvenir,
     Développer, Dépanner.
-  canonical: "https://7act.org/"
-  source: "https://7act.org/"
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
 
 actions:
   - id: appraise

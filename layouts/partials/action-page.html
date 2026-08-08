@@ -3,7 +3,6 @@
 {{- $id := .Params.action | default (path.Base .File.Dir) -}}
 {{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
 {{- $action := index (where $modelData.actions "id" $id) 0 -}}
-{{- $baseAction := index (where site.Data.en.model.actions "id" $id) 0 -}}
 <div class="action-head">
   <div class="title-wrap">
     <h1 class="action-title">{{ $action.verb }} <span class="hl">{{ $action.alt }}</span></h1>
@@ -28,7 +27,7 @@
 
 <section class="section">
   <h3>{{ i18n "examples_heading" }}</h3>
-  {{ range $baseAction.examples }}
+  {{ range $action.examples }}
     <div class="example">
       <div class="ex-title"><a href="{{ .url }}">{{ .title }}</a></div>
     </div>
@@ -44,9 +43,9 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{ delimit $baseAction.frameworks.dita ", " }}</td>
-          <td>{{ delimit $baseAction.frameworks.diataxis ", " }}</td>
-          <td>{{ delimit $baseAction.frameworks.good_docs ", " }}</td>
+          <td>{{ delimit $action.frameworks.dita ", " }}</td>
+          <td>{{ delimit $action.frameworks.diataxis ", " }}</td>
+          <td>{{ delimit $action.frameworks.good_docs ", " }}</td>
         </tr>
       </tbody>
     </table>

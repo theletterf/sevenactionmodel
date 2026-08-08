@@ -1,9 +1,7 @@
 # ============================================================================
 # Seven-Action Documentation Model — Simplified Chinese content
-# Mirrors data/en/model.yaml. Framework labels (DITA tags, Diataxis quadrant
-# names, Good Docs Project template names) and external example titles/URLs
-# are kept in English — they reference specific English-language frameworks
-# and resources.
+# Mirrors data/en/model.yaml. DITA tags and external example titles/URLs are
+# kept unchanged because they refer to specific frameworks and resources.
 # ============================================================================
 
 model:
@@ -38,10 +36,10 @@ actions:
         - "<topic>"
         - "<concept>"
       diataxis:
-        - "No direct equivalent (closest: Explanation)"
+        - "无直接对应项（最接近：解释）"
       good_docs:
-        - "Overview"
-        - "Landing page"
+        - "概览"
+        - "落地页"
     metric:
       name: "转化率"
       description: "从阅读文档到采用产品的转化率。"
@@ -68,9 +66,9 @@ actions:
         - "<step>"
         - "<substep>"
       diataxis:
-        - "Tutorial"
+        - "教程"
       good_docs:
-        - "Tutorial"
+        - "教程"
     metric:
       name: "首次获得价值的时间"
       description: "从首次访问到首次成功互动所需的时间。"
@@ -97,10 +95,10 @@ actions:
         - "<refsyn>"
         - "<properties>"
       diataxis:
-        - "Reference"
+        - "参考"
       good_docs:
-        - "Reference"
-        - "Glossary"
+        - "参考"
+        - "术语表"
     metric:
       name: "参考命中率"
       description: "参考资料查询返回正确页面的比例。"
@@ -128,9 +126,9 @@ actions:
         - "<cause>"
         - "<remedy>"
       diataxis:
-        - "How-to guide (problem-oriented)"
+        - "操作指南（面向问题）"
       good_docs:
-        - "Troubleshooting guide"
+        - "排障指南"
     metric:
       name: "解决耗时"
       description: "从出现症状到恢复正常状态的中位时间。"
@@ -157,10 +155,10 @@ actions:
         - "<codeblock>"
         - "<coderef>"
       diataxis:
-        - "How-to guide"
+        - "操作指南"
       good_docs:
-        - "How-to guide"
-        - "API reference"
+        - "操作指南"
+        - "API 参考"
     metric:
       name: "生态系统增长"
       description: "用户构建的集成方案或扩展功能的数量。"
@@ -187,9 +185,9 @@ actions:
         - "<step>"
         - "<choicetable>"
       diataxis:
-        - "How-to guide"
+        - "操作指南"
       good_docs:
-        - "How-to guide"
+        - "操作指南"
     metric:
       name: "任务成功率"
       description: "无需支持即可完成标准操作流程的用户比例。"
@@ -216,10 +214,10 @@ actions:
         - "<glossentry>"
         - "<section>"
       diataxis:
-        - "Explanation"
+        - "解释"
       good_docs:
-        - "Concept guide"
-        - "Glossary"
+        - "概念指南"
+        - "术语表"
     metric:
       name: "概念覆盖率"
       description: "拥有专门概念页面的核心概念所占比例。"

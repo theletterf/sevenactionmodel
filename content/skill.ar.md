@@ -8,7 +8,15 @@ description: "ثبّت مهارة وكيل لتخطيط الوثائق وتحس�
 ## التثبيت لـ Claude Code
 
 ```sh
-npx skills add theletterf/sevenactionmodel --skill seven-action-documentation --agent claude-code
+npx skills add theletterf/sevenactionmodel \
+  --skill seven-action-documentation \
+  --agent claude-code
 ```
 
-أضف `--global` لاستخدامها في كل المشاريع. تُفعّل تلقائياً عند تخطيط الوثائق وكتابتها وتدقيقها وتصميم بنيتها وقياس نجاحها، ويمكنك استدعاؤها صراحةً باسم `$seven-action-documentation`.
+أضف `--global` لإتاحتها في كل مشروع. تُفعّل المهارة عند تخطيط الوثائق وكتابتها وتدقيقها وتصميم بنية المعلومات ومقاييس النجاح. ويمكنك أيضاً استدعاؤها مباشرةً:
+
+```text
+استخدم $seven-action-documentation لتدقيق وثائق إعداد المستخدمين لدينا.
+```
+
+تساعد المهارة الوكيل على تحديد الإجراء الرئيسي للقارئ، واختيار أنواع محتوى مفيدة، وتعريف نتيجة ومقياس من دون اختلاق حقائق عن المنتج.

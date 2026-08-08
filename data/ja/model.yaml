@@ -1,9 +1,7 @@
 # ============================================================================
 # Seven-Action Documentation Model — Japanese content
-# Mirrors data/en/model.yaml. Framework labels (DITA tags, Diataxis quadrant
-# names, Good Docs Project template names) and external example titles/URLs
-# are kept in English — they reference specific English-language frameworks
-# and resources.
+# Mirrors data/en/model.yaml. DITA tags and external example titles/URLs are
+# kept unchanged because they refer to specific frameworks and resources.
 # ============================================================================
 
 model:
@@ -38,10 +36,10 @@ actions:
         - "<topic>"
         - "<concept>"
       diataxis:
-        - "No direct equivalent (closest: Explanation)"
+        - "直接対応するものはない（最も近いもの：解説）"
       good_docs:
-        - "Overview"
-        - "Landing page"
+        - "概要"
+        - "ランディングページ"
     metric:
       name: "コンバージョン率"
       description: "ドキュメントから製品導入に至る転換率。"
@@ -68,9 +66,9 @@ actions:
         - "<step>"
         - "<substep>"
       diataxis:
-        - "Tutorial"
+        - "チュートリアル"
       good_docs:
-        - "Tutorial"
+        - "チュートリアル"
     metric:
       name: "初回価値到達時間"
       description: "初回訪問から最初の成功体験までにかかる時間。"
@@ -98,10 +96,10 @@ actions:
         - "<refsyn>"
         - "<properties>"
       diataxis:
-        - "Reference"
+        - "リファレンス"
       good_docs:
-        - "Reference"
-        - "Glossary"
+        - "リファレンス"
+        - "用語集"
     metric:
       name: "リファレンス的中率"
       description: "リファレンス検索が正しいページを返す割合。"
@@ -131,9 +129,9 @@ actions:
         - "<cause>"
         - "<remedy>"
       diataxis:
-        - "How-to guide (problem-oriented)"
+        - "ハウツーガイド（問題解決型）"
       good_docs:
-        - "Troubleshooting guide"
+        - "トラブルシューティングガイド"
     metric:
       name: "解決までの時間"
       description: "症状の発生から復旧までの中央値時間。"
@@ -161,10 +159,10 @@ actions:
         - "<codeblock>"
         - "<coderef>"
       diataxis:
-        - "How-to guide"
+        - "ハウツーガイド"
       good_docs:
-        - "How-to guide"
-        - "API reference"
+        - "ハウツーガイド"
+        - "APIリファレンス"
     metric:
       name: "エコシステムの成長"
       description: "ユーザーが構築した統合や拡張機能の数。"
@@ -192,9 +190,9 @@ actions:
         - "<step>"
         - "<choicetable>"
       diataxis:
-        - "How-to guide"
+        - "ハウツーガイド"
       good_docs:
-        - "How-to guide"
+        - "ハウツーガイド"
     metric:
       name: "タスク成功率"
       description: "サポートなしで標準的な手順を完了できたユーザーの割合。"
@@ -222,10 +220,10 @@ actions:
         - "<glossentry>"
         - "<section>"
       diataxis:
-        - "Explanation"
+        - "解説"
       good_docs:
-        - "Concept guide"
-        - "Glossary"
+        - "概念ガイド"
+        - "用語集"
     metric:
       name: "概念網羅率"
       description: "専用の概念ページを持つ中核概念の割合。"
