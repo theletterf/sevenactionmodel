@@ -415,6 +415,13 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .home-cta { margin: 0 0 var(--space-2); }
 .home-cta a { border-bottom: none; }
 
+.page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
 .heptagon { display: block; height: auto; }
 .heptagon-hero { margin: var(--space-2) 0 var(--space-4); max-width: 100%; }
 .heptagon-hero .vertex-dot { transition: filter 120ms ease; }

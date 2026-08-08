@@ -20,6 +20,8 @@ Eine Lösung für diese Lage besteht darin, den Fokus von dem, was geschrieben w
 
 Wie Frameworks, Werkzeuge und Modelle von Nutzerbedürfnissen nach meinem Verständnis zusammenwirken, lässt sich mit einer Sandwich-Metapher besser verstehen, besonders wenn Sie noch nicht zu Mittag gegessen haben: Dokumentations-Frameworks und -Werkzeuge sind wesentliche Zutaten, die ein Sandwich zusammenhalten und handhabbar machen; Geschmack und Bedeutung erhält es aber durch die Füllung, also das mentale Modell der Nutzerbedürfnisse, dem Sie folgen. Das ist *nicht* dasselbe wie externe Anforderungen von Stakeholdern, auch wenn es Überschneidungen geben kann. Wenn überhaupt, sind OKRs die Soße.
 
+![Das Dokumentations-Sandwich: Frameworks und Inhaltstypen oben, Nutzerbedürfnisse in der Mitte sowie Formate und Toolchains unten.](https://passo.uno/uploads/sandwich-2.jpg)
+
 Mit anderen Worten: Um wirksame Dokumentation zu erstellen, brauchen Sie nicht nur Werkzeuge und Inhaltstypen, sondern auch ein Modell der Bedürfnisse, die Dokumentation als Produkt erfüllen muss, oder der Handlungen, die Nutzer mithilfe der Dokumentation ausführen müssen. Dieses Modell sollte einigermaßen unabhängig von der Art des Softwareprodukts sein, das dokumentiert wird, so wie konzeptionelle Modelle für Produktgestaltung und Zufriedenheit von Einzelheiten abstrahieren. Ein allgemeines Modell anzustreben ist notwendig, weil es Fachleuten hilft, gemeinsam zu lernen und zu kommunizieren.
 
 Was folgt, ist mein eigenes *beschreibendes* Modell der Nutzerbedürfnisse an Dokumentation – eines, dem ich heute beim Aufbau und bei der Anordnung von Dokumentation folge.
@@ -39,3 +41,5 @@ Das Modell, das ich hier vorstelle, bietet eine Möglichkeit, über Dokumentatio
 Das Modell kann auch eine Grundlage für [Dokumentationsmetriken und Zielsetzung](https://passo.uno/docs-observability-do11y/) (do11y) sein. Statt sich nur auf Seitenaufrufe oder Zufriedenheitswerte zu konzentrieren, können Teams verfolgen, wie gut ihre Dokumentation jeder Aktion dient. Beispielsweise könnten Konversionsraten von der Dokumentation zur Produktadoption die Wirksamkeit des Bewertens messen, während Kennzahlen zur Zeit bis zur Lösung den Erfolg beim Beheben von Fehlern anzeigen könnten.
 
 Wie bei theoretischen Modellen üblich, ist dieses nicht durch umfangreiche Forschung oder Faktorenanalyse abgesichert. Das Modell wird WIE BESEHEN verteilt, und unter keinen Umständen können Sie mich dafür verantwortlich machen, Ihr Mittagessen ruiniert zu haben. Ich hoffe jedoch, dass es technischen Redakteuren, die zielgerichtetere Dokumentation schaffen möchten, eine nützliche Perspektive bietet.
+
+![Eine Pixel-Art-Bibliotheksszene mit Indiana Jones und den sieben Dokumentationsaktionen.](https://passo.uno/uploads/indy.jpg)

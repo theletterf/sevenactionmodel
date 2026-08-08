@@ -20,6 +20,8 @@ A solution to this situation is shifting the focus from what should be written t
 
 You can better understand how I think frameworks, tools, and models of user needs go together through a sandwich metaphor, especially if you haven't had lunch yet: docs frameworks and tools are essential ingredients to holding a sandwich together and handle it, but what gives a sandwich all the taste and meaning is the filling, that is, the mental model of user needs that you're following. This is *not* the same as external requests from stakeholders, though they might overlap. If anything, OKRs are the sauce.
 
+![The documentation sandwich: frameworks and content types on top, user needs in the middle, and formats and toolchains on the bottom.](https://passo.uno/uploads/sandwich-2.jpg)
+
 In other words, to build effective docs you not only need tools and content types, but also a model of needs that documentation must satisfy as a product, or of actions users need to accomplish through docs. This model should be fairly independent from the type of software product you're documenting, in the same way conceptual models of product design and satisfaction abstract away the specifics. Aiming for a general model is necessary because it helps professionals learn and communicate together.
 
 What follows is my own *descriptive* model of user needs for documentation, one I'm following to build and arrange documentation today.
@@ -39,3 +41,5 @@ The model I present here provides a way for thinking about documentation through
 The model can also serve as a foundation for [documentation metrics and goal-setting](https://passo.uno/docs-observability-do11y/) (do11y). Rather than focusing solely on page views or satisfaction scores, teams can track how well their documentation serves each action. For example, conversion rates from docs to product adoption could measure appraisal effectiveness, while time-to-resolution metrics could indicate troubleshooting success.
 
 As it happens with theoretical models, this one isn't backed by extensive research or factorial analysis. The model is distributed AS IS, and under no circumstances can you hold me accountable for having ruined your lunch. However, I hope it provides a useful perspective for technical writers seeking to create more purposeful documentation.
+
+![A pixel-art library scene with Indiana Jones and the seven documentation actions.](https://passo.uno/uploads/indy.jpg)

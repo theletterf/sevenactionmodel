@@ -20,6 +20,8 @@ Una soluzione consiste nello spostare l’attenzione da ciò che dovrebbe essere
 
 Il modo in cui, a mio avviso, framework, strumenti e modelli delle esigenze degli utenti stanno insieme si capisce meglio con la metafora di un panino, soprattutto se non avete ancora pranzato: i framework e gli strumenti di documentazione sono ingredienti essenziali per tenere insieme il panino e maneggiarlo, ma ciò che gli dà sapore e significato è il ripieno, cioè il modello mentale delle esigenze degli utenti che si decide di seguire. Questo *non* coincide con le richieste esterne delle parti interessate, anche se possono sovrapporsi. Semmai, gli OKR sono la salsa.
 
+![Il panino della documentazione: framework e tipi di contenuto in alto, esigenze degli utenti al centro, formati e toolchain in basso.](https://passo.uno/uploads/sandwich-2.jpg)
+
 In altre parole, per costruire una documentazione efficace non servono soltanto strumenti e tipi di contenuto, ma anche un modello delle esigenze che la documentazione deve soddisfare come prodotto, o delle azioni che gli utenti devono poter compiere grazie alla documentazione. Questo modello dovrebbe essere abbastanza indipendente dal tipo di prodotto software che si documenta, proprio come i modelli concettuali di progettazione e soddisfazione del prodotto prescindono dai dettagli specifici. Puntare a un modello generale è necessario perché aiuta i professionisti a imparare e a comunicare tra loro.
 
 Quello che segue è il mio modello *descrittivo* delle esigenze degli utenti della documentazione, il modello che uso oggi per costruire e organizzare la documentazione.
@@ -39,3 +41,5 @@ Il modello che presento qui offre un modo di pensare alla documentazione attrave
 Il modello può anche servire da base per le [metriche e la definizione degli obiettivi della documentazione](https://passo.uno/docs-observability-do11y/) (do11y). Invece di concentrarsi soltanto sulle visualizzazioni di pagina o sui punteggi di soddisfazione, i team possono misurare quanto bene la loro documentazione supporti ciascuna azione. Per esempio, i tassi di conversione dalla documentazione all’adozione del prodotto potrebbero misurare l’efficacia della valutazione, mentre le metriche sul tempo di risoluzione potrebbero indicare il successo della risoluzione dei problemi.
 
 Come accade con i modelli teorici, questo non è sostenuto da ricerche approfondite o analisi fattoriali. Il modello è distribuito COSÌ COM’È e in nessun caso potrete ritenermi responsabile di avervi rovinato il pranzo. Spero però che offra una prospettiva utile ai technical writer che desiderano creare documentazione con uno scopo più chiaro.
+
+![Una scena di biblioteca in pixel art con Indiana Jones e le sette azioni della documentazione.](https://passo.uno/uploads/indy.jpg)

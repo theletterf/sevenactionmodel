@@ -20,6 +20,8 @@ Une solution à cette situation consiste à déplacer l’attention de ce qui de
 
 On peut mieux comprendre comment, selon moi, cadres, outils et modèles des besoins utilisateurs s’articulent à l’aide d’une métaphore du sandwich, surtout si vous n’avez pas encore déjeuné : les cadres et outils de documentation sont les ingrédients essentiels qui tiennent le sandwich et permettent de le manipuler, mais ce qui lui donne toute sa saveur et son sens est la garniture, c’est-à-dire le modèle mental des besoins utilisateurs que vous suivez. Ce n’est *pas* la même chose que les demandes externes des parties prenantes, même si elles peuvent se recouper. À la rigueur, les OKR sont la sauce.
 
+![Le sandwich de la documentation : cadres et types de contenu en haut, besoins des utilisateurs au centre, formats et chaînes d’outils en bas.](https://passo.uno/uploads/sandwich-2.jpg)
+
 Autrement dit, pour bâtir une documentation efficace, il ne suffit pas d’avoir des outils et des types de contenu : il faut aussi un modèle des besoins que la documentation doit satisfaire en tant que produit, ou des actions que les utilisateurs doivent pouvoir accomplir grâce à elle. Ce modèle devrait être relativement indépendant du type de produit logiciel documenté, de la même manière que les modèles conceptuels de conception de produit et de satisfaction font abstraction des particularités. Viser un modèle général est nécessaire, car cela aide les professionnels à apprendre et à communiquer ensemble.
 
 Ce qui suit est mon propre modèle *descriptif* des besoins utilisateurs en matière de documentation, celui que j’utilise aujourd’hui pour construire et organiser une documentation.
@@ -39,3 +41,5 @@ Le modèle que je présente ici offre une façon de penser la documentation à t
 Le modèle peut également servir de fondement aux [métriques de documentation et à la définition d’objectifs](https://passo.uno/docs-observability-do11y/) (do11y). Plutôt que de se concentrer uniquement sur les pages vues ou les scores de satisfaction, les équipes peuvent suivre dans quelle mesure leur documentation sert chaque action. Par exemple, les taux de conversion de la documentation vers l’adoption du produit pourraient mesurer l’efficacité de l’évaluation, tandis que les métriques de délai de résolution pourraient indiquer la réussite du dépannage.
 
 Comme c’est le cas pour les modèles théoriques, celui-ci n’est pas étayé par une recherche approfondie ni par une analyse factorielle. Le modèle est distribué TEL QUEL, et vous ne pourrez en aucun cas me tenir responsable d’avoir gâché votre déjeuner. J’espère néanmoins qu’il offrira une perspective utile aux rédacteurs techniques désireux de créer une documentation plus intentionnelle.
+
+![Une scène de bibliothèque en pixel art avec Indiana Jones et les sept actions de documentation.](https://passo.uno/uploads/indy.jpg)

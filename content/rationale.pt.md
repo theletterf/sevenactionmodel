@@ -20,6 +20,8 @@ Uma solução para esta situação é mudar o foco daquilo que deve ser escrito 
 
 A forma como, na minha opinião, os modelos, as ferramentas e os modelos mentais das necessidades dos utilizadores se articulam pode ser compreendida através da metáfora de uma sanduíche, sobretudo se ainda não almoçou: os modelos e as ferramentas de documentação são ingredientes essenciais para manter a sanduíche inteira e permitir que seja manuseada, mas aquilo que lhe dá todo o sabor e significado é o recheio, isto é, o modelo mental das necessidades dos utilizadores que se segue. Isto *não* é o mesmo que os pedidos externos das partes interessadas, embora possam sobrepor-se. Quando muito, os OKR são o molho.
 
+![A sanduíche da documentação: modelos e tipos de conteúdo em cima, necessidades dos utilizadores ao centro, formatos e cadeias de ferramentas em baixo.](https://passo.uno/uploads/sandwich-2.jpg)
+
 Por outras palavras, para construir documentação eficaz não são apenas necessárias ferramentas e tipos de conteúdo, mas também um modelo das necessidades que a documentação deve satisfazer enquanto produto, ou das ações que os utilizadores devem conseguir realizar através dela. Este modelo deve ser relativamente independente do tipo de produto de software documentado, da mesma forma que os modelos conceptuais de conceção e satisfação de produto abstraem os pormenores específicos. Procurar um modelo geral é necessário porque ajuda os profissionais a aprender e a comunicar entre si.
 
 O que se segue é o meu próprio modelo *descritivo* das necessidades dos utilizadores de documentação, aquele que uso atualmente para construir e organizar documentação.
@@ -39,3 +41,5 @@ O modelo que apresento aqui oferece uma forma de pensar a documentação atravé
 O modelo também pode servir de base para [métricas e definição de objetivos da documentação](https://passo.uno/docs-observability-do11y/) (do11y). Em vez de se concentrarem apenas nas visualizações de páginas ou nas pontuações de satisfação, as equipas podem acompanhar até que ponto a sua documentação serve cada ação. Por exemplo, as taxas de conversão da documentação para a adoção do produto podem medir a eficácia da avaliação, enquanto as métricas de tempo de resolução podem indicar o êxito da resolução de problemas.
 
 Como acontece com os modelos teóricos, este não é sustentado por investigação extensa nem por análise fatorial. O modelo é distribuído TAL COMO ESTÁ e, em circunstância alguma, poderá responsabilizar-me por lhe ter estragado o almoço. Espero, ainda assim, que ofereça uma perspetiva útil aos redatores técnicos que procuram criar documentação com um propósito mais claro.
+
+![Uma cena de biblioteca em pixel art com Indiana Jones e as sete ações da documentação.](https://passo.uno/uploads/indy.jpg)

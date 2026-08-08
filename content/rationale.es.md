@@ -20,6 +20,8 @@ Una solución a esta situación consiste en trasladar el foco de qué se deberí
 
 Puedes entender mejor cómo creo que encajan los frameworks, las herramientas y los modelos de necesidades del usuario a través de una metáfora del sándwich, sobre todo si aún no has comido: los frameworks y herramientas de documentación son los ingredientes esenciales que mantienen unido el sándwich y permiten manejarlo, pero lo que le da todo el sabor y el sentido es el relleno, es decir, el modelo mental de las necesidades del usuario que estás siguiendo. Esto *no* es lo mismo que las peticiones externas de las partes interesadas, aunque puedan solaparse. Si acaso, los OKR son la salsa.
 
+![El sándwich de la documentación: frameworks y tipos de contenido arriba, necesidades de los usuarios en el centro, y formatos y cadenas de herramientas abajo.](https://passo.uno/uploads/sandwich-2.jpg)
+
 En otras palabras, para construir buena documentación no solo necesitas herramientas y tipos de contenido, sino también un modelo de las necesidades que la documentación debe satisfacer como producto, o de las acciones que los usuarios necesitan realizar a través de ella. Este modelo debería ser bastante independiente del tipo de producto de software que estés documentando, de la misma forma en que los modelos conceptuales de diseño de producto y satisfacción abstraen los detalles específicos. Aspirar a un modelo general es necesario porque ayuda a que los profesionales aprendan y se comuniquen entre sí.
 
 Lo que sigue es mi propio modelo *descriptivo* de las necesidades del usuario para la documentación, el que sigo hoy para construir y organizar documentación.
@@ -39,3 +41,5 @@ El modelo que presento aquí ofrece una forma de pensar la documentación a trav
 El modelo también puede servir de base para [la definición de métricas y objetivos de documentación](https://passo.uno/docs-observability-do11y/) (do11y). En lugar de fijarse solo en las páginas vistas o las puntuaciones de satisfacción, los equipos pueden medir qué tan bien su documentación atiende cada acción. Por ejemplo, la tasa de conversión de la documentación a la adopción del producto podría medir la efectividad de Evaluar, mientras que el tiempo de resolución podría indicar el éxito de Solucionar.
 
 Como suele ocurrir con los modelos teóricos, este no está respaldado por una investigación extensa ni un análisis factorial. El modelo se distribuye TAL CUAL, y bajo ninguna circunstancia puedes hacerme responsable de haberte arruinado el almuerzo. Aun así, espero que ofrezca una perspectiva útil para quienes buscan crear documentación técnica con un propósito más claro.
+
+![Una escena de biblioteca en arte pixelado con Indiana Jones y las siete acciones de documentación.](https://passo.uno/uploads/indy.jpg)
