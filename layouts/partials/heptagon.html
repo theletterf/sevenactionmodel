@@ -1,0 +1,61 @@
+{{- /* ============================================================
+     HEPTAGON PARTIAL
+     Computes vertex coordinates for a regular heptagon with one
+     vertex up, from the action order in data/model.yaml.
+     Params (dict):
+       size   (int)  rendered width/height in px
+       labels (bool) show vertex labels (hero) or not (wayfinder)
+       active (str)  action id to fill ("you are here")
+     ============================================================ */ -}}
+{{- $actions := site.Data.model.actions -}}
+{{- $size   := default 400 .size -}}
+{{- $labels := default true .labels -}}
+{{- $active := default "" .active -}}
+{{- $r := 100.0 -}}
+{{- $labelR := 142.0 -}}
+{{- $n := len $actions -}}
+{{- $step := div (mul 2.0 math.Pi) (float $n) -}}
+{{- $stageColor := dict "early" "var(--teal-light)" "mid" "var(--teal)" "late" "var(--teal-deep)" -}}
+<svg class="heptagon {{ if $labels }}heptagon-hero{{ else }}heptagon-wayfinder{{ end }}"
+     viewBox="{{ if $labels }}-240 -180 480 360{{ else }}-120 -120 240 240{{ end }}"
+     width="{{ $size }}" height="{{ $size }}"
+     xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-labelledby="heptagon-title heptagon-desc">
+  <title id="heptagon-title">Seven-Action Documentation Model</title>
+  <desc id="heptagon-desc">{{ if $active }}You are here: {{ $active }}{{ else }}Heptagon of user actions{{ end }}</desc>
+  <defs>
+    <linearGradient id="heptagon-grad" x1="0" y1="-100" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="var(--teal-light)"/>
+      <stop offset="1" stop-color="var(--teal-deep)"/>
+    </linearGradient>
+  </defs>
+  <polygon points="{{ range $i, $a := $actions }}{{ $angle := add (div math.Pi -2.0) (mul (float $i) $step) }}{{ $x := mul $r (math.Cos $angle) }}{{ $y := mul $r (math.Sin $angle) }}{{ printf "%.2f,%.2f " $x $y }}{{ end }}"
+           fill="none" stroke="{{ if $labels }}url(#heptagon-grad){{ else }}var(--teal){{ end }}"
+           stroke-width="2" stroke-linejoin="miter" stroke-linecap="square"/>
+  {{ range $i, $a := $actions }}
+    {{- $angle := add (div math.Pi -2.0) (mul (float $i) $step) -}}
+    {{- $x := mul $r (math.Cos $angle) -}}
+    {{- $y := mul $r (math.Sin $angle) -}}
+    {{- $color := index $stageColor $a.stage -}}
+    {{- $isActive := eq $a.id $active -}}
+    {{- $dotR := 4.0 -}}
+    {{- if $isActive }}{{ $dotR = 6.0 }}{{ else if not $labels }}{{ $dotR = 2.5 }}{{ end -}}
+    <g>
+      <a href="{{ printf "/actions/%s/" $a.id | relURL }}" aria-label="{{ $a.verb }} ({{ $a.alt }})">
+        <circle cx="{{ printf "%.2f" $x }}" cy="{{ printf "%.2f" $y }}" r="{{ $dotR }}"
+                fill="{{ if $isActive }}var(--teal){{ else }}{{ $color }}{{ end }}" class="vertex-dot"/>
+        {{ if $isActive }}
+          <circle cx="{{ printf "%.2f" $x }}" cy="{{ printf "%.2f" $y }}" r="11" fill="none" stroke="var(--teal)" stroke-width="1.2" stroke-dasharray="2 2"/>
+        {{ end }}
+        {{ if $labels }}
+          {{- $lx := mul $labelR (math.Cos $angle) -}}
+          {{- $ly := mul $labelR (math.Sin $angle) -}}
+          {{- $anchor := "middle" -}}
+          {{- if gt $lx 10.0 }}{{ $anchor = "start" }}{{ else if lt $lx -10.0 }}{{ $anchor = "end" }}{{ end -}}
+          <text x="{{ printf "%.2f" $lx }}" y="{{ printf "%.2f" $ly }}" text-anchor="{{ $anchor }}" class="label-main" fill="{{ $color }}">{{ $a.verb }}</text>
+          <text x="{{ printf "%.2f" $lx }}" y="{{ printf "%.2f" (add $ly 18.0) }}" text-anchor="{{ $anchor }}" class="label-sub">({{ $a.alt }})</text>
+        {{ end }}
+      </a>
+    </g>
+  {{ end }}
+</svg>

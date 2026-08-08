@@ -1,0 +1,8 @@
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: warning
+swap:
+  "in order to": "to"
+  "utilize": "use"
+  "utilization": "use"
+  "a lot of": "many"

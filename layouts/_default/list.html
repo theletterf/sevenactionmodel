@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ partial "meta-block.html" . }}
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+  {{ if eq .Section "actions" }}
+    <ul class="action-list">
+      {{ range site.Data.model.actions }}
+        <li><a href="{{ printf "/actions/%s/" .id | relURL }}">{{ .verb }} <span class="mono">({{ .alt }})</span></a> — {{ .definition }}</li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

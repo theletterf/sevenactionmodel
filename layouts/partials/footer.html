@@ -1,0 +1,14 @@
+<footer class="site-footer">
+  <nav class="format-links" aria-label="Formats">
+    <a class="format-link" href="{{ .RelPermalink }}">HTML</a>
+    {{ with .OutputFormats.Get "md" }}<a class="format-link" href="{{ .Permalink }}">Markdown</a>{{ end }}
+    <a class="format-link" href="{{ "model.json" | relURL }}">JSON</a>
+    <a class="format-link" href="{{ "llms.txt" | relURL }}">llms.txt</a>
+  </nav>
+  <p class="footer-legal">
+    Content © {{ now.Year }} {{ site.Params.author }} — licensed under
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    Code licensed under <a href="https://opensource.org/licenses/MIT">MIT</a>.
+    <a href="{{ "sitemap.xml" | relURL }}">Sitemap</a>.
+  </p>
+</footer>

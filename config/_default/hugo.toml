@@ -1,0 +1,29 @@
+baseURL = "https://seven-action-model.example/"
+languageCode = "en-us"
+title = "Seven-Action Documentation Model"
+enableRobotsTXT = true
+# No tag/category taxonomies on this site.
+disableKinds = ["taxonomy", "term"]
+
+# Every page ships as HTML plus a raw Markdown mirror (index.md) at the same
+# path, following the passo.uno pattern. The home page also emits /llms.txt
+# and /model.json. One `hugo` command produces all four artifact types.
+[outputFormats.md]
+mediaType = "text/markdown"
+baseName = "index"
+isPlainText = true
+
+[outputFormats.llmstxt]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
+
+[outputFormats.modeljson]
+mediaType = "application/json"
+baseName = "model"
+isPlainText = true
+
+[outputs]
+home = ["HTML", "md", "llmstxt", "modeljson"]
+page = ["HTML", "md"]
+section = ["HTML", "md"]

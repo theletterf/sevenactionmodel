@@ -1,0 +1,21 @@
+# {{ site.Data.model.model.title }}
+
+> {{ site.Data.model.model.description }}
+
+- [Home]({{ site.Home.Permalink }}): {{ site.Data.model.model.description }}
+- [Rationale]({{ "rationale/" | absURL }}): The source essay behind the model.
+- [With Diataxis]({{ "with-diataxis/" | absURL }}): How the model relates to Diataxis.
+- [Adopt]({{ "adopt/" | absURL }}): How to adopt the model.
+- [Colophon]({{ "colophon/" | absURL }}): How this site is built.
+- [Changelog]({{ "changelog/" | absURL }}): Changes to the model and the site.
+
+## Actions
+
+{{ range site.Data.model.actions }}
+- [{{ .verb }} ({{ .alt }})]({{ printf "/actions/%s/" .id | absURL }}): {{ .definition }}
+{{ end }}
+
+## Formats
+
+- [model.json]({{ "model.json" | absURL }}): machine-readable model
+- [Markdown mirrors]({{ site.Home.Permalink }}): every page ships as index.md

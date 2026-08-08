@@ -1,0 +1,46 @@
+{{- /* Action page — renders entirely from data/model.yaml, bound by .Params.action */ -}}
+{{- $id := .Params.action | default (path.Base .File.Dir) -}}
+{{- $action := index (where site.Data.model.actions "id" $id) 0 -}}
+<div class="action-head">
+  <div class="title-wrap">
+    <h1 class="action-title">{{ $action.verb }} <span class="hl">{{ $action.alt }}</span></h1>
+    <p class="lede">{{ $action.definition }}</p>
+  </div>
+  {{ partial "heptagon.html" (dict "size" 88 "labels" false "active" $id) }}
+</div>
+
+<section class="section">
+  <h3>What the user wants to do</h3>
+  <p>{{ $action.description }}</p>
+</section>
+
+<section class="section">
+  <h3>Signals that your docs miss it</h3>
+  <ul>
+    {{ range $action.signals }}<li>{{ . }}</li>{{ end }}
+  </ul>
+</section>
+
+<section class="section">
+  <h3>Two examples in the wild</h3>
+  {{ range $action.examples }}
+    <div class="example">
+      <div class="ex-title"><a href="{{ .url }}">{{ .title }}</a></div>
+    </div>
+  {{ end }}
+</section>
+
+<section class="section">
+  <h3>Common content types</h3>
+  <p>{{ range $action.content_types }}<span class="tag">{{ . }}</span>{{ end }}</p>
+  <p class="lede">DITA elements: <span class="mono">{{ delimit $action.dita ", " }}</span></p>
+</section>
+
+<section class="section">
+  <h3>One metric</h3>
+  <p class="metric">{{ $action.metric.name }} <span class="unit">· {{ $action.metric.description }}</span></p>
+</section>
+
+{{ .Content }}
+
+{{ partial "prevnext.html" . }}

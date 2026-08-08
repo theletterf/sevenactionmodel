@@ -1,0 +1,11 @@
+extends: existence
+message: "Consider rewriting the passive voice."
+ignorecase: true
+level: warning
+tokens:
+  - is used
+  - are used
+  - was used
+  - were used
+  - has been
+  - have been

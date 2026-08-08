@@ -1,0 +1,370 @@
+/* ==========================================================================
+   Seven-Action Documentation Model — main stylesheet
+   Field-guide direction. Static CSS only. No JavaScript.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. FONTS (self-hosted woff2)
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Zilla Slab";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/zilla-slab-semibold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Zilla Slab Highlight";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/zilla-slab-highlight.woff2") format("woff2");
+}
+/* PLACEHOLDER — Google Sans Flex is proprietary and not on Google Fonts.
+   Drop the real woff2 into static/fonts/google-sans-flex.woff2 and verify the
+   axis tags against its fvar table (see README). Do not assume "GRAD"/"ROND". */
+@font-face {
+  font-family: "Google Sans Flex";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/google-sans-flex.woff2") format("woff2-variations");
+}
+/* PLACEHOLDER — Google Sans Code, same caveat. */
+@font-face {
+  font-family: "Google Sans Code";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/google-sans-code.woff2") format("woff2");
+}
+
+/* --------------------------------------------------------------------------
+   2. TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color — teal sampled from passo.uno (#2C7A7B) */
+  --paper:        #F7F5F2;
+  --paper-raised: #FFFFFF;
+  --ink:          #1C1C1C;
+  --ink-soft:     #5C5A57;
+  --ink-faint:    #8A8782;
+  --teal:         #2C7A7B;
+  --teal-light:   #5E9FA0;
+  --teal-deep:    #1F5556;
+  --teal-wash:    rgba(44, 122, 123, 0.10);
+  --rule:         #D9D5CF;
+  --rule-strong:  #B9B4AC;
+
+  /* Type */
+  --font-display:  "Zilla Slab", Georgia, serif;
+  --font-highlight: "Zilla Slab Highlight", "Zilla Slab", Georgia, serif;
+  --font-body:     "Google Sans Flex", "Inter", system-ui, sans-serif;
+  --font-mono:     "Google Sans Code", "Roboto Mono", ui-monospace, monospace;
+
+  /* Body tuning — 18px, 66ch measure, roundness lowered, grade tuned */
+  --body-size: 18px;
+  --leading: 1.6;
+  --measure: 66ch;
+  /* PLACEHOLDER axis tags — verify against the real Google Sans Flex fvar */
+  --body-variation: "GRAD" 0, "ROND" -100;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  --radius: 6px;
+}
+
+/* Dark mode — same teal on near-black, faint phosphor character */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:        #0E0E0E;
+    --paper-raised: #161616;
+    --ink:          #E9E7E3;
+    --ink-soft:     #A3A19C;
+    --ink-faint:    #6E6C68;
+    --teal:         #2C7A7B;
+    --teal-light:   #5E9FA0;
+    --teal-deep:    #1F5556;
+    --teal-wash:    rgba(94, 159, 160, 0.12);
+    --rule:         #2A2A2A;
+    --rule-strong:  #3A3A3A;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. BASE
+   -------------------------------------------------------------------------- */
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--leading);
+  font-variation-settings: var(--body-variation);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Centered single column, generous whitespace */
+.page {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-3) var(--space-6);
+}
+
+/* --------------------------------------------------------------------------
+   4. TYPE
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--space-2);
+  letter-spacing: -0.01em;
+}
+h1 { font-size: 2.6rem; }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.05rem; }
+
+p { margin: 0 0 var(--space-3); max-width: var(--measure); }
+
+a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal-wash);
+  transition: border-color 120ms ease, color 120ms ease;
+}
+a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
+
+.mono, .meta-block, .format-link, .tag, .prevnext, .label-sub, .wf-label {
+  font-family: var(--font-mono);
+}
+
+/* Highlight mark — active action, highlighter feel */
+.hl {
+  font-family: var(--font-highlight);
+  font-weight: 400;
+  color: var(--teal-deep);
+  background: var(--teal-wash);
+  padding: 0 0.1em;
+  border-radius: 2px;
+}
+@media (prefers-color-scheme: dark) { .hl { color: var(--teal-light); } }
+
+/* --------------------------------------------------------------------------
+   5. HEADER / NAV
+   -------------------------------------------------------------------------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-3) 0;
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ink);
+  border-bottom: none;
+}
+.wordmark .dot { color: var(--teal); }
+.site-nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.site-nav a { color: var(--ink-soft); border-bottom: none; font-size: 0.95rem; }
+.site-nav a:hover { color: var(--teal-deep); }
+
+/* --------------------------------------------------------------------------
+   6. COMPONENTS
+   -------------------------------------------------------------------------- */
+.masthead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  max-width: 24ch;
+  margin: 0 0 var(--space-4);
+}
+.masthead .hl { font-size: 1.9rem; }
+
+.page-title { font-size: 2.6rem; }
+
+.lede { color: var(--ink-soft); }
+
+.meta-block {
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--teal);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  margin: 0 0 var(--space-4);
+  max-width: var(--measure);
+}
+.meta-block .k { color: var(--ink-faint); }
+.meta-block .v { color: var(--ink); }
+
+.format-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--rule);
+}
+.format-link {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  border-bottom: none;
+  padding: 0.2em 0.6em;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+}
+.format-link:hover { color: var(--teal-deep); border-color: var(--teal); }
+
+.tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--teal-deep);
+  background: var(--teal-wash);
+  border-radius: 999px;
+  padding: 0.15em 0.7em;
+  margin: 0 0.4em 0.4em 0;
+}
+@media (prefers-color-scheme: dark) { .tag { color: var(--teal-light); } }
+
+.footer-legal {
+  margin-top: var(--space-3);
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+/* Cite-this */
+.cite-this { margin-top: var(--space-5); }
+.cite-plain { font-size: 0.85rem; color: var(--ink-soft); }
+.bibtex {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  overflow-x: auto;
+  max-width: var(--measure);
+}
+
+/* --------------------------------------------------------------------------
+   7. HEPTAGON
+   -------------------------------------------------------------------------- */
+.heptagon { display: block; height: auto; }
+.heptagon-hero { max-width: 34rem; margin: 0 auto; }
+.heptagon-hero .vertex-dot { transition: filter 120ms ease; }
+.heptagon-hero a:hover .vertex-dot { filter: brightness(1.15); }
+.heptagon-hero .label-main {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+.heptagon-hero .label-sub { font-size: 10px; fill: var(--ink-faint); }
+.heptagon-wayfinder { flex: none; }
+.heptagon-wayfinder .wf-label { font-size: 8px; fill: var(--ink-faint); }
+@media (prefers-color-scheme: dark) {
+  .heptagon-hero .vertex-dot,
+  .heptagon-wayfinder .vertex-dot { filter: drop-shadow(0 0 4px var(--teal-light)); }
+}
+
+/* --------------------------------------------------------------------------
+   8. ACTION PAGE
+   -------------------------------------------------------------------------- */
+.action-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.action-head .title-wrap { flex: 1; }
+.action-title { font-size: 2.6rem; margin-bottom: var(--space-1); }
+.action-title .hl { font-size: 2.6rem; }
+
+.section { margin: 0 0 var(--space-4); }
+.section h3 { margin-bottom: var(--space-1); }
+.section p, .section ul { max-width: var(--measure); }
+.section ul { padding-left: 1.2em; margin: 0 0 var(--space-3); }
+.section li { margin-bottom: 0.5em; }
+
+.example {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--teal);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-3);
+  margin: 0 0 var(--space-2);
+  max-width: var(--measure);
+}
+.example .ex-title { font-family: var(--font-display); font-weight: 600; font-size: 1rem; margin-bottom: 0.3em; }
+.example .ex-title a { border-bottom: none; }
+
+.metric {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: var(--teal-deep);
+  margin: var(--space-1) 0 0;
+}
+@media (prefers-color-scheme: dark) { .metric { color: var(--teal-light); } }
+.metric .unit { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; }
+
+.action-list { list-style: none; padding-left: 0; }
+.action-list li { margin-bottom: var(--space-2); max-width: var(--measure); }
+.action-list a { border-bottom: none; font-family: var(--font-display); font-weight: 600; }
+
+.prevnext {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--rule);
+  font-size: 0.78rem;
+}
+.prevnext a { color: var(--ink-soft); border-bottom: none; max-width: 40%; }
+.prevnext a:hover { color: var(--teal-deep); }
+.prevnext .dir { display: block; color: var(--ink-faint); font-size: 0.7rem; margin-bottom: 0.2em; }
+.prevnext .t { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.prevnext a:hover .t { color: var(--teal-deep); }
+.prevnext .next { text-align: right; }
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  .action-head { flex-direction: column; }
+  h1, .action-title { font-size: 2rem; }
+  .masthead, .masthead .hl { font-size: 1.5rem; }
+  .site-header { flex-direction: column; }
+}
+
+/* --------------------------------------------------------------------------
+   10. PRINT
+   -------------------------------------------------------------------------- */
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .site-header, .site-nav, .format-links, .prevnext, .heptagon { display: none; }
+  .page { max-width: none; padding: 0; }
+  a { color: #000; border-bottom: none; }
+  .meta-block { border-color: #000; }
+}
