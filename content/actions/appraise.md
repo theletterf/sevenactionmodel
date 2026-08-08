@@ -4,8 +4,8 @@ action: "appraise"
 scope: "action: appraise"
 ---
 
-Users of documentation are also potential customers or adopters. Before anyone reads a how-to guide or an API reference, they need to know whether the product is worth their time. Appraisal is the action of figuring out what something is, what it can do, and whether it fits the problem at hand. It is a discovery process, and it happens early.
+Users of documentation are also potential customers or adopters. A software product or project thrives if its active users increase. A reader of documentation must be able to discern what are the main qualities of the product and, if applicable, compare it to others. This is a discovery process.
 
-This dimension of understated selling is frequently neglected in documentation frameworks. When docs do not address appraisal, marketing steps in to fill the gap — and marketing copy is not documentation. The result is a blurred line where SEO-driven pages masquerade as docs, and the reader cannot tell whether they are being informed or sold to.
+Two examples of docs that address appraisal somehow explicitly are [What is Databricks?](https://docs.databricks.com/en/introduction/index.html) and the [Splunk Observability Cloud Service Description](https://docs.splunk.com/observability/en/get-started/service-description.html) (which I created). They present the main strengths and positioning of the product, alongside bits that help prospects decide whether to go forward.
 
-If docs are produced with appraisal in mind, keeping marketing at bay becomes simpler. A well-written product overview or service description gives the reader enough to make a decision without hype. It also unlocks a metric that most docs teams never track: conversion from reader to adopter.
+This dimension of understated selling is frequently neglected in documentation frameworks, letting SEO and marketing steer docs into something that isn't documentation. If docs are produced with appraisal in mind, then keeping marketing at bay is simpler, and also unlocks conversion metrics.

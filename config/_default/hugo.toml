@@ -1,4 +1,4 @@
-baseURL = "https://seven-action-model.example/"
+baseURL = "https://7act.org/"
 languageCode = "en-us"
 title = "Seven-Action Documentation Model"
 enableRobotsTXT = true

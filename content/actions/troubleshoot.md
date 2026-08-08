@@ -4,8 +4,8 @@ action: "troubleshoot"
 scope: "action: troubleshoot"
 ---
 
-Stumbling on problems — misconfigurations, edge cases, or actual bugs — is a universal user experience. The troubleshooting action represents the need to diagnose and resolve issues efficiently, often under pressure. A system is down. A deadline is looming. A build is red. The user is not browsing; they are hunting.
+Stumbling on problems, whether due to misconfigurations, edge cases, or actual bugs, is a common user trope. The troubleshooting action represents the users' need to diagnose and resolve issues efficiently, often under pressure when systems are failing or deadlines are looming.
 
-The most effective troubleshooting docs go beyond listing common problems and their solutions. They teach the user how to think about the system when it is not working as expected. They provide a method: here is how to isolate the problem, here are the logs to check, here is what each symptom implies, here is the path from cause to remedy.
+Examples of docs that address troubleshooting include [Kubernetes' Debug Pods](https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/) and [Elasticsearch's Troubleshooting](https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html). The most effective troubleshooting docs go beyond listing common problems and solutions; they teach users how to think about the system when it's not working as expected.
 
-While it is tempting to treat troubleshooting docs as a reactive resource — something you write after the support tickets pile up — they can be transformative in building user confidence. When users understand how to recover from failures, they become more willing to explore and push boundaries, knowing they have a safety net. The metric that matters is time-to-resolution: how many minutes pass between the user landing on the page and reaching a working state.
+While you may be tempted to consider these docs a reactive resource, they can be transformative in building user confidence. When users understand how to recover from failures, they become more willing to explore and push boundaries, knowing they have a safety net to fall back on.

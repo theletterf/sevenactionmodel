@@ -35,13 +35,23 @@
 
 <section class="section">
   <h3>Common content types</h3>
-  <p>{{ range $action.content_types }}<span class="tag">{{ . }}</span>{{ end }}</p>
-  <p class="lede">DITA elements: <span class="mono">{{ delimit $action.dita ", " }}</span></p>
+  <div class="table-wrap">
+    <table class="content-types">
+      <thead>
+        <tr><th>DITA</th><th>Diataxis</th><th>Good Docs Project</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ delimit $action.frameworks.dita ", " }}</td>
+          <td>{{ delimit $action.frameworks.diataxis ", " }}</td>
+          <td>{{ delimit $action.frameworks.good_docs ", " }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <section class="section">
   <h3>One metric</h3>
   <p class="metric">{{ $action.metric.name }} <span class="unit">· {{ $action.metric.description }}</span></p>
 </section>
-
-{{ partial "prevnext.html" . }}

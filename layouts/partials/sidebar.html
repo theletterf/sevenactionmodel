@@ -1,10 +1,30 @@
 <aside class="sidebar">
-  <a class="wordmark" href="{{ site.Home.RelPermalink }}">seven-action<span class="dot">.</span>model</a>
+  <a class="wordmark" href="{{ site.Home.RelPermalink }}">7act<span class="dot">.</span>org</a>
 
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
+  {{ $cp := .RelPermalink }}
+  {{ $introActive := eq $cp (relURL "rationale/") }}
+  <div class="side-intro">
+    <a href="{{ "rationale/" | relURL }}" class="side-link{{ if $introActive }} active{{ end }}">
+      <span class="side-verb">Introduction</span>
+    </a>
+    {{ if $introActive }}
+      {{ with site.GetPage "/rationale" }}
+        {{ $forceRender := .Content }}
+        {{ if .Fragments.Headings }}
+          <nav class="side-subnav" aria-label="On this page">
+            {{ range .Fragments.Headings }}
+              {{ if .Title }}
+                <a href="{{ printf "#%s" .ID | safeURL }}" class="side-sublink">{{ .Title | safeHTML }}</a>
+              {{ end }}
+              {{ range .Headings }}
+                <a href="{{ printf "#%s" .ID | safeURL }}" class="side-sublink">{{ .Title | safeHTML }}</a>
+              {{ end }}
+            {{ end }}
+          </nav>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
 
   <nav class="side-nav" aria-label="Actions">
     <p class="side-label">Actions</p>
@@ -17,11 +37,8 @@
     {{ end }}
   </nav>
 
-  <nav class="side-nav side-nav--pages" aria-label="Pages">
-    <p class="side-label">About</p>
-    {{ $cp := .RelPermalink }}
-    <a href="{{ "rationale/" | relURL }}" class="side-link{{ if eq $cp (relURL "rationale/") }} active{{ end }}">Rationale</a>
-    <a href="{{ "with-diataxis/" | relURL }}" class="side-link{{ if eq $cp (relURL "with-diataxis/") }} active{{ end }}">With Diataxis</a>
-    <a href="{{ "adopt/" | relURL }}" class="side-link{{ if eq $cp (relURL "adopt/") }} active{{ end }}">Adopt</a>
-  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
 </aside>

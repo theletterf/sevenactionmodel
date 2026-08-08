@@ -11,32 +11,27 @@
 {{- $size   := default 400 .size -}}
 {{- $labels := default true .labels -}}
 {{- $active := default "" .active -}}
+{{- $height := $size -}}
+{{- if $labels }}{{ $height = int (mul (float $size) 0.75) }}{{ end -}}
 {{- $r := 100.0 -}}
 {{- $labelR := 142.0 -}}
 {{- $n := len $actions -}}
 {{- $step := div (mul 2.0 math.Pi) (float $n) -}}
-{{- $stageColor := dict "early" "var(--teal-light)" "mid" "var(--teal)" "late" "var(--teal-deep)" -}}
+{{- $color := "var(--teal-light)" -}}
 <svg class="heptagon {{ if $labels }}heptagon-hero{{ else }}heptagon-wayfinder{{ end }}"
      viewBox="{{ if $labels }}-240 -180 480 360{{ else }}-120 -120 240 240{{ end }}"
-     width="{{ $size }}" height="{{ $size }}"
+     width="{{ $size }}" height="{{ $height }}"
      xmlns="http://www.w3.org/2000/svg" role="img"
      aria-labelledby="heptagon-title heptagon-desc">
   <title id="heptagon-title">Seven-Action Documentation Model</title>
   <desc id="heptagon-desc">{{ if $active }}You are here: {{ $active }}{{ else }}Heptagon of user actions{{ end }}</desc>
-  <defs>
-    <linearGradient id="heptagon-grad" x1="0" y1="-100" x2="0" y2="100" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="var(--teal-light)"/>
-      <stop offset="1" stop-color="var(--teal-deep)"/>
-    </linearGradient>
-  </defs>
   <polygon points="{{ range $i, $a := $actions }}{{ $angle := add (div math.Pi -2.0) (mul (float $i) $step) }}{{ $x := mul $r (math.Cos $angle) }}{{ $y := mul $r (math.Sin $angle) }}{{ printf "%.2f,%.2f " $x $y }}{{ end }}"
-           fill="none" stroke="{{ if $labels }}url(#heptagon-grad){{ else }}var(--teal){{ end }}"
+           fill="none" stroke="{{ $color }}"
            stroke-width="2" stroke-linejoin="miter" stroke-linecap="square"/>
   {{ range $i, $a := $actions }}
     {{- $angle := add (div math.Pi -2.0) (mul (float $i) $step) -}}
     {{- $x := mul $r (math.Cos $angle) -}}
     {{- $y := mul $r (math.Sin $angle) -}}
-    {{- $color := index $stageColor $a.stage -}}
     {{- $isActive := eq $a.id $active -}}
     {{- $dotR := 4.0 -}}
     {{- if $isActive }}{{ $dotR = 6.0 }}{{ else if not $labels }}{{ $dotR = 2.5 }}{{ end -}}

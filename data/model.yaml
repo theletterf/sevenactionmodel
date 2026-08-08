@@ -2,11 +2,6 @@
 # Seven-Action Documentation Model — single source of truth
 # The action pages, the heptagon labels, and model.json all render from here.
 # No fact about the model may live only in a template.
-#
-# stage: the phase of the user's journey that the vertex represents on the
-#   heptagon (top = early / initial, bottom = late / consolidated), per the
-#   source essay's framing. Maps to the teal scale: early -> teal-light,
-#   mid -> teal, late -> teal-deep.
 # ============================================================================
 
 model:
@@ -24,7 +19,6 @@ actions:
   - id: appraise
     verb: Appraise
     alt: Discern
-    stage: early
     definition: "Discern the main qualities of the product and, if applicable, compare it to others."
     description: >-
       Users of documentation are also potential customers or adopters. A reader
@@ -39,51 +33,22 @@ actions:
         url: "https://docs.databricks.com/en/introduction/index.html"
       - title: "Splunk Observability Cloud Service Description"
         url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
-    content_types:
-      - "Overview"
-      - "Product description"
-      - "Service description"
-    dita:
-      - "<topic>"
-      - "<concept>"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "No direct equivalent (closest: Explanation)"
+      good_docs:
+        - "Overview"
+        - "Landing page"
     metric:
       name: "conversion"
       description: "Conversion rate from docs to product adoption."
 
-  - id: understand
-    verb: Understand
-    alt: Learn
-    stage: early
-    definition: "Grasp the abstractions and mental models the product is built around."
-    description: >-
-      Software products are built around abstractions that are difficult to
-      grasp yet fundamental to proper usage. Conceptual documentation anchors
-      learnings alongside exploration and practice.
-    signals:
-      - "Users can operate the product but cannot explain why it works the way it does."
-      - "Concepts are explained only in code comments or internal wikis."
-      - "There is no glossary or conceptual guide for the product's core abstractions."
-    examples:
-      - title: "Kubernetes Concepts"
-        url: "https://kubernetes.io/docs/concepts/overview/components/"
-      - title: "Thinking in React"
-        url: "https://react.dev/learn/thinking-in-react"
-    content_types:
-      - "Conceptual guide"
-      - "Explanation"
-      - "Glossary"
-    dita:
-      - "<concept>"
-      - "<glossentry>"
-      - "<section>"
-    metric:
-      name: "concept coverage"
-      description: "Share of core abstractions with a dedicated conceptual page."
-
   - id: explore
     verb: Explore
     alt: Discover
-    stage: mid
     definition: "Try the product and discover what it can do with a low barrier to entry."
     description: >-
       Great products invite users to interact and try new things. Documentation
@@ -98,53 +63,22 @@ actions:
         url: "https://react.dev/learn"
       - title: "Tour of Go"
         url: "https://go.dev/tour/welcome/1"
-    content_types:
-      - "Quick start"
-      - "Tutorial"
-      - "Sandbox"
-      - "Lab"
-    dita:
-      - "<task>"
-      - "<step>"
-      - "<substep>"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "Tutorial"
+      good_docs:
+        - "Tutorial"
     metric:
       name: "time-to-first-value"
       description: "Time from first visit to a successful first interaction."
 
-  - id: practice
-    verb: Practice
-    alt: Train
-    stage: late
-    definition: "Learn how to operate the product in daily, standard operation."
-    description: >-
-      Users need to learn how to operate most parts of a product. Practice
-      describes the need for procedural knowledge — how to use the product in
-      daily, standard operation.
-    signals:
-      - "The same how-to questions recur in support and community channels."
-      - "Procedures exist only as tribal knowledge or in someone's head."
-      - "There is no step-by-step guide for common administrative tasks."
-    examples:
-      - title: "Generating a new SSH key (GitHub)"
-        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
-      - title: "Import contacts to MailChimp"
-        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
-    content_types:
-      - "How-to guide"
-      - "User guide"
-      - "Tutorial"
-    dita:
-      - "<task>"
-      - "<step>"
-      - "<choicetable>"
-    metric:
-      name: "task success"
-      description: "Share of users who complete a standard procedure without support."
-
   - id: remember
     verb: Remember
     alt: Recall
-    stage: late
     definition: "Recall bits of information that could not be memorized, from parameters to error codes."
     description: >-
       Reference keeps documentation alive after years of use. Users browse
@@ -159,52 +93,23 @@ actions:
         url: "https://docs.docker.com/reference/dockerfile/"
       - title: "GitLab CI/CD YAML syntax reference"
         url: "https://docs.gitlab.com/ee/ci/yaml/"
-    content_types:
-      - "API reference"
-      - "Command reference"
-      - "Glossary"
-    dita:
-      - "<reference>"
-      - "<refsyn>"
-      - "<properties>"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "Reference"
+      good_docs:
+        - "Reference"
+        - "Glossary"
     metric:
       name: "reference hit rate"
       description: "Share of reference lookups that return the right page."
 
-  - id: develop
-    verb: Develop
-    alt: Integrate
-    stage: mid
-    definition: "Build upon, extend, or integrate with the product to create additional value."
-    description: >-
-      Users often need to build upon, extend, or integrate with existing
-      products — through integrations, extensions, plugins, or entirely new
-      applications. The focus is almost always pragmatic.
-    signals:
-      - "Integration and extension questions go unanswered or to a forum."
-      - "There is no guide for building on top of the product."
-      - "The product's extension points are undocumented."
-    examples:
-      - title: "Vercel Approval Checklist"
-        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
-      - title: "Chrome Debug extensions"
-        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
-    content_types:
-      - "Integration guide"
-      - "Development guidelines"
-      - "Style guide"
-    dita:
-      - "<task>"
-      - "<codeblock>"
-      - "<coderef>"
-    metric:
-      name: "ecosystem growth"
-      description: "Number of integrations or extensions built by users."
-
   - id: troubleshoot
     verb: Troubleshoot
     alt: Solve
-    stage: early
     definition: "Diagnose and resolve issues efficiently, often under pressure."
     description: >-
       Stumbling on problems — misconfigurations, edge cases, or actual bugs —
@@ -220,15 +125,108 @@ actions:
         url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
       - title: "Elasticsearch Troubleshooting"
         url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
-    content_types:
-      - "Troubleshooting"
-      - "Error reference"
-      - "Optimization guide"
-    dita:
-      - "<troubleshooting>"
-      - "<trouble>"
-      - "<cause>"
-      - "<remedy>"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "How-to guide (problem-oriented)"
+      good_docs:
+        - "Troubleshooting guide"
     metric:
       name: "time-to-resolution"
       description: "Median time from symptom to a working state."
+
+  - id: develop
+    verb: Develop
+    alt: Integrate
+    definition: "Build upon, extend, or integrate with the product to create additional value."
+    description: >-
+      Users often need to build upon, extend, or integrate with existing
+      products — through integrations, extensions, plugins, or entirely new
+      applications. The focus is almost always pragmatic.
+    signals:
+      - "Integration and extension questions go unanswered or to a forum."
+      - "There is no guide for building on top of the product."
+      - "The product's extension points are undocumented."
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "How-to guide"
+      good_docs:
+        - "How-to guide"
+        - "API reference"
+    metric:
+      name: "ecosystem growth"
+      description: "Number of integrations or extensions built by users."
+
+  - id: practice
+    verb: Practice
+    alt: Train
+    definition: "Learn how to operate the product in daily, standard operation."
+    description: >-
+      Users need to learn how to operate most parts of a product. Practice
+      describes the need for procedural knowledge — how to use the product in
+      daily, standard operation.
+    signals:
+      - "The same how-to questions recur in support and community channels."
+      - "Procedures exist only as tribal knowledge or in someone's head."
+      - "There is no step-by-step guide for common administrative tasks."
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "How-to guide"
+      good_docs:
+        - "How-to guide"
+    metric:
+      name: "task success"
+      description: "Share of users who complete a standard procedure without support."
+
+  - id: understand
+    verb: Understand
+    alt: Learn
+    definition: "Grasp the abstractions and mental models the product is built around."
+    description: >-
+      Software products are built around abstractions that are difficult to
+      grasp yet fundamental to proper usage. Conceptual documentation anchors
+      learnings alongside exploration and practice.
+    signals:
+      - "Users can operate the product but cannot explain why it works the way it does."
+      - "Concepts are explained only in code comments or internal wikis."
+      - "There is no glossary or conceptual guide for the product's core abstractions."
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "Explanation"
+      good_docs:
+        - "Concept guide"
+        - "Glossary"
+    metric:
+      name: "concept coverage"
+      description: "Share of core abstractions with a dedicated conceptual page."

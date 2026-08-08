@@ -1,7 +1,10 @@
 {{ define "main" }}
   <h1 class="page-title">The Seven-Action Documentation Model</h1>
-  {{ .Content }}
-  <div class="hero-heptagon">
-    {{ partial "heptagon.html" (dict "size" 720 "labels" true "active" "") }}
+  <div class="home-tagline">
+    {{ .Content }}
   </div>
+  <div class="hero-heptagon">
+    {{ partial "heptagon.html" (dict "size" 820 "labels" true "active" "") }}
+  </div>
+  <p class="home-cta"><a href="{{ "rationale/" | relURL }}">Read the introduction &rarr;</a></p>
 {{ end }}
