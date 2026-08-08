@@ -1,9 +1,190 @@
-model: { version: "2025-01-09", license: "CC BY 4.0", title: "Modèle de documentation à sept actions", description: "Un modèle descriptif des besoins des utilisateurs de documentation technique en sept actions.", canonical: "https://7act.org/", source: "https://7act.org/" }
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "Modèle de documentation à sept actions"
+  description: >-
+    Un modèle descriptif des besoins des utilisateurs de documentation technique.
+    Sept actions couvrent les objectifs qu’un consommateur de documentation peut
+    vouloir atteindre : Évaluer, Comprendre, Explorer, Pratiquer, Se souvenir,
+    Développer, Dépanner.
+  canonical: "https://7act.org/"
+  source: "https://7act.org/"
+
 actions:
-  - { id: appraise, verb: "Évaluer", alt: "Distinguer", definition: "Distinguer les qualités principales du produit et le comparer si nécessaire.", description: "Les prospects doivent comprendre le positionnement et les forces du produit avant de l’adopter.", signals: ["Les questions « qu’est-ce que c’est ? » se répètent.", "Les prospects n’apprennent qu’auprès du marketing.", "Aucune page ne présente positionnement et forces."], metric: { name: "conversion", description: "Passage de la documentation à l’adoption du produit." } }
-  - { id: explore, verb: "Explorer", alt: "Découvrir", definition: "Essayer le produit et découvrir ses possibilités avec peu de friction.", description: "La documentation doit faciliter l’interaction et l’essai dès le début.", signals: ["Pas de démarrage rapide ni de bac à sable.", "La première expérience est une masse de référence.", "Il faut lire tout un manuel avant d’essayer."], metric: { name: "temps jusqu’à la première valeur", description: "Temps avant une première interaction réussie." } }
-  - { id: remember, verb: "Se souvenir", alt: "Retrouver", definition: "Retrouver des informations non mémorisables, des paramètres aux erreurs.", description: "La référence maintient l’utilité de la documentation sur le long terme.", signals: ["Paramètre ou code d’erreur introuvable.", "La référence est dispersée.", "Aucune référence structurée et consultable."], metric: { name: "taux de succès de la référence", description: "Part des recherches qui atteignent la bonne réponse." } }
-  - { id: troubleshoot, verb: "Dépanner", alt: "Résoudre", definition: "Diagnostiquer et résoudre efficacement des problèmes, souvent sous pression.", description: "Les erreurs et cas limites exigent un chemin fiable vers le rétablissement.", signals: ["Les tickets d’assistance se répètent.", "Les messages d’erreur ne sont pas documentés.", "Une recherche d’erreur ne mène pas au remède."], metric: { name: "temps de résolution", description: "Temps médian entre symptôme et état fonctionnel." } }
-  - { id: develop, verb: "Développer", alt: "Intégrer", definition: "Développer sur le produit, l’étendre ou l’intégrer pour créer de la valeur.", description: "La documentation d’intégration transforme les capacités du produit en valeur nouvelle.", signals: ["Questions d’intégration sans réponse.", "Pas de guide pour construire sur le produit.", "Points d’extension non documentés."], metric: { name: "croissance de l’écosystème", description: "Nombre d’intégrations et extensions créées." } }
-  - { id: practice, verb: "Pratiquer", alt: "S’entraîner", definition: "Apprendre à utiliser le produit dans l’exploitation quotidienne.", description: "Les utilisateurs ont besoin de connaissances procédurales pour les tâches récurrentes.", signals: ["Les questions pratiques se répètent.", "Les procédures ne sont que du savoir oral.", "Pas de guide pas à pas pour les tâches courantes."], metric: { name: "réussite de la tâche", description: "Part des utilisateurs qui terminent sans assistance." } }
-  - { id: understand, verb: "Comprendre", alt: "Apprendre", definition: "Saisir les abstractions et modèles mentaux du produit.", description: "La documentation conceptuelle ancre l’apprentissage autour des idées fondamentales.", signals: ["L’utilisateur ne comprend pas le pourquoi.", "Les concepts ne figurent que dans les commentaires.", "Pas de glossaire ni de guide conceptuel."], metric: { name: "couverture des concepts", description: "Part des abstractions clés ayant une page dédiée." } }
+  - id: appraise
+    verb: "Évaluer"
+    alt: "Distinguer"
+    definition: "Distinguer les principales qualités du produit et, si nécessaire, le comparer à d’autres."
+    description: >-
+      Les utilisateurs de documentation sont aussi des clients ou adoptants
+      potentiels. Un lecteur doit pouvoir distinguer les principales qualités
+      du produit et le comparer à d’autres. C’est un processus de découverte.
+    signals:
+      - "Le support et les ventes répondent sans cesse aux mêmes questions : « Qu’est-ce que c’est ? »"
+      - "Les prospects découvrent ce que fait le produit dans le marketing, pas dans la documentation."
+      - "Aucune page n’expose le positionnement ou les forces principales du produit."
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita: ["<topic>", "<concept>"]
+      diataxis: ["Pas d’équivalent direct (le plus proche : Explication)"]
+      good_docs: ["Vue d’ensemble", "Page d’accueil"]
+    metric:
+      name: "conversion"
+      description: "Taux de conversion de la documentation vers l’adoption du produit."
+
+  - id: explore
+    verb: "Explorer"
+    alt: "Découvrir"
+    definition: "Essayer le produit et découvrir ce qu’il peut faire avec une faible barrière à l’entrée."
+    description: >-
+      Les grands produits invitent les utilisateurs à interagir et à essayer de
+      nouvelles choses. La documentation devrait fournir des indices, des
+      instructions et des possibilités d’action qui facilitent l’exploration,
+      l’une des premières activités.
+    signals:
+      - "Les nouveaux utilisateurs ne trouvent ni démarrage rapide ni bac à sable pour essayer le produit."
+      - "La première expérience est un mur de référence, pas une visite guidée."
+      - "Les utilisateurs doivent lire un manuel complet avant de pouvoir toucher au produit."
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita: ["<task>", "<step>", "<substep>"]
+      diataxis: ["Tutoriel"]
+      good_docs: ["Tutoriel"]
+    metric:
+      name: "temps jusqu’à la première valeur"
+      description: "Temps entre la première visite et la première interaction réussie."
+
+  - id: remember
+    verb: "Se souvenir"
+    alt: "Rappeler"
+    definition: "Retrouver des fragments d’information impossibles à mémoriser, des paramètres aux codes d’erreur."
+    description: >-
+      La référence maintient la documentation vivante après des années d’usage.
+      Les utilisateurs parcourent les manuels pour se souvenir, rappeler,
+      retrouver ou rechercher des informations qu’ils ne pouvaient mémoriser.
+    signals:
+      - "Les utilisateurs cherchent un paramètre ou un code d’erreur et ne trouvent rien."
+      - "La matière de référence est dispersée entre articles de blog et journaux de discussion."
+      - "Il n’existe aucune référence structurée et consultable pour la syntaxe ou les réglages du produit."
+    examples:
+      - title: "Référence Dockerfile"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "Référence de syntaxe YAML CI/CD de GitLab"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita: ["<reference>", "<refsyn>", "<properties>"]
+      diataxis: ["Référence"]
+      good_docs: ["Référence", "Glossaire"]
+    metric:
+      name: "taux de succès de la référence"
+      description: "Part des consultations de référence qui aboutissent à la bonne page."
+
+  - id: troubleshoot
+    verb: "Dépanner"
+    alt: "Résoudre"
+    definition: "Diagnostiquer et résoudre efficacement les problèmes, souvent sous pression."
+    description: >-
+      Rencontrer des problèmes — mauvaises configurations, cas limites ou vrais
+      bogues — est courant. Dépanner représente le besoin de les diagnostiquer
+      et de les résoudre efficacement, souvent sous pression, quand les
+      systèmes échouent ou que les échéances approchent.
+    signals:
+      - "Les tickets de support répètent la même question et la réponse vit dans un journal de discussion, pas dans la documentation."
+      - "Les messages d’erreur apparaissent dans le code mais jamais dans la documentation."
+      - "Les utilisateurs cherchent une chaîne d’erreur et arrivent sur une page qui ne la mentionne pas."
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita: ["<troubleshooting>", "<trouble>", "<cause>", "<remedy>"]
+      diataxis: ["Guide pratique (orienté problème)"]
+      good_docs: ["Guide de dépannage"]
+    metric:
+      name: "temps de résolution"
+      description: "Temps médian entre le symptôme et un état fonctionnel."
+
+  - id: develop
+    verb: "Développer"
+    alt: "Intégrer"
+    definition: "Construire sur le produit, l’étendre ou l’intégrer afin de créer de la valeur supplémentaire."
+    description: >-
+      Les utilisateurs doivent souvent construire sur des produits existants,
+      les étendre ou les intégrer — au moyen d’intégrations, d’extensions, de
+      modules ou d’applications entièrement nouvelles. L’accent est presque
+      toujours pragmatique.
+    signals:
+      - "Les questions d’intégration et d’extension restent sans réponse ou sont renvoyées vers un forum."
+      - "Il n’existe aucun guide pour construire sur le produit."
+      - "Les points d’extension du produit ne sont pas documentés."
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita: ["<task>", "<codeblock>", "<coderef>"]
+      diataxis: ["Guide pratique"]
+      good_docs: ["Guide pratique", "Référence d’API"]
+    metric:
+      name: "croissance de l’écosystème"
+      description: "Nombre d’intégrations ou d’extensions créées par les utilisateurs."
+
+  - id: practice
+    verb: "Pratiquer"
+    alt: "S’entraîner"
+    definition: "Apprendre à utiliser le produit dans son exploitation quotidienne et courante."
+    description: >-
+      Les utilisateurs doivent apprendre à utiliser la plupart des parties d’un
+      produit. Pratiquer décrit le besoin de connaissances procédurales :
+      savoir employer le produit dans les opérations quotidiennes et courantes.
+    signals:
+      - "Les mêmes questions de type « comment faire ? » reviennent dans le support et les communautés."
+      - "Les procédures n’existent que comme savoir oral ou dans la tête de quelqu’un."
+      - "Il n’existe pas de guide pas à pas pour les tâches administratives courantes."
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita: ["<task>", "<step>", "<choicetable>"]
+      diataxis: ["Guide pratique"]
+      good_docs: ["Guide pratique"]
+    metric:
+      name: "réussite de la tâche"
+      description: "Part des utilisateurs qui réalisent une procédure standard sans assistance."
+
+  - id: understand
+    verb: "Comprendre"
+    alt: "Apprendre"
+    definition: "Saisir les abstractions et les modèles mentaux sur lesquels le produit est construit."
+    description: >-
+      Les produits logiciels sont construits autour d’abstractions difficiles à
+      saisir mais fondamentales pour un bon usage. La documentation conceptuelle
+      ancre les apprentissages aux côtés de l’exploration et de la pratique.
+    signals:
+      - "Les utilisateurs peuvent utiliser le produit, mais ne peuvent expliquer pourquoi il fonctionne ainsi."
+      - "Les concepts ne sont expliqués que dans les commentaires du code ou des wikis internes."
+      - "Il n’existe pas de glossaire ni de guide conceptuel sur les abstractions centrales du produit."
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita: ["<concept>", "<glossentry>", "<section>"]
+      diataxis: ["Explication"]
+      good_docs: ["Guide conceptuel", "Glossaire"]
+    metric:
+      name: "couverture des concepts"
+      description: "Part des abstractions centrales disposant d’une page conceptuelle dédiée."

@@ -50,16 +50,3 @@ languageName = "فارسی"
 languageDirection = "rtl"
 title = "مدل مستندسازی هفت‌کنشی"
 weight = 8
-
-[hi]
-languageCode = "hi"
-languageName = "हिन्दी"
-title = "सात-क्रिया दस्तावेज़ीकरण मॉडल"
-weight = 9
-
-[ur]
-languageCode = "ur"
-languageName = "اردو"
-languageDirection = "rtl"
-title = "سات عملی دستاویزاتی نمونہ"
-weight = 10

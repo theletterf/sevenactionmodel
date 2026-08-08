@@ -1,9 +1,190 @@
-model: { version: "2025-01-09", license: "CC BY 4.0", title: "Sieben-Aktionen-Dokumentationsmodell", description: "Ein beschreibendes Modell technischer Dokumentationsbedürfnisse in sieben Aktionen.", canonical: "https://7act.org/", source: "https://7act.org/" }
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "Sieben-Aktionen-Dokumentationsmodell"
+  description: >-
+    Ein beschreibendes Modell der Nutzerbedürfnisse an technische Dokumentation.
+    Sieben Aktionen decken Ziele ab, die Konsumenten von Dokumentation erreichen
+    möchten: Bewerten, Verstehen, Erkunden, Üben, Erinnern, Entwickeln,
+    Fehler beheben.
+  canonical: "https://7act.org/"
+  source: "https://7act.org/"
+
 actions:
-  - { id: appraise, verb: "Bewerten", alt: "Erkennen", definition: "Die wichtigsten Produkteigenschaften erkennen und bei Bedarf vergleichen.", description: "Potenzielle Anwender müssen Positionierung und Stärken vor der Entscheidung verstehen.", signals: ["Fragen wie „Was ist das?“ wiederholen sich.", "Interessenten lernen nur aus Marketingmaterial.", "Es gibt keine Seite zu Positionierung und Stärken."], metric: { name: "Conversion", description: "Übergang von Dokumentation zur Produktannahme." } }
-  - { id: explore, verb: "Erkunden", alt: "Entdecken", definition: "Das Produkt mit geringer Einstiegshürde ausprobieren und entdecken.", description: "Dokumentation soll Interaktion und Ausprobieren früh erleichtern.", signals: ["Kein Schnellstart oder Sandbox.", "Die erste Erfahrung ist eine Referenzwand.", "Vor dem Ausprobieren muss ein Handbuch gelesen werden."], metric: { name: "Zeit bis zum ersten Nutzen", description: "Zeit bis zur ersten erfolgreichen Interaktion." } }
-  - { id: remember, verb: "Erinnern", alt: "Nachschlagen", definition: "Nicht memorierbare Informationen von Parametern bis Fehlercodes wiederfinden.", description: "Referenzmaterial erhält die langfristige Nutzbarkeit der Dokumentation.", signals: ["Parameter oder Fehlercode werden nicht gefunden.", "Referenz ist über viele Orte verstreut.", "Keine strukturierte, durchsuchbare Referenz."], metric: { name: "Referenztrefferquote", description: "Anteil der Suchen mit der richtigen Antwort." } }
-  - { id: troubleshoot, verb: "Fehler beheben", alt: "Lösen", definition: "Probleme effizient diagnostizieren und lösen, oft unter Druck.", description: "Fehler und Sonderfälle brauchen einen zuverlässigen Wiederherstellungsweg.", signals: ["Support-Tickets wiederholen sich.", "Fehlermeldungen sind nicht dokumentiert.", "Fehlersuchen führen nicht zur Lösung."], metric: { name: "Lösungszeit", description: "Median vom Symptom bis zum funktionierenden Zustand." } }
-  - { id: develop, verb: "Entwickeln", alt: "Integrieren", definition: "Auf dem Produkt aufbauen, es erweitern oder integrieren, um Mehrwert zu schaffen.", description: "Integrationsdokumentation verwandelt Produktfähigkeiten in neuen Wert.", signals: ["Integrationsfragen bleiben unbeantwortet.", "Kein Leitfaden zum Aufbau auf dem Produkt.", "Erweiterungspunkte sind undokumentiert."], metric: { name: "Ökosystemwachstum", description: "Anzahl erstellter Integrationen und Erweiterungen." } }
-  - { id: practice, verb: "Üben", alt: "Trainieren", definition: "Das Produkt im täglichen Standardbetrieb verwenden lernen.", description: "Für wiederkehrende Aufgaben brauchen Nutzer prozedurales Wissen.", signals: ["Wie-mache-ich-das-Fragen wiederholen sich.", "Verfahren existieren nur als mündliches Wissen.", "Kein Schritt-für-Schritt-Leitfaden."], metric: { name: "Aufgabenerfolg", description: "Anteil erfolgreicher Aufgaben ohne Unterstützung." } }
-  - { id: understand, verb: "Verstehen", alt: "Lernen", definition: "Die Abstraktionen und mentalen Modelle des Produkts erfassen.", description: "Konzeptionelle Dokumentation verankert Lernen um die Grundideen.", signals: ["Nutzer verstehen das Warum nicht.", "Konzepte stehen nur in Code-Kommentaren.", "Kein Glossar oder Konzeptleitfaden."], metric: { name: "Konzeptabdeckung", description: "Anteil der Kernabstraktionen mit eigener Seite." } }
+  - id: appraise
+    verb: "Bewerten"
+    alt: "Erkennen"
+    definition: "Die wichtigsten Eigenschaften des Produkts erkennen und es gegebenenfalls mit anderen vergleichen."
+    description: >-
+      Leser von Dokumentation sind auch potenzielle Kunden oder Anwender. Ein
+      Leser muss die wichtigsten Eigenschaften des Produkts erkennen und es mit
+      anderen vergleichen können. Das ist ein Entdeckungsprozess.
+    signals:
+      - "Support und Vertrieb beantworten wiederholt dieselben Fragen: „Was ist das?“"
+      - "Interessenten erfahren aus Marketingtexten, nicht aus der Dokumentation, was das Produkt tut."
+      - "Es gibt keine Seite, die die Positionierung oder wichtigsten Stärken des Produkts erklärt."
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita: ["<topic>", "<concept>"]
+      diataxis: ["Kein direktes Gegenstück (am nächsten: Erklärung)"]
+      good_docs: ["Überblick", "Einstiegsseite"]
+    metric:
+      name: "Conversion"
+      description: "Konversionsrate von der Dokumentation zur Produktadoption."
+
+  - id: explore
+    verb: "Erkunden"
+    alt: "Entdecken"
+    definition: "Das Produkt ausprobieren und mit niedriger Einstiegshürde entdecken, was es kann."
+    description: >-
+      Großartige Produkte laden Nutzer zur Interaktion und dazu ein, Neues
+      auszuprobieren. Dokumentation sollte Hinweise, Anleitungen und
+      Möglichkeiten bieten, die das Erkunden als eine der ersten Aktivitäten
+      erleichtern.
+    signals:
+      - "Neue Nutzer finden keinen Schnellstart oder keine Sandbox, um das Produkt auszuprobieren."
+      - "Die erste Erfahrung ist eine Wand aus Referenzmaterial statt einer geführten Tour."
+      - "Nutzer müssen ein ganzes Handbuch lesen, bevor sie das Produkt anfassen können."
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita: ["<task>", "<step>", "<substep>"]
+      diataxis: ["Tutorial"]
+      good_docs: ["Tutorial"]
+    metric:
+      name: "Zeit bis zum ersten Nutzen"
+      description: "Zeit vom ersten Besuch bis zur ersten erfolgreichen Interaktion."
+
+  - id: remember
+    verb: "Erinnern"
+    alt: "Abrufen"
+    definition: "Informationsstücke wiederfinden, die sich nicht einprägen ließen – von Parametern bis zu Fehlercodes."
+    description: >-
+      Referenzmaterial hält Dokumentation nach Jahren der Nutzung lebendig.
+      Nutzer durchsuchen Handbücher, um Informationsstücke zu erinnern,
+      abzurufen, wiederzufinden oder nachzuschlagen, die sie nicht memorieren
+      konnten.
+    signals:
+      - "Nutzer suchen nach einem Parameter oder Fehlercode und finden nichts."
+      - "Referenzmaterial ist über Blogbeiträge und Chat-Protokolle verstreut."
+      - "Es gibt keine durchsuchbare, strukturierte Referenz für Syntax oder Einstellungen des Produkts."
+    examples:
+      - title: "Dockerfile-Referenz"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "Referenz zur GitLab-CI/CD-YAML-Syntax"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita: ["<reference>", "<refsyn>", "<properties>"]
+      diataxis: ["Referenz"]
+      good_docs: ["Referenz", "Glossar"]
+    metric:
+      name: "Referenztrefferquote"
+      description: "Anteil der Referenzsuchen, die zur richtigen Seite führen."
+
+  - id: troubleshoot
+    verb: "Fehler beheben"
+    alt: "Lösen"
+    definition: "Probleme effizient diagnostizieren und lösen, oft unter Druck."
+    description: >-
+      Auf Probleme zu stoßen – Fehlkonfigurationen, Sonderfälle oder tatsächliche
+      Fehler – ist für Nutzer alltäglich. Fehler beheben steht für das Bedürfnis,
+      Probleme effizient zu diagnostizieren und zu lösen, oft unter Druck, wenn
+      Systeme ausfallen oder Fristen näher rücken.
+    signals:
+      - "Support-Tickets wiederholen dieselbe Frage; die Antwort steht in einem Chat-Protokoll, nicht in der Dokumentation."
+      - "Fehlermeldungen erscheinen im Code, aber nie in der Dokumentation."
+      - "Nutzer suchen nach einer Fehlerzeichenfolge und landen auf einer Seite, die sie nicht erwähnt."
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita: ["<troubleshooting>", "<trouble>", "<cause>", "<remedy>"]
+      diataxis: ["How-to-Anleitung (problemorientiert)"]
+      good_docs: ["Leitfaden zur Fehlerbehebung"]
+    metric:
+      name: "Zeit bis zur Lösung"
+      description: "Median vom Symptom bis zu einem funktionierenden Zustand."
+
+  - id: develop
+    verb: "Entwickeln"
+    alt: "Integrieren"
+    definition: "Auf dem Produkt aufbauen, es erweitern oder integrieren, um zusätzlichen Wert zu schaffen."
+    description: >-
+      Nutzer müssen oft auf bestehenden Produkten aufbauen, sie erweitern oder
+      integrieren – durch Integrationen, Erweiterungen, Plugins oder vollständig
+      neue Anwendungen. Der Schwerpunkt ist fast immer pragmatisch.
+    signals:
+      - "Fragen zu Integrationen und Erweiterungen bleiben unbeantwortet oder werden an ein Forum verwiesen."
+      - "Es gibt keinen Leitfaden dazu, auf dem Produkt aufzubauen."
+      - "Die Erweiterungspunkte des Produkts sind nicht dokumentiert."
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita: ["<task>", "<codeblock>", "<coderef>"]
+      diataxis: ["How-to-Anleitung"]
+      good_docs: ["How-to-Anleitung", "API-Referenz"]
+    metric:
+      name: "Ökosystemwachstum"
+      description: "Anzahl der von Nutzern erstellten Integrationen oder Erweiterungen."
+
+  - id: practice
+    verb: "Üben"
+    alt: "Trainieren"
+    definition: "Den Umgang mit dem Produkt im täglichen Standardbetrieb lernen."
+    description: >-
+      Nutzer müssen lernen, die meisten Teile eines Produkts zu bedienen. Üben
+      beschreibt das Bedürfnis nach prozeduralem Wissen – danach, wie das Produkt
+      im täglichen Standardbetrieb eingesetzt wird.
+    signals:
+      - "Dieselben Fragen nach dem Wie tauchen immer wieder in Support und Community auf."
+      - "Verfahren existieren nur als implizites Wissen oder im Kopf einer Person."
+      - "Es gibt keine Schritt-für-Schritt-Anleitung für häufige Verwaltungsaufgaben."
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita: ["<task>", "<step>", "<choicetable>"]
+      diataxis: ["How-to-Anleitung"]
+      good_docs: ["How-to-Anleitung"]
+    metric:
+      name: "Aufgabenerfolg"
+      description: "Anteil der Nutzer, die ein Standardverfahren ohne Unterstützung abschließen."
+
+  - id: understand
+    verb: "Verstehen"
+    alt: "Lernen"
+    definition: "Die Abstraktionen und mentalen Modelle erfassen, auf denen das Produkt aufbaut."
+    description: >-
+      Softwareprodukte beruhen auf Abstraktionen, die schwer zu begreifen, aber
+      für die korrekte Nutzung grundlegend sind. Konzeptionelle Dokumentation
+      verankert Gelerntes neben dem Erkunden und Üben.
+    signals:
+      - "Nutzer können das Produkt bedienen, aber nicht erklären, warum es so funktioniert."
+      - "Konzepte werden nur in Code-Kommentaren oder internen Wikis erklärt."
+      - "Es gibt kein Glossar oder keinen konzeptionellen Leitfaden für die Kernabstraktionen des Produkts."
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita: ["<concept>", "<glossentry>", "<section>"]
+      diataxis: ["Erklärung"]
+      good_docs: ["Konzeptioneller Leitfaden", "Glossar"]
+    metric:
+      name: "Konzeptabdeckung"
+      description: "Anteil der Kernabstraktionen mit einer eigenen konzeptionellen Seite."
