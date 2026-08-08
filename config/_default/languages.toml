@@ -13,41 +13,53 @@ languageName = "Español"
 title = "Modelo de Documentación de Siete Acciones"
 weight = 2
 
+[fr]
+languageCode = "fr"
+languageName = "Français"
+title = "Modèle de documentation à sept actions"
+weight = 3
+
+[de]
+languageCode = "de"
+languageName = "Deutsch"
+title = "Sieben-Aktionen-Dokumentationsmodell"
+weight = 4
+
 [ja]
 languageCode = "ja"
 languageName = "日本語"
 title = "七アクション・ドキュメントモデル"
-weight = 3
+weight = 5
 
 [zh-cn]
 languageCode = "zh-CN"
 languageName = "中文"
 title = "七行动文档模型"
-weight = 4
+weight = 6
 
 [ar]
 languageCode = "ar"
 languageName = "العربية"
 languageDirection = "rtl"
 title = "نموذج التوثيق ذي الإجراءات السبعة"
-weight = 5
+weight = 7
 
 [fa]
 languageCode = "fa"
 languageName = "فارسی"
 languageDirection = "rtl"
 title = "مدل مستندسازی هفت‌کنشی"
-weight = 6
+weight = 8
 
 [hi]
 languageCode = "hi"
 languageName = "हिन्दी"
 title = "सात-क्रिया दस्तावेज़ीकरण मॉडल"
-weight = 7
+weight = 9
 
 [ur]
 languageCode = "ur"
 languageName = "اردو"
 languageDirection = "rtl"
 title = "سات عملی دستاویزاتی نمونہ"
-weight = 8
+weight = 10
