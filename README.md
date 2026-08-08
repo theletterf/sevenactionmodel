@@ -8,6 +8,28 @@ humans and machines. One deterministic `hugo` build emits four artifact types:
 - **`llms.txt`** — site-level, for LLM consumption
 - **`model.json`** — machine-readable model, rendered from `data/model.yaml`
 
+## Install the agent skill
+
+Install the Seven-Action Documentation skill for Claude Code directly from this
+repository:
+
+```sh
+npx skills add theletterf/sevenactionmodel \
+  --skill seven-action-documentation \
+  --agent claude-code
+```
+
+Add `--global` to make it available in every project. The skill activates when
+you plan, write, audit, restructure, or measure technical documentation around
+the needs readers are trying to satisfy. It can also be invoked explicitly:
+
+```text
+Use $seven-action-documentation to audit our onboarding documentation.
+```
+
+The [Vercel Skills CLI](https://www.skills.sh/docs/cli) also supports Codex,
+Cursor, and other agents; replace `claude-code` with the relevant agent name.
+
 ## Build
 
 ```sh

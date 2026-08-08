@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seven-Action Documentation"
+  short_description: "Plan documentation around user actions"
+  default_prompt: "Use $seven-action-documentation to plan or improve this documentation content."
