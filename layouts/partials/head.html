@@ -32,6 +32,7 @@
 <meta name="twitter:image" content="{{ $socialImage }}">
 <meta name="twitter:image:alt" content="{{ i18n "social_image_alt" }}">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "favicon-96x96.png" | relURL }}" type="image/png" sizes="96x96">
 <link rel="icon" href="{{ "favicon-32x32.png" | relURL }}" type="image/png" sizes="32x32">
 <link rel="alternate icon" href="{{ "favicon.ico" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}" sizes="180x180">
@@ -48,6 +49,16 @@
 {{ with .OutputFormats.Get "llmstxt" }}<link rel="alternate" type="text/plain" href="{{ .Permalink }}">{{ end }}
 {{ with .OutputFormats.Get "modeljson" }}<link rel="alternate" type="application/json" href="{{ .Permalink }}">{{ end }}
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absLangURL }}">
+{{- if .IsHome }}
+  {{- $websiteURL := "https://7act.org/" -}}
+  {{- $websiteID := printf "%s#website" $websiteURL -}}
+  {{- if eq site.Language.Lang "en" }}
+    {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" $websiteID "url" $websiteURL "name" "7act.org" "alternateName" "7act" "description" $pageDescription "inLanguage" (slice "en" "es" "fr" "it" "pt" "de" "ja" "zh-CN" "ar" "fa") -}}
+<script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
+  {{- end }}
+  {{- $webpage := dict "@context" "https://schema.org" "@type" "WebPage" "@id" (printf "%s#webpage" .Permalink) "url" .Permalink "name" .Title "description" $pageDescription "inLanguage" site.Language.LanguageCode "isPartOf" (dict "@id" $websiteID) -}}
+<script type="application/ld+json">{{ $webpage | jsonify | safeJS }}</script>
+{{- end }}
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 <link rel="preload" href="{{ "fonts/jost-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>

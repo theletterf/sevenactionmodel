@@ -4,7 +4,7 @@
   <div class="home-tagline">
     {{ .Content }}
   </div>
-  <div class="hero-heptagon">
+  <div class="hero-heptagon" data-nosnippet>
     {{ partial "heptagon.html" (dict "size" 820 "labels" true "active" "") }}
   </div>
   <p class="home-cta"><a href="{{ "rationale/" | relLangURL }}">{{ i18n "read_introduction" }} &rarr;</a></p>

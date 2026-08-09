@@ -1,6 +1,6 @@
 ---
 title: "Modèle de documentation à sept actions"
-description: "Un modèle descriptif des besoins des utilisateurs de documentation technique."
+description: "Un modèle descriptif des besoins des utilisateurs de documentation technique. Sept actions couvrent les objectifs qu’un consommateur de documentation peut vouloir atteindre : Évaluer, Comprendre, Explorer, Pratiquer, Se souvenir, Développer, Dépanner."
 scope: "home"
 ---
 
