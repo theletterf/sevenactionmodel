@@ -356,9 +356,8 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin-top: var(--space-3);
 }
 .sidebar-menu > .side-accordion { grid-column: 1 / -1; grid-row: 4; }
-.sidebar-menu > .side-glossary { grid-column: 1 / -1; grid-row: 5; }
-.sidebar-menu > .side-skill { grid-column: 1 / -1; grid-row: 6; }
-.sidebar-menu > .side-author { grid-column: 1 / -1; grid-row: 7; }
+.sidebar-menu > .side-skill { grid-column: 1 / -1; grid-row: 5; }
+.sidebar-menu > .side-author { grid-column: 1 / -1; grid-row: 6; }
 
 .side-intro { margin-bottom: var(--space-4); }
 

@@ -17,6 +17,10 @@
     &nbsp;·&nbsp;
     {{ i18n "footer_code" }} <a href="https://opensource.org/licenses/MIT">MIT</a>
     &nbsp;·&nbsp;
+    {{- with site.GetPage "/glossary" }}
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    &nbsp;·&nbsp;
+    {{- end }}
     <a href="{{ "sitemap.xml" | relLangURL }}">{{ i18n "sitemap" }}</a>
   </p>
 </footer>
