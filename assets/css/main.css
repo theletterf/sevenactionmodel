@@ -129,7 +129,7 @@ body {
   overflow-y: auto;
   width: var(--sidebar-w);
   flex-shrink: 0;
-  padding: calc(var(--space-3) + var(--space-5)) var(--space-3) var(--space-4);
+  padding: calc(var(--space-3) + var(--space-4)) var(--space-3) var(--space-4);
   background: var(--paper-raised);
   border-inline-end: 1px solid var(--rule);
   display: flex;
@@ -424,7 +424,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 .page {
   max-width: 64rem;
   margin: 0;
-  padding: var(--space-5) var(--space-4) var(--space-4);
+  padding: var(--space-4);
   width: 100%;
 }
 
