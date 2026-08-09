@@ -1,0 +1,225 @@
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "7가지 행동 문서화 모델"
+  description: >-
+    기술 문서 사용자의 요구를 설명하는 모델입니다. 일곱 가지 행동은
+    문서 사용자가 달성하려는 목표, 즉 평가하기, 이해하기, 탐색하기,
+    연습하기, 기억하기, 개발하기, 문제 해결하기를 포괄합니다.
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
+actions:
+  - id: appraise
+    verb: 평가하기
+    alt: 판별하기
+    definition: "제품의 주요 특성을 판별하고 필요한 경우 다른 제품과 비교합니다."
+    description: >-
+      문서 사용자는 잠재 고객이거나 제품 도입을 고려하는 사람이기도
+      합니다. 독자는 제품의 주요 특성을 판별하고 다른 제품과 비교할
+      수 있어야 합니다. 이는 발견의 과정입니다.
+    signals:
+      - "지원팀과 영업팀이 똑같은 ‘이게 무엇인가요?’라는 질문에 반복해서 답합니다."
+      - "잠재 고객이 제품의 기능을 문서가 아니라 마케팅 문구에서 배웁니다."
+      - "제품의 포지셔닝이나 주요 강점을 설명하는 페이지가 없습니다."
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "직접 대응하는 유형 없음(가장 가까운 유형: 설명)"
+      good_docs:
+        - "개요"
+        - "랜딩 페이지"
+    metric:
+      name: "전환"
+      description: "문서에서 제품 도입으로 이어지는 전환율입니다."
+
+  - id: explore
+    verb: 탐색하기
+    alt: 발견하기
+    definition: "낮은 진입 장벽으로 제품을 사용해 보고 무엇을 할 수 있는지 발견합니다."
+    description: >-
+      훌륭한 제품은 사용자가 상호작용하고 새로운 것을 시도하도록
+      이끕니다. 문서는 탐색을 초기 활동 가운데 하나로 만들어 주는
+      단서와 지침, 행동 가능성을 제공해야 합니다.
+    signals:
+      - "신규 사용자가 제품을 사용해 볼 빠른 시작 안내서나 샌드박스를 찾지 못합니다."
+      - "첫 경험이 안내형 둘러보기가 아니라 참조 정보로 가득 찬 벽과 같습니다."
+      - "사용자가 제품을 만져 보기도 전에 매뉴얼 전체를 읽어야 합니다."
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "튜토리얼"
+      good_docs:
+        - "튜토리얼"
+    metric:
+      name: "첫 가치 실현까지 걸린 시간"
+      description: "첫 방문부터 첫 번째 성공적인 상호작용까지 걸린 시간입니다."
+
+  - id: remember
+    verb: 기억하기
+    alt: 회상하기
+    definition: "매개변수부터 오류 코드까지 외울 수 없었던 정보를 되새깁니다."
+    description: >-
+      참조 자료는 여러 해가 지나도 문서의 가치를 유지합니다. 사용자는
+      외우지 못한 정보 조각을 기억하고, 회상하고, 되찾고, 찾아보기
+      위해 매뉴얼을 훑습니다.
+    signals:
+      - "사용자가 매개변수나 오류 코드를 검색해도 아무것도 찾지 못합니다."
+      - "참조 정보가 블로그 글과 채팅 기록에 흩어져 있습니다."
+      - "제품의 구문이나 설정을 다루는 검색 가능하고 구조화된 참조 문서가 없습니다."
+    examples:
+      - title: "Dockerfile reference"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "GitLab CI/CD YAML syntax reference"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "참조 문서"
+      good_docs:
+        - "참조 문서"
+        - "용어집"
+    metric:
+      name: "참조 검색 적중률"
+      description: "올바른 페이지를 반환한 참조 검색의 비율입니다."
+
+  - id: troubleshoot
+    verb: 문제 해결하기
+    alt: 해결하기
+    definition: "압박을 받는 상황에서도 문제를 효율적으로 진단하고 해결합니다."
+    description: >-
+      잘못된 설정이나 예외 상황, 실제 버그 때문에 문제를 만나는 것은
+      흔한 일입니다. 문제 해결하기는 시스템이 고장 났거나 마감이 임박한
+      상황에서도 문제를 효율적으로 진단하고 해결하려는 요구를 나타냅니다.
+    signals:
+      - "지원 요청에 같은 질문이 반복되지만 답은 문서가 아니라 채팅 기록에 있습니다."
+      - "오류 메시지는 코드에 있지만 문서에는 전혀 나오지 않습니다."
+      - "사용자가 오류 문자열을 검색해도 그 오류를 언급하지 않는 페이지에 도착합니다."
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "문제 중심 방법 안내서"
+      good_docs:
+        - "문제 해결 안내서"
+    metric:
+      name: "해결까지 걸린 시간"
+      description: "증상이 나타난 때부터 정상 상태로 돌아올 때까지 걸린 시간의 중앙값입니다."
+
+  - id: develop
+    verb: 개발하기
+    alt: 통합하기
+    definition: "추가 가치를 만들기 위해 제품을 기반으로 구축하고 확장하거나 통합합니다."
+    description: >-
+      사용자는 기존 제품을 기반으로 만들거나 확장하거나 통합해야 할
+      때가 많습니다. 통합, 확장 기능, 플러그인 또는 완전히 새로운
+      애플리케이션을 통해서입니다. 거의 언제나 실용성에 초점을 둡니다.
+    signals:
+      - "통합 및 확장 기능에 관한 질문이 답을 얻지 못하거나 포럼으로 보내집니다."
+      - "제품을 기반으로 구축하는 방법을 설명하는 안내서가 없습니다."
+      - "제품의 확장 지점이 문서화되어 있지 않습니다."
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "방법 안내서"
+      good_docs:
+        - "방법 안내서"
+        - "API 참조 문서"
+    metric:
+      name: "생태계 성장"
+      description: "사용자가 만든 통합 또는 확장 기능의 수입니다."
+
+  - id: practice
+    verb: 연습하기
+    alt: 훈련하기
+    definition: "일상적인 표준 운영에서 제품을 사용하는 방법을 배웁니다."
+    description: >-
+      사용자는 제품 대부분의 사용법을 배워야 합니다. 연습하기는
+      절차적 지식, 즉 일상적인 표준 운영에서 제품을 사용하는 방법을
+      배우려는 요구를 나타냅니다.
+    signals:
+      - "지원 및 커뮤니티 채널에서 똑같은 방법 관련 질문이 반복됩니다."
+      - "절차가 조직의 암묵지로만 존재하거나 누군가의 머릿속에만 있습니다."
+      - "일반적인 관리 작업을 설명하는 단계별 안내서가 없습니다."
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "방법 안내서"
+      good_docs:
+        - "방법 안내서"
+    metric:
+      name: "작업 성공률"
+      description: "지원 없이 표준 절차를 완료하는 사용자의 비율입니다."
+
+  - id: understand
+    verb: 이해하기
+    alt: 학습하기
+    definition: "제품을 구성하는 추상 개념과 멘탈 모델을 파악합니다."
+    description: >-
+      소프트웨어 제품은 이해하기 어렵지만 올바른 사용에 필수적인
+      추상 개념을 바탕으로 만들어집니다. 개념 문서는 탐색과 연습을
+      통해 배운 내용을 확실히 정착시킵니다.
+    signals:
+      - "사용자가 제품을 다룰 수는 있지만 왜 그런 방식으로 작동하는지 설명하지 못합니다."
+      - "개념이 코드 주석이나 내부 위키에서만 설명됩니다."
+      - "제품의 핵심 추상 개념을 다루는 용어집이나 개념 안내서가 없습니다."
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "설명"
+      good_docs:
+        - "개념 안내서"
+        - "용어집"
+    metric:
+      name: "개념 범위"
+      description: "별도의 개념 페이지가 있는 핵심 추상 개념의 비율입니다."

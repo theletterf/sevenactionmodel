@@ -1,0 +1,225 @@
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "سات عملی دستاویزاتی نمونہ"
+  description: >-
+    تکنیکی دستاویزات کے صارفین کی ضرورتوں کا وضاحتی نمونہ۔ سات اعمال ان
+    مقاصد کا احاطہ کرتے ہیں جو دستاویزات کا قاری حاصل کرنا چاہ سکتا ہے:
+    جانچ، فہم، کھوج، مشق، یاد، ترقی اور خرابی دور کرنا۔
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
+actions:
+  - id: appraise
+    verb: جانچ
+    alt: تمیز
+    definition: "مصنوعات کی بنیادی خصوصیات پہچانیں اور، جہاں مناسب ہو، اس کا دوسروں سے موازنہ کریں۔"
+    description: >-
+      دستاویزات کے صارفین ممکنہ گاہک یا مصنوعات اپنانے والے بھی ہوتے ہیں۔
+      قاری کو مصنوعات کی بنیادی خصوصیات پہچاننے اور اس کا دوسروں سے موازنہ
+      کرنے کے قابل ہونا چاہیے۔ یہ دریافت کا عمل ہے۔
+    signals:
+      - "معاونت اور فروخت کی ٹیمیں ایک ہی ‘یہ کیا ہے؟’ سوال کا بار بار جواب دیتی ہیں۔"
+      - "ممکنہ گاہک مصنوعات کا کام دستاویزات کی بجائے مارکیٹنگ کے متن سے سیکھتے ہیں۔"
+      - "مصنوعات کی حیثیت یا بنیادی قوتیں بیان کرنے والا کوئی صفحہ نہیں۔"
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "کوئی براہ راست متبادل نہیں (قریب ترین: وضاحت)"
+      good_docs:
+        - "جائزہ"
+        - "ابتدائی صفحہ"
+    metric:
+      name: "تبدیلی"
+      description: "دستاویزات سے مصنوعات اپنانے تک تبدیلی کی شرح۔"
+
+  - id: explore
+    verb: کھوج
+    alt: دریافت
+    definition: "کم رکاوٹ کے ساتھ مصنوعات آزمائیں اور دریافت کریں کہ وہ کیا کر سکتی ہے۔"
+    description: >-
+      عمدہ مصنوعات صارفین کو تعامل اور نئی چیزیں آزمانے کی دعوت دیتی ہیں۔
+      دستاویزات کو ایسے اشارے، ہدایات اور سہولتیں دینی چاہییں جو کھوج کو
+      ابتدائی سرگرمیوں میں سے ایک بنائیں۔
+    signals:
+      - "نئے صارف کو مصنوعات آزمانے کے لیے فوری آغاز یا آزمائشی ماحول نہیں ملتا۔"
+      - "پہلا تجربہ رہنمائی والا دورہ نہیں بلکہ بھاری حوالہ مواد کی دیوار ہے۔"
+      - "صارف کو مصنوعات چھونے سے پہلے پوری رہنما کتاب پڑھنی پڑتی ہے۔"
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "سبق"
+      good_docs:
+        - "سبق"
+    metric:
+      name: "پہلی قدر تک وقت"
+      description: "پہلے دورے سے پہلے کامیاب تعامل تک کا وقت۔"
+
+  - id: remember
+    verb: یاد
+    alt: بازیافت
+    definition: "پیرامیٹر سے خرابی کوڈ تک، محفوظ نہ رہ سکنے والی معلومات دوبارہ پائیں۔"
+    description: >-
+      حوالہ مواد دستاویزات کو برسوں تک کارآمد رکھتا ہے۔ صارف ان معلومات کو
+      یاد کرنے، بازیافت کرنے یا ڈھونڈنے کے لیے رہنما صفحات دیکھتے ہیں جنہیں
+      وہ محفوظ نہیں رکھ سکے۔
+    signals:
+      - "صارف پیرامیٹر یا خرابی کوڈ تلاش کرتے ہیں اور کچھ نہیں ملتا۔"
+      - "حوالہ مواد بلاگ تحریروں اور گفتگو کے ریکارڈ میں بکھرا ہوا ہے۔"
+      - "مصنوعات کی نحوی ساخت یا ترتیبات کے لیے قابل تلاش، منظم حوالہ موجود نہیں۔"
+    examples:
+      - title: "Dockerfile reference"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "GitLab CI/CD YAML syntax reference"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "حوالہ"
+      good_docs:
+        - "حوالہ"
+        - "اصطلاح نامہ"
+    metric:
+      name: "حوالہ کامیابی کی شرح"
+      description: "درست صفحہ دینے والی حوالہ تلاشوں کا حصہ۔"
+
+  - id: troubleshoot
+    verb: خرابی دور کرنا
+    alt: حل
+    definition: "مسئلوں کی مؤثر تشخیص اور حل کریں، اکثر دباؤ میں۔"
+    description: >-
+      غلط ترتیب، کناری صورتوں یا حقیقی بگوں کی وجہ سے مسئلوں سے ٹکرانا عام ہے۔
+      خرابی دور کرنا اس وقت بھی مؤثر تشخیص اور حل کی ضرورت ظاہر کرتا ہے جب
+      نظام ناکام ہو رہے ہوں یا آخری تاریخیں قریب ہوں۔
+    signals:
+      - "معاونت کی درخواستوں میں ایک ہی سوال دہرایا جاتا ہے اور جواب دستاویزات کی بجائے گفتگو کے ریکارڈ میں ہے۔"
+      - "خرابی کے پیغامات کوڈ میں دکھائی دیتے ہیں مگر دستاویزات میں کبھی نہیں۔"
+      - "صارف خرابی کا متن تلاش کر کے ایسے صفحے پر پہنچتے ہیں جہاں اس کا ذکر نہیں۔"
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "مسئلے پر مرکوز عملی رہنما"
+      good_docs:
+        - "خرابی دور کرنے کی رہنما"
+    metric:
+      name: "حل تک وقت"
+      description: "علامت ظاہر ہونے سے فعال حالت تک پہنچنے کا وسطی وقت۔"
+
+  - id: develop
+    verb: ترقی
+    alt: انضمام
+    definition: "اضافی قدر پیدا کرنے کے لیے مصنوعات پر تعمیر، توسیع یا انضمام کریں۔"
+    description: >-
+      صارفین کو اکثر موجودہ مصنوعات پر تعمیر، اسے وسعت دینے یا انضمام کرنے کی
+      ضرورت پڑتی ہے—انضمام، توسیع، پلگ اِن یا بالکل نئی اطلاقیوں کے ذریعے۔
+      توجہ تقریباً ہمیشہ عملی ہوتی ہے۔
+    signals:
+      - "انضمام اور توسیع کے سوال بے جواب رہتے ہیں یا فورم پر بھیج دیے جاتے ہیں۔"
+      - "مصنوعات کے اوپر تعمیر کرنے کی کوئی رہنما نہیں۔"
+      - "مصنوعات کے توسیعی نقاط دستاویز نہیں کیے گئے۔"
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "عملی رہنما"
+      good_docs:
+        - "عملی رہنما"
+        - "API حوالہ"
+    metric:
+      name: "ماحولیاتی نظام کی نمو"
+      description: "صارفین کے بنائے ہوئے انضماموں یا توسیعات کی تعداد۔"
+
+  - id: practice
+    verb: مشق
+    alt: تربیت
+    definition: "روزمرہ کے معیاری استعمال میں مصنوعات چلانا سیکھیں۔"
+    description: >-
+      صارفین کو مصنوعات کے زیادہ تر حصے چلانا سیکھنے ہوتے ہیں۔ مشق طریقۂ کار
+      کے علم کی ضرورت بیان کرتی ہے—یعنی روزمرہ کے معیاری استعمال میں مصنوعات
+      کو کیسے برتا جائے۔
+    signals:
+      - "معاونت اور برادری کے چینلوں میں ایک ہی ‘کیسے کریں’ سوال بار بار آتے ہیں۔"
+      - "طریقۂ کار صرف غیر رسمی تنظیمی علم یا کسی کے ذہن میں موجود ہیں۔"
+      - "عام انتظامی کاموں کے لیے مرحلہ وار رہنما نہیں۔"
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "عملی رہنما"
+      good_docs:
+        - "عملی رہنما"
+    metric:
+      name: "کام کی کامیابی"
+      description: "بلا معاونت معیاری طریقۂ کار مکمل کرنے والے صارفین کا حصہ۔"
+
+  - id: understand
+    verb: فہم
+    alt: سیکھ
+    definition: "مصنوعات کے تجریدات اور ذہنی نمونے سمجھیں۔"
+    description: >-
+      سافٹ ویئر مصنوعات ایسی تجریدات کے گرد بنتی ہیں جنہیں سمجھنا مشکل مگر
+      درست استعمال کے لیے بنیادی ہے۔ تصوری دستاویزات کھوج اور مشق کے ساتھ
+      سیکھ کو مستحکم کرتی ہیں۔
+    signals:
+      - "صارف مصنوعات چلا سکتے ہیں مگر یہ نہیں بتا سکتے کہ وہ اس طرح کیوں کام کرتی ہے۔"
+      - "تصورات صرف کوڈ کے تبصروں یا اندرونی ویکی میں سمجھائے گئے ہیں۔"
+      - "مصنوعات کی بنیادی تجریدات کے لیے اصطلاح نامہ یا تصوری رہنما نہیں۔"
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "وضاحت"
+      good_docs:
+        - "تصوری رہنما"
+        - "اصطلاح نامہ"
+    metric:
+      name: "تصوری احاطہ"
+      description: "مخصوص تصوری صفحے والی بنیادی تجریدات کا حصہ۔"

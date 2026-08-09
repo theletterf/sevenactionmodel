@@ -329,6 +329,7 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
 
 .side-link {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 0.4em;
   padding: 0.35em 0.5em;
@@ -445,6 +446,8 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   border-bottom: none;
   border-radius: 3px;
 }
+html[dir="ltr"] .lang-option { text-align: left; }
+html[dir="rtl"] .lang-option { text-align: right; }
 .lang-link:hover { color: var(--teal-deep); background: var(--teal-wash); }
 .lang-current { color: var(--teal-deep); background: var(--teal-wash); }
 
@@ -660,24 +663,39 @@ h3 + .table-wrap { margin-top: var(--space-3); }
   .layout { display: block; max-width: none; }
   .site-header { padding-top: var(--space-3); }
   .sidebar {
-    position: static; height: auto; width: auto;
+    position: relative; z-index: 20;
+    height: auto; width: auto;
+    overflow: visible;
     border-inline-end: none; border-bottom: 1px solid var(--rule);
     padding: var(--space-3);
     display: block;
   }
   .sidebar-header {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
     align-items: center;
-    gap: var(--space-1);
+    column-gap: var(--space-1);
+    row-gap: var(--space-2);
   }
   .sidebar-header .wordmark {
-    flex: 1;
+    grid-column: 1 / -1;
+    grid-row: 1;
     min-width: 0;
     margin-bottom: 0;
     font-size: var(--fs-body);
     line-height: var(--leading);
   }
-  .menu-toggle { display: flex; }
+  .menu-toggle {
+    display: flex;
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: end;
+  }
+  .sidebar-actions {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 0;
+  }
   .sidebar-menu {
     display: none;
     flex-direction: column;
@@ -685,16 +703,12 @@ h3 + .table-wrap { margin-top: var(--space-3); }
   }
   .sidebar-menu.open { display: flex; }
   .lang-picker {
-    order: 0;
-    margin: var(--space-4) 0 0;
-    font-size: var(--fs-m);
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    font-size: var(--fs-s);
   }
-  .lang-picker summary {
-    gap: 0.55em;
-    height: auto;
-    padding: 0.55em 0.65em;
-  }
-  .lang-options { position: static; width: auto; }
+  .lang-options { width: min(calc(100vw - 3rem), 20rem); }
   .side-nav--pages { border-top: none; padding-top: 0; }
   .side-accordion summary {
     display: flex;

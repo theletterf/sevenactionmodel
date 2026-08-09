@@ -1,0 +1,225 @@
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "Yedi Eylemli Dokümantasyon Modeli"
+  description: >-
+    Teknik dokümantasyon kullanıcılarının ihtiyaçlarını açıklayan bir model.
+    Yedi eylem, doküman tüketicisinin ulaşmak isteyebileceği hedefleri kapsar:
+    Değerlendir, Anla, Keşfet, Pratik Yap, Hatırla, Geliştir ve Sorun Gider.
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
+actions:
+  - id: appraise
+    verb: Değerlendir
+    alt: Ayırt Et
+    definition: "Ürünün temel niteliklerini ayırt edin ve uygunsa onu başkalarıyla karşılaştırın."
+    description: >-
+      Dokümantasyon kullanıcıları aynı zamanda potansiyel müşteriler veya ürünü
+      benimseyebilecek kişilerdir. Okur ürünün temel niteliklerini ayırt edebilmeli
+      ve onu başkalarıyla karşılaştırabilmelidir. Bu bir keşif sürecidir.
+    signals:
+      - "Destek ve satış ekipleri aynı 'Bu nedir?' sorusunu tekrar tekrar yanıtlıyor."
+      - "Potansiyel müşteriler ürünün ne yaptığını dokümantasyondan değil, pazarlama metinlerinden öğreniyor."
+      - "Ürünün konumlandırmasını veya temel güçlü yönlerini açıklayan bir sayfa yok."
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "Doğrudan karşılığı yok (en yakını: Açıklama)"
+      good_docs:
+        - "Genel bakış"
+        - "Açılış sayfası"
+    metric:
+      name: "dönüşüm"
+      description: "Dokümanlardan ürünün benimsenmesine geçiş oranı."
+
+  - id: explore
+    verb: Keşfet
+    alt: Bul
+    definition: "Düşük bir giriş engeliyle ürünü deneyin ve neler yapabildiğini keşfedin."
+    description: >-
+      Harika ürünler kullanıcıları etkileşime girmeye ve yeni şeyler denemeye
+      davet eder. Dokümantasyon, keşfi ilk etkinliklerden biri hâline getiren
+      ipuçları, talimatlar ve eylem olanakları sunmalıdır.
+    signals:
+      - "Yeni kullanıcılar ürünü denemek için hızlı başlangıç kılavuzu veya deneme ortamı bulamıyor."
+      - "İlk kullanım deneyimi yönlendirmeli bir tur değil, başvuru bilgilerinden oluşan bir duvar."
+      - "Kullanıcılar ürüne dokunmadan önce bütün kılavuzu okumak zorunda."
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "Öğretici"
+      good_docs:
+        - "Öğretici"
+    metric:
+      name: "ilk değere ulaşma süresi"
+      description: "İlk ziyaretten ilk başarılı etkileşime kadar geçen süre."
+
+  - id: remember
+    verb: Hatırla
+    alt: Anımsa
+    definition: "Parametrelerden hata kodlarına kadar ezberlenemeyen bilgi parçalarını hatırlayın."
+    description: >-
+      Başvuru kaynağı olması dokümantasyonu yıllar sonra bile canlı tutar.
+      Kullanıcılar ezberleyemedikleri bilgileri hatırlamak, geri çağırmak,
+      bulmak veya aramak için kılavuzları tarar.
+    signals:
+      - "Kullanıcılar bir parametreyi veya hata kodunu arıyor ve hiçbir şey bulamıyor."
+      - "Başvuru bilgileri blog yazılarına ve sohbet kayıtlarına dağılmış durumda."
+      - "Ürünün söz dizimi veya ayarları için aranabilir, yapılandırılmış bir başvuru kaynağı yok."
+    examples:
+      - title: "Dockerfile reference"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "GitLab CI/CD YAML syntax reference"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "Başvuru"
+      good_docs:
+        - "Başvuru"
+        - "Sözlük"
+    metric:
+      name: "başvuru isabet oranı"
+      description: "Doğru sayfayı getiren başvuru aramalarının payı."
+
+  - id: troubleshoot
+    verb: Sorun Gider
+    alt: Çöz
+    definition: "Çoğu zaman baskı altında sorunları verimli biçimde tanılayın ve çözün."
+    description: >-
+      Yanlış yapılandırmalar, uç durumlar veya gerçek hatalar nedeniyle sorunlarla
+      karşılaşmak olağandır. Sorun giderme, sistemler çalışmadığında veya teslim
+      tarihleri yaklaşırken sorunları verimli biçimde tanılama ve çözme ihtiyacını temsil eder.
+    signals:
+      - "Destek taleplerinde aynı soru tekrarlanıyor ve yanıt dokümanlarda değil, bir sohbet kaydında bulunuyor."
+      - "Hata iletileri kodda yer alıyor, ancak dokümantasyonda hiç görünmüyor."
+      - "Kullanıcılar bir hata dizesini arayıp bu hatadan söz etmeyen bir sayfaya ulaşıyor."
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "Sorun odaklı nasıl yapılır kılavuzu"
+      good_docs:
+        - "Sorun giderme kılavuzu"
+    metric:
+      name: "çözüme ulaşma süresi"
+      description: "Belirtinin ortaya çıkmasından çalışan duruma dönmeye kadar geçen medyan süre."
+
+  - id: develop
+    verb: Geliştir
+    alt: Entegre Et
+    definition: "Ek değer yaratmak için ürünün üzerine inşa edin, onu genişletin veya entegre edin."
+    description: >-
+      Kullanıcıların çoğu zaman mevcut ürünlerin üzerine bir şeyler inşa etmesi,
+      onları genişletmesi veya entegre etmesi gerekir: entegrasyonlar, uzantılar,
+      eklentiler veya tamamen yeni uygulamalar yoluyla. Odak neredeyse her zaman pratiktir.
+    signals:
+      - "Entegrasyon ve uzantı soruları yanıtsız kalıyor veya bir foruma yönlendiriliyor."
+      - "Ürünün üzerine bir şeyler inşa etmek için kılavuz yok."
+      - "Ürünün genişletme noktaları belgelenmemiş."
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "Nasıl yapılır kılavuzu"
+      good_docs:
+        - "Nasıl yapılır kılavuzu"
+        - "API başvuru kaynağı"
+    metric:
+      name: "ekosistem büyümesi"
+      description: "Kullanıcılar tarafından oluşturulan entegrasyon veya uzantı sayısı."
+
+  - id: practice
+    verb: Pratik Yap
+    alt: Alıştırma Yap
+    definition: "Ürünü günlük, standart kullanımda nasıl çalıştıracağınızı öğrenin."
+    description: >-
+      Kullanıcıların ürünün çoğu bölümünü nasıl çalıştıracaklarını öğrenmeleri
+      gerekir. Pratik, işlemsel bilgi ihtiyacını, yani ürünün günlük ve standart
+      kullanımda nasıl çalıştırılacağını açıklar.
+    signals:
+      - "Aynı nasıl yapılır soruları destek ve topluluk kanallarında tekrar tekrar soruluyor."
+      - "İşlemler yalnızca sözlü ekip bilgisi olarak veya birinin zihninde var oluyor."
+      - "Yaygın yönetim görevleri için adım adım kılavuz yok."
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "Nasıl yapılır kılavuzu"
+      good_docs:
+        - "Nasıl yapılır kılavuzu"
+    metric:
+      name: "görev başarısı"
+      description: "Standart bir işlemi destek almadan tamamlayan kullanıcıların payı."
+
+  - id: understand
+    verb: Anla
+    alt: Öğren
+    definition: "Ürünün üzerine kurulduğu soyutlamaları ve zihinsel modelleri kavrayın."
+    description: >-
+      Yazılım ürünleri kavranması zor, ancak doğru kullanım için temel öneme
+      sahip soyutlamalar üzerine kurulur. Kavramsal dokümantasyon, keşif ve
+      pratikle birlikte öğrenilenleri sağlamlaştırır.
+    signals:
+      - "Kullanıcılar ürünü çalıştırabiliyor, ancak neden bu şekilde işlediğini açıklayamıyor."
+      - "Kavramlar yalnızca kod yorumlarında veya kurum içi vikilerde açıklanıyor."
+      - "Ürünün temel soyutlamalarını açıklayan bir sözlük veya kavramsal kılavuz yok."
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "Açıklama"
+      good_docs:
+        - "Kavramsal kılavuz"
+        - "Sözlük"
+    metric:
+      name: "kavram kapsamı"
+      description: "Kendine ait kavramsal sayfası bulunan temel soyutlamaların payı."

@@ -54,7 +54,7 @@
   {{- $websiteID := printf "%s#website" $websiteURL -}}
   {{- $author := dict "@type" "Person" "@id" "https://passo.uno/#author" "name" site.Params.author "url" "https://passo.uno/" -}}
   {{- if eq site.Language.Lang "en" }}
-    {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" $websiteID "url" $websiteURL "name" "7act.org" "alternateName" "7act" "description" $pageDescription "inLanguage" (slice "en" "es" "fr" "it" "pt" "de" "ja" "zh-CN" "ar" "fa") "author" $author -}}
+    {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" $websiteID "url" $websiteURL "name" "7act.org" "alternateName" "7act" "description" $pageDescription "inLanguage" (slice "en" "es" "fr" "it" "pt" "de" "ja" "zh-CN" "ar" "fa" "ru" "pl" "tr" "ko" "hi" "ur") "author" $author -}}
 <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
   {{- end }}
   {{- $webpage := dict "@context" "https://schema.org" "@type" "WebPage" "@id" (printf "%s#webpage" .Permalink) "url" .Permalink "name" .Title "description" $pageDescription "inLanguage" site.Language.LanguageCode "isPartOf" (dict "@id" $websiteID) "author" $author -}}

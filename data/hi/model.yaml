@@ -1,0 +1,225 @@
+model:
+  version: "2025-01-09"
+  license: "CC BY 4.0"
+  title: "सात-क्रिया दस्तावेज़ीकरण मॉडल"
+  description: >-
+    तकनीकी दस्तावेज़ों के उपयोगकर्ताओं की आवश्यकताओं का वर्णनात्मक मॉडल।
+    सात क्रियाएँ उन लक्ष्यों को समेटती हैं जिन्हें दस्तावेज़ों का पाठक पूरा
+    करना चाह सकता है: मूल्यांकन, समझ, अन्वेषण, अभ्यास, स्मरण, विकास और समस्या-निवारण।
+  canonical: "https://passo.uno/seven-action-model/"
+  source: "https://passo.uno/seven-action-model/index.md"
+
+actions:
+  - id: appraise
+    verb: मूल्यांकन
+    alt: पहचान
+    definition: "उत्पाद के मुख्य गुण पहचानें और, जहाँ आवश्यक हो, उसकी दूसरों से तुलना करें।"
+    description: >-
+      दस्तावेज़ों के उपयोगकर्ता संभावित ग्राहक या उत्पाद अपनाने वाले भी होते हैं।
+      पाठक उत्पाद के मुख्य गुण पहचान सके और उसकी दूसरों से तुलना कर सके।
+      यह खोज की प्रक्रिया है।
+    signals:
+      - "सहायता और बिक्री टीमें एक ही ‘यह क्या है?’ प्रश्न का बार-बार उत्तर देती हैं।"
+      - "संभावित ग्राहक उत्पाद का काम दस्तावेज़ों के बजाय मार्केटिंग सामग्री से सीखते हैं।"
+      - "उत्पाद की स्थिति या उसकी प्रमुख शक्तियाँ बताने वाला कोई पृष्ठ नहीं है।"
+    examples:
+      - title: "What is Databricks?"
+        url: "https://docs.databricks.com/en/introduction/index.html"
+      - title: "Splunk Observability Cloud Service Description"
+        url: "https://docs.splunk.com/observability/en/get-started/service-description.html"
+    frameworks:
+      dita:
+        - "<topic>"
+        - "<concept>"
+      diataxis:
+        - "कोई सीधा समकक्ष नहीं (सबसे निकट: व्याख्या)"
+      good_docs:
+        - "अवलोकन"
+        - "लैंडिंग पृष्ठ"
+    metric:
+      name: "रूपांतरण"
+      description: "दस्तावेज़ों से उत्पाद अपनाने तक की रूपांतरण दर।"
+
+  - id: explore
+    verb: अन्वेषण
+    alt: खोज
+    definition: "कम प्रवेश बाधा के साथ उत्पाद आज़माएँ और जानें कि वह क्या कर सकता है।"
+    description: >-
+      महान उत्पाद उपयोगकर्ताओं को संवाद करने और नई चीज़ें आज़माने के लिए
+      आमंत्रित करते हैं। दस्तावेज़ों को संकेत, निर्देश और सुविधाएँ देनी चाहिए
+      जो अन्वेषण को शुरुआती गतिविधियों में से एक बनाएँ।
+    signals:
+      - "नए उपयोगकर्ताओं को उत्पाद आज़माने के लिए त्वरित शुरुआत या सैंडबॉक्स नहीं मिलता।"
+      - "पहला अनुभव निर्देशित भ्रमण नहीं, संदर्भ सामग्री की दीवार है।"
+      - "उपयोगकर्ताओं को उत्पाद छूने से पहले पूरी पुस्तिका पढ़नी पड़ती है।"
+    examples:
+      - title: "React Quick Start"
+        url: "https://react.dev/learn"
+      - title: "Tour of Go"
+        url: "https://go.dev/tour/welcome/1"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<substep>"
+      diataxis:
+        - "ट्यूटोरियल"
+      good_docs:
+        - "ट्यूटोरियल"
+    metric:
+      name: "पहले मूल्य तक समय"
+      description: "पहली यात्रा से पहली सफल सहभागिता तक का समय।"
+
+  - id: remember
+    verb: स्मरण
+    alt: पुनर्प्राप्ति
+    definition: "पैरामीटर से त्रुटि कोड तक, याद न रह सकने वाली जानकारी फिर पाएँ।"
+    description: >-
+      संदर्भ सामग्री वर्षों तक दस्तावेज़ों को उपयोगी रखती है। उपयोगकर्ता उन
+      सूचनाओं को याद करने, पुनः प्राप्त करने या खोजने के लिए मैनुअल देखते हैं
+      जिन्हें वे याद नहीं रख सके।
+    signals:
+      - "उपयोगकर्ता किसी पैरामीटर या त्रुटि कोड को खोजते हैं और कुछ नहीं मिलता।"
+      - "संदर्भ सामग्री ब्लॉग पोस्ट और चैट लॉग में बिखरी हुई है।"
+      - "उत्पाद के सिंटैक्स या सेटिंग के लिए खोजने योग्य, संरचित संदर्भ नहीं है।"
+    examples:
+      - title: "Dockerfile reference"
+        url: "https://docs.docker.com/reference/dockerfile/"
+      - title: "GitLab CI/CD YAML syntax reference"
+        url: "https://docs.gitlab.com/ee/ci/yaml/"
+    frameworks:
+      dita:
+        - "<reference>"
+        - "<refsyn>"
+        - "<properties>"
+      diataxis:
+        - "संदर्भ"
+      good_docs:
+        - "संदर्भ"
+        - "शब्दावली"
+    metric:
+      name: "संदर्भ सफलता दर"
+      description: "सही पृष्ठ देने वाली संदर्भ खोजों का अनुपात।"
+
+  - id: troubleshoot
+    verb: समस्या-निवारण
+    alt: समाधान
+    definition: "समस्याओं का कुशल निदान और समाधान करें, अक्सर दबाव में।"
+    description: >-
+      गलत कॉन्फ़िगरेशन, किनारे के मामलों या वास्तविक बग के कारण समस्याओं से
+      टकराना सामान्य अनुभव है। समस्या-निवारण उस समय भी कुशल निदान और समाधान
+      की जरूरत दर्शाता है जब सिस्टम विफल हो रहे हों या समय-सीमा निकट हो।
+    signals:
+      - "सहायता टिकटों में एक ही प्रश्न दोहराया जाता है और उत्तर दस्तावेज़ों के बजाय चैट लॉग में है।"
+      - "त्रुटि संदेश कोड में दिखाई देते हैं लेकिन दस्तावेज़ों में कभी नहीं।"
+      - "उपयोगकर्ता त्रुटि का पाठ खोजकर ऐसे पृष्ठ पर पहुँचते हैं जहाँ उसका उल्लेख नहीं है।"
+    examples:
+      - title: "Kubernetes Debug Pods"
+        url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
+      - title: "Elasticsearch Troubleshooting"
+        url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/fix-common-cluster-issues.html"
+    frameworks:
+      dita:
+        - "<troubleshooting>"
+        - "<trouble>"
+        - "<cause>"
+        - "<remedy>"
+      diataxis:
+        - "समस्या-केंद्रित हाउ-टू गाइड"
+      good_docs:
+        - "समस्या-निवारण गाइड"
+    metric:
+      name: "समाधान तक समय"
+      description: "लक्षण से कार्यशील स्थिति तक पहुँचने का माध्यिका समय।"
+
+  - id: develop
+    verb: विकास
+    alt: एकीकरण
+    definition: "अतिरिक्त मूल्य बनाने के लिए उत्पाद पर निर्माण, विस्तार या एकीकरण करें।"
+    description: >-
+      उपयोगकर्ताओं को अक्सर मौजूदा उत्पादों पर निर्माण, उनका विस्तार या
+      एकीकरण करना पड़ता है—एकीकरणों, विस्तारों, प्लग-इनों या बिल्कुल नए
+      अनुप्रयोगों के माध्यम से। ज़ोर लगभग हमेशा व्यावहारिक होता है।
+    signals:
+      - "एकीकरण और विस्तार से जुड़े प्रश्न अनुत्तरित रहते हैं या फ़ोरम पर भेज दिए जाते हैं।"
+      - "उत्पाद के ऊपर निर्माण करने की कोई गाइड नहीं है।"
+      - "उत्पाद के विस्तार बिंदु दस्तावेज़ित नहीं हैं।"
+    examples:
+      - title: "Vercel Approval Checklist"
+        url: "https://vercel.com/docs/integrations/create-integration/approval-checklist"
+      - title: "Chrome Debug extensions"
+        url: "https://developer.chrome.com/docs/extensions/get-started/tutorial/debug"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<codeblock>"
+        - "<coderef>"
+      diataxis:
+        - "हाउ-टू गाइड"
+      good_docs:
+        - "हाउ-टू गाइड"
+        - "API संदर्भ"
+    metric:
+      name: "पारिस्थितिकी तंत्र की वृद्धि"
+      description: "उपयोगकर्ताओं द्वारा बनाए गए एकीकरणों या विस्तारों की संख्या।"
+
+  - id: practice
+    verb: अभ्यास
+    alt: प्रशिक्षण
+    definition: "रोज़मर्रा के मानक संचालन में उत्पाद चलाना सीखें।"
+    description: >-
+      उपयोगकर्ताओं को उत्पाद के अधिकांश भागों को चलाना सीखना होता है। अभ्यास
+      प्रक्रियात्मक ज्ञान की जरूरत बताता है—अर्थात् रोज़मर्रा के मानक संचालन
+      में उत्पाद का उपयोग कैसे करें।
+    signals:
+      - "सहायता और समुदाय चैनलों में एक ही ‘कैसे करें’ प्रश्न दोहराए जाते हैं।"
+      - "प्रक्रियाएँ केवल मौखिक संगठनात्मक ज्ञान या किसी व्यक्ति के दिमाग में मौजूद हैं।"
+      - "सामान्य प्रशासनिक कामों के लिए चरण-दर-चरण गाइड नहीं है।"
+    examples:
+      - title: "Generating a new SSH key (GitHub)"
+        url: "https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+      - title: "Import contacts to MailChimp"
+        url: "https://mailchimp.com/help/import-contacts-mailchimp/"
+    frameworks:
+      dita:
+        - "<task>"
+        - "<step>"
+        - "<choicetable>"
+      diataxis:
+        - "हाउ-टू गाइड"
+      good_docs:
+        - "हाउ-टू गाइड"
+    metric:
+      name: "कार्य सफलता"
+      description: "बिना सहायता मानक प्रक्रिया पूरी करने वाले उपयोगकर्ताओं का अनुपात।"
+
+  - id: understand
+    verb: समझ
+    alt: सीख
+    definition: "उत्पाद के अमूर्तन और मानसिक मॉडल समझें।"
+    description: >-
+      सॉफ़्टवेयर उत्पाद ऐसे अमूर्तनों पर बने होते हैं जिन्हें समझना कठिन, पर
+      उचित उपयोग के लिए आधारभूत है। वैचारिक दस्तावेज़ अन्वेषण और अभ्यास के
+      साथ सीख को स्थिर करते हैं।
+    signals:
+      - "उपयोगकर्ता उत्पाद चला सकते हैं लेकिन यह नहीं समझा सकते कि वह इस तरह क्यों काम करता है।"
+      - "अवधारणाएँ केवल कोड टिप्पणियों या आंतरिक विकी में समझाई गई हैं।"
+      - "उत्पाद के मुख्य अमूर्तनों के लिए शब्दावली या वैचारिक गाइड नहीं है।"
+    examples:
+      - title: "Kubernetes Concepts"
+        url: "https://kubernetes.io/docs/concepts/overview/components/"
+      - title: "Thinking in React"
+        url: "https://react.dev/learn/thinking-in-react"
+    frameworks:
+      dita:
+        - "<concept>"
+        - "<glossentry>"
+        - "<section>"
+      diataxis:
+        - "व्याख्या"
+      good_docs:
+        - "वैचारिक गाइड"
+        - "शब्दावली"
+    metric:
+      name: "अवधारणा कवरेज"
+      description: "समर्पित वैचारिक पृष्ठ वाले मुख्य अमूर्तनों का अनुपात।"
