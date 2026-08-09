@@ -6,6 +6,6 @@
   </div>
   <div class="hero-heptagon" data-nosnippet>
     {{ partial "heptagon.html" (dict "size" 820 "labels" true "active" "") }}
+    <p class="home-cta"><a href="{{ "rationale/" | relLangURL }}">{{ i18n "read_introduction" }} &rarr;</a></p>
   </div>
-  <p class="home-cta"><a href="{{ "rationale/" | relLangURL }}">{{ i18n "read_introduction" }} &rarr;</a></p>
 {{ end }}

@@ -20,5 +20,20 @@
       menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   }
+
+  var langPicker = document.querySelector('.lang-picker');
+  if (langPicker) {
+    document.addEventListener('click', function(event){
+      if (langPicker.open && !langPicker.contains(event.target)) {
+        langPicker.removeAttribute('open');
+      }
+    });
+    document.addEventListener('keydown', function(event){
+      if (event.key === 'Escape' && langPicker.open) {
+        langPicker.removeAttribute('open');
+        langPicker.querySelector('summary').focus();
+      }
+    });
+  }
 })();
 </script>

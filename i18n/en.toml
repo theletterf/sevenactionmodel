@@ -27,3 +27,4 @@ social_blurb = "A practical map of the seven things readers come to documentatio
 social_image_alt = "The seven documentation actions arranged around a heptagon."
 edit_page = "Edit this page"
 view_repo = "View repository on GitHub"
+by_author = "By"

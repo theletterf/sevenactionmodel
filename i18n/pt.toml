@@ -27,3 +27,4 @@ social_blurb = "Um mapa prático das sete coisas que os leitores procuram fazer 
 social_image_alt = "As sete ações da documentação dispostas em torno de um heptágono."
 edit_page = "Editar esta página"
 view_repo = "Ver o repositório no GitHub"
+by_author = "Por"
