@@ -1,7 +1,7 @@
 ---
 title: "Ações"
-description: "As sete ações do modelo, pela ordem dos ponteiros do relógio no heptágono."
+description: "As sete ações do modelo, em sentido horário no heptágono."
 scope: "actions"
 ---
 
-As sete ações, pela ordem dos ponteiros do relógio no heptágono. Cada uma designa algo que um leitor procura fazer. A documentação deve abranger as sete — não como uma lista a cumprir, mas como um mapa daquilo de que as pessoas realmente precisam.
+As sete ações, em sentido horário no heptágono. Cada uma nomeia algo que o leitor está tentando fazer. Sua documentação deve cobrir as sete — não como uma lista de verificação, mas como um mapa do que as pessoas realmente precisam.

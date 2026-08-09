@@ -51,9 +51,20 @@ fields on the same page, so a mismatch is visible to readers, not just to review
 
 - Japanese: plain form (だ・である) throughout.
 - Italian, Spanish, Polish: informal second person (*tu*, *ty*).
-- French, German, Portuguese, Russian, Turkish, Hindi, Urdu: formal second person.
+- French, German, Russian, Turkish, Hindi, Urdu: formal second person.
+- Portuguese: *você*, with proclisis (*se concentra*, not *concentra-se*).
 - Korean: 합니다체.
-- Numbers in the model's name: one form only (`7가지`, not also `일곱 가지`).
+- Numbers in the model's name: one form only (`일곱 가지`, not also `7가지`). A heading
+  that starts with a digit produces an invalid HTML `id`, which fails CI.
+
+## Locale variants
+
+`pt` is Brazilian Portuguese: *usuário*, *equipe*, *suporte*, *planejar*, *baixar*,
+*configurações*, *conceitual*, *aplicativo*. The URL path stays `/pt/` and
+`languageCode = "pt-BR"` carries the regional signal in `<html lang>` and `hreflang`.
+
+`zh-cn` is Simplified Chinese and has its own path because the script differs, not just
+the region.
 
 ## Typography
 
