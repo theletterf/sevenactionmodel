@@ -18,13 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           # enableGitInfo needs the full history to date each page.
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
         with:
           hugo-version: '0.154.2'
           extended: true
@@ -37,13 +38,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           # enableGitInfo needs the full history to date each page.
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
         with:
           hugo-version: '0.154.2'
           extended: true
@@ -52,7 +54,7 @@ jobs:
         run: hugo --gc
 
       - name: Check internal links
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --offline --no-progress --exclude '^https://github\.com/theletterf/sevenactionmodel/edit/' --root-dir ${{ github.workspace }}/public public
 
@@ -61,13 +63,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           # enableGitInfo needs the full history to date each page.
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
         with:
           hugo-version: '0.154.2'
           extended: true
@@ -76,16 +79,20 @@ jobs:
         run: hugo --gc
 
       - name: HTML validation
-        run: find public -type f -name '*.html' ! -path 'public/en/index.html' -print0 | xargs -0 npx --yes html-validate
+        # Pinned: a bare `npx html-validate` resolves and runs whatever npm
+        # published most recently, on every pull request.
+        run: find public -type f -name '*.html' ! -path 'public/en/index.html' -print0 | xargs -0 npx --yes html-validate@11.6.2
 
   prose:
     name: Prose
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
 
       - name: Vale
-        uses: errata-ai/vale-action@v2
+        uses: errata-ai/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a # v2.1.2
         with:
           files: content
