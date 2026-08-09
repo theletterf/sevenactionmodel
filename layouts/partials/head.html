@@ -1,14 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
-{{- $fallbackDescription := $modelData.model.description -}}
-{{- with .Params.action -}}
-  {{- $action := index (where $modelData.actions "id" .) 0 -}}
-  {{- $fallbackDescription = $action.definition -}}
-{{- end }}
 {{- $pageTitle := cond .IsHome .Title (printf "%s — 7act.org" .Title) -}}
-{{- $pageDescription := $fallbackDescription -}}
-{{- with .Description }}{{ $pageDescription = . }}{{ end -}}
+{{- $pageDescription := partial "page-description.md" . -}}
 {{- $socialDescription := $pageDescription -}}
 {{- if .IsHome }}{{ $socialDescription = i18n "social_blurb" }}{{ end -}}
 {{- $socialImage := "social-preview.png" | absURL -}}
@@ -49,21 +43,34 @@
 {{ with .OutputFormats.Get "llmstxt" }}<link rel="alternate" type="text/plain" href="{{ .Permalink }}">{{ end }}
 {{ with .OutputFormats.Get "modeljson" }}<link rel="alternate" type="application/json" href="{{ .Permalink }}">{{ end }}
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absLangURL }}">
-{{- if .IsHome }}
-  {{- $websiteURL := "https://7act.org/" -}}
-  {{- $websiteID := printf "%s#website" $websiteURL -}}
-  {{- $author := dict "@type" "Person" "@id" "https://passo.uno/#author" "name" site.Params.author "url" "https://passo.uno/" -}}
-  {{- if eq site.Language.Lang "en" }}
-    {{- $languageCodes := slice -}}
-    {{- range site.Languages -}}
-      {{- $languageCodes = $languageCodes | append .LanguageCode -}}
-    {{- end -}}
-    {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" $websiteID "url" $websiteURL "name" "Seven-Action Documentation Model" "alternateName" (slice "7act" "7act.org") "description" $pageDescription "inLanguage" $languageCodes "author" $author -}}
+{{- $websiteURL := "https://7act.org/" -}}
+{{- $websiteID := printf "%s#website" $websiteURL -}}
+{{- $author := dict "@type" "Person" "@id" "https://passo.uno/#author" "name" site.Params.author "url" "https://passo.uno/" -}}
+{{- $lastmod := .Lastmod -}}
+{{- if $lastmod.IsZero }}{{ $lastmod = site.Lastmod }}{{ end -}}
+{{- if $lastmod.IsZero }}{{ $lastmod = now }}{{ end -}}
+{{- if and .IsHome (eq site.Language.Lang "en") }}
+  {{- $languageCodes := slice -}}
+  {{- range site.Languages -}}
+    {{- $languageCodes = $languageCodes | append .LanguageCode -}}
+  {{- end -}}
+  {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" $websiteID "url" $websiteURL "name" "Seven-Action Documentation Model" "alternateName" (slice "7act" "7act.org") "description" $pageDescription "inLanguage" $languageCodes "author" $author -}}
 <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
-  {{- end }}
-  {{- $webpage := dict "@context" "https://schema.org" "@type" "WebPage" "@id" (printf "%s#webpage" .Permalink) "url" .Permalink "name" .Title "description" $pageDescription "inLanguage" site.Language.LanguageCode "isPartOf" (dict "@id" $websiteID) "author" $author -}}
-<script type="application/ld+json">{{ $webpage | jsonify | safeJS }}</script>
 {{- end }}
+{{- $webpage := dict "@context" "https://schema.org" "@type" "WebPage" "@id" (printf "%s#webpage" .Permalink) "url" .Permalink "name" .Title "description" $pageDescription "inLanguage" site.Language.LanguageCode "isPartOf" (dict "@id" $websiteID) "author" $author "license" "https://creativecommons.org/licenses/by/4.0/" "dateModified" ($lastmod.UTC.Format "2006-01-02") -}}
+<script type="application/ld+json">{{ $webpage | jsonify | safeJS }}</script>
+{{- /* Breadcrumbs: home, the section if the page sits in one, then the page. */ -}}
+{{- $crumbs := slice (dict "name" (i18n "home") "item" site.Home.Permalink) -}}
+{{- if not .IsHome -}}
+  {{- with .Parent }}{{ if not .IsHome }}{{ $crumbs = $crumbs | append (dict "name" .Title "item" .Permalink) }}{{ end }}{{ end -}}
+  {{- $crumbs = $crumbs | append (dict "name" .Title "item" .Permalink) -}}
+{{- end -}}
+{{- $items := slice -}}
+{{- range $index, $crumb := $crumbs -}}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" (add $index 1) "name" $crumb.name "item" $crumb.item) -}}
+{{- end -}}
+{{- $breadcrumb := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "@id" (printf "%s#breadcrumb" .Permalink) "itemListElement" $items -}}
+<script type="application/ld+json">{{ $breadcrumb | jsonify | safeJS }}</script>
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 <link rel="preload" href="{{ "fonts/jost-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>

@@ -1,0 +1,26 @@
+{{- /* Same as Hugo's embedded sitemap, except <lastmod> is never omitted:
+     agents use it to decide what to refetch. Pages fall back to the site's
+     last change (and, failing that, to build time) so no entry ships bare. */ -}}
+{{ printf "<?xml version=%q encoding=%q?>" "1.0" "utf-8" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{- range .Pages }}
+  {{- $lastmod := .Lastmod }}
+  {{- if $lastmod.IsZero }}{{ $lastmod = site.Lastmod }}{{ end }}
+  {{- if $lastmod.IsZero }}{{ $lastmod = now }}{{ end }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    <lastmod>{{ $lastmod.UTC.Format "2006-01-02T15:04:05Z" }}</lastmod>
+    {{- with .Sitemap.ChangeFreq }}
+    <changefreq>{{ . }}</changefreq>
+    {{- end }}
+    {{- if ge .Sitemap.Priority 0.0 }}
+    <priority>{{ .Sitemap.Priority }}</priority>
+    {{- end }}
+    {{- if .IsTranslated }}
+    {{- range .AllTranslations }}
+    <xhtml:link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}"/>
+    {{- end }}
+    {{- end }}
+  </url>
+  {{- end }}
+</urlset>

@@ -1,0 +1,13 @@
+{{- /* Same as Hugo's embedded sitemap index, plus a <lastmod> per language
+     sitemap so agents can skip languages that haven't changed. */ -}}
+{{ printf "<?xml version=%q encoding=%q?>" "1.0" "utf-8" | safeHTML }}
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {{- range . }}
+  {{- $lastmod := .Lastmod }}
+  {{- if $lastmod.IsZero }}{{ $lastmod = now }}{{ end }}
+  <sitemap>
+    <loc>{{ .SitemapAbsURL }}</loc>
+    <lastmod>{{ $lastmod.UTC.Format "2006-01-02T15:04:05Z" }}</lastmod>
+  </sitemap>
+  {{- end }}
+</sitemapindex>

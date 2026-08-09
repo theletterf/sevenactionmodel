@@ -1,18 +1,26 @@
-{{ $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") }}
+{{- /* llms.txt — orientation for language models. Every Markdown link points
+     at a .md mirror so an agent that follows one gets Markdown, not HTML;
+     the other artifacts are listed as bare URLs on purpose. */ -}}
+{{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
+{{- $navOrder := slice "appraise" "understand" "explore" "practice" "remember" "develop" "troubleshoot" -}}
 # {{ $modelData.model.title }}
 
 > {{ $modelData.model.description }}
 
-- [{{ i18n "home" }}]({{ site.Home.Permalink }}): {{ $modelData.model.description }}
-- [{{ i18n "introduction" }}]({{ "rationale/" | absLangURL }}): {{ i18n "introduction_desc" }}
+{{ i18n "markdown_mirrors_desc" }} {{ i18n "formats" }}: {{ "llms.txt" | absLangURL }}, {{ "model.json" | absLangURL }} ({{ i18n "machine_readable_model" }}), {{ "sitemap.md" | absLangURL }} ({{ i18n "sitemap" }}), {{ "AGENTS.md" | absURL }} ({{ i18n "agent_guide" }}).
 
+## {{ i18n "pages" }}
+
+{{ range partial "page-order.md" . -}}
+{{- if not .Params.action -}}
+- [{{ .Title }}]({{ with .OutputFormats.Get "md" }}{{ .Permalink }}{{ end }}): {{ partial "page-description.md" . }}
+{{ end -}}
+{{- end }}
 ## {{ i18n "actions" }}
 
-{{ range $modelData.actions }}
-- [{{ .verb }} ({{ .alt }})]({{ printf "/actions/%s/" .id | absLangURL }}): {{ .definition }}
-{{ end }}
-
-## {{ i18n "formats" }}
-
-- [model.json]({{ "model.json" | absLangURL }}): {{ i18n "machine_readable_model" }}
-- [{{ i18n "markdown_mirrors" }}]({{ site.Home.Permalink }}): {{ i18n "markdown_mirrors_desc" }}
+{{ range $navOrder -}}
+{{- $action := index (where $modelData.actions "id" .) 0 -}}
+{{- with site.GetPage (printf "/actions/%s" .) -}}
+- [{{ $action.verb }} ({{ $action.alt }})]({{ with .OutputFormats.Get "md" }}{{ .Permalink }}{{ end }}): {{ $action.definition }}
+{{ end -}}
+{{- end }}

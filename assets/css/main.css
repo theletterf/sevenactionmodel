@@ -173,7 +173,8 @@ h1, h2, h3, h4,
 .page-title, .action-title, .masthead,
 .wordmark, .side-verb, .metric,
 .heptagon-hero .label-main,
-.action-list a {
+.action-list a,
+.glossary dt a {
   font-family: var(--font-display);
   font-weight: 400;
 }
@@ -355,8 +356,9 @@ a:hover { color: var(--teal-deep); border-bottom-color: var(--teal); }
   margin-top: var(--space-3);
 }
 .sidebar-menu > .side-accordion { grid-column: 1 / -1; grid-row: 4; }
-.sidebar-menu > .side-skill { grid-column: 1 / -1; grid-row: 5; }
-.sidebar-menu > .side-author { grid-column: 1 / -1; grid-row: 6; }
+.sidebar-menu > .side-glossary { grid-column: 1 / -1; grid-row: 5; }
+.sidebar-menu > .side-skill { grid-column: 1 / -1; grid-row: 6; }
+.sidebar-menu > .side-author { grid-column: 1 / -1; grid-row: 7; }
 
 .side-intro { margin-bottom: var(--space-4); }
 
@@ -583,7 +585,7 @@ html[dir="rtl"] .home-cta { transform: translate(50%, -50%); }
 .action-title { margin-bottom: var(--space-1); }
 
 .section { margin: 0 0 var(--space-4); }
-.section h3 { margin-bottom: var(--space-1); }
+.section h2, .section h3 { margin-bottom: var(--space-1); }
 .section p, .section ul { max-width: var(--measure); }
 .section ul { padding-left: 1.2em; margin: 0 0 var(--space-3); }
 .section li { margin-bottom: 0.5em; }
@@ -627,6 +629,29 @@ h3 + .example { margin-top: var(--space-3); }
 .action-list { list-style: none; padding-left: 0; }
 .action-list li { margin-bottom: var(--space-2); max-width: var(--measure); }
 .action-list a { border-bottom: none; }
+
+/* Definition lists: the glossary page and the home page's action summary. */
+.glossary { margin: 0 0 var(--space-3); max-width: var(--measure); }
+.glossary dt {
+  font-family: var(--font-display);
+  font-size: var(--fs-m);
+  margin-top: var(--space-2);
+}
+.glossary dt a { border-bottom: none; }
+.glossary dd { margin: 0.15em 0 0; color: var(--ink-soft); }
+
+.agent-links { list-style: none; padding-left: 0; }
+.agent-links li { margin-bottom: 0.4em; max-width: var(--measure); }
+
+.home-provenance {
+  margin-top: var(--space-3);
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: var(--fs-s);
+}
+
+/* The hero heptagon is centred art; the prose below it starts a new beat. */
+.home-actions { margin-top: var(--space-4); }
 
 .table-wrap {
   overflow-x: auto;
@@ -750,7 +775,8 @@ html[dir="rtl"] .action-title,
 html[dir="rtl"] .wordmark,
 html[dir="rtl"] .side-verb,
 html[dir="rtl"] .metric,
-html[dir="rtl"] .action-list a {
+html[dir="rtl"] .action-list a,
+html[dir="rtl"] .glossary dt {
   font-family: Tahoma, Arial, sans-serif;
 }
 html[dir="rtl"] .side-label,
