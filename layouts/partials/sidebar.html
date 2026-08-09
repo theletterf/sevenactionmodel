@@ -63,14 +63,6 @@
       </div>
     </details>
 
-    {{ with site.GetPage "/glossary" }}
-      <div class="side-glossary">
-        <a href="{{ .RelPermalink }}" class="side-link{{ if eq $.Params.scope "glossary" }} active{{ end }}">
-          <span class="side-verb">{{ .Title }}</span>
-        </a>
-      </div>
-    {{ end }}
-
     <div class="side-skill">
       <a href="{{ "skill/" | relLangURL }}" class="side-link{{ if eq .Section "skill" }} active{{ end }}">
         <span class="side-verb">{{ i18n "skill" }}</span>
