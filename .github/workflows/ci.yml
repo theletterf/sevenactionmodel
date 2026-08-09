@@ -14,10 +14,11 @@ concurrency:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -28,13 +29,52 @@ jobs:
       - name: Build
         run: hugo --gc
 
-      - name: Link check
+  internal-links:
+    name: Internal links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.154.2'
+          extended: true
+
+      - name: Build
+        run: hugo --gc
+
+      - name: Check internal links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --exclude '^https://github\.com/theletterf/sevenactionmodel/edit/' --root-dir ${{ github.workspace }}/public public
+          args: --offline --no-progress --exclude '^https://github\.com/theletterf/sevenactionmodel/edit/' --root-dir ${{ github.workspace }}/public public
+
+  html:
+    name: HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.154.2'
+          extended: true
+
+      - name: Build
+        run: hugo --gc
 
       - name: HTML validation
         run: find public -type f -name '*.html' ! -path 'public/en/index.html' -print0 | xargs -0 npx --yes html-validate
+
+  prose:
+    name: Prose
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
 
       - name: Vale
         uses: errata-ai/vale-action@v2

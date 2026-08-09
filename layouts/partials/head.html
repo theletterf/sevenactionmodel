@@ -20,7 +20,7 @@
 <meta property="og:description" content="{{ $socialDescription }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:site_name" content="7act.org">
+<meta property="og:site_name" content="Seven-Action Documentation Model">
 <meta property="og:image" content="{{ $socialImage }}">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -54,7 +54,11 @@
   {{- $websiteID := printf "%s#website" $websiteURL -}}
   {{- $author := dict "@type" "Person" "@id" "https://passo.uno/#author" "name" site.Params.author "url" "https://passo.uno/" -}}
   {{- if eq site.Language.Lang "en" }}
-    {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" $websiteID "url" $websiteURL "name" "7act.org" "alternateName" "7act" "description" $pageDescription "inLanguage" (slice "en" "es" "fr" "it" "pt" "de" "ja" "zh-CN" "ar" "fa" "ru" "pl" "tr" "ko" "hi" "ur") "author" $author -}}
+    {{- $languageCodes := slice -}}
+    {{- range site.Languages -}}
+      {{- $languageCodes = $languageCodes | append .LanguageCode -}}
+    {{- end -}}
+    {{- $website := dict "@context" "https://schema.org" "@type" "WebSite" "@id" $websiteID "url" $websiteURL "name" "Seven-Action Documentation Model" "alternateName" (slice "7act" "7act.org") "description" $pageDescription "inLanguage" $languageCodes "author" $author -}}
 <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
   {{- end }}
   {{- $webpage := dict "@context" "https://schema.org" "@type" "WebPage" "@id" (printf "%s#webpage" .Permalink) "url" .Permalink "name" .Title "description" $pageDescription "inLanguage" site.Language.LanguageCode "isPartOf" (dict "@id" $websiteID) "author" $author -}}
