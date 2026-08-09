@@ -2,12 +2,17 @@ baseURL = "https://7act.org/"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 enableRobotsTXT = true
+# Git commit dates become .Lastmod, which feeds <lastmod> in sitemap.xml,
+# last_updated in the Markdown mirrors, and dateModified in JSON-LD. CI must
+# check out the full history (fetch-depth: 0) for the dates to be real.
+enableGitInfo = true
 # No tag/category taxonomies on this site.
 disableKinds = ["taxonomy", "term"]
 
 # Every page ships as HTML plus a raw Markdown mirror (index.md) at the same
-# path, following the passo.uno pattern. The home page also emits /llms.txt
-# and /model.json. One `hugo` command produces all four artifact types.
+# path, following the passo.uno pattern. The home page also emits /llms.txt,
+# /model.json, and /sitemap.md. One `hugo` command produces all five artifact
+# types.
 [outputFormats.md]
 mediaType = "text/markdown"
 baseName = "index"
@@ -23,7 +28,24 @@ mediaType = "application/json"
 baseName = "model"
 isPlainText = true
 
+# Agent-facing table of contents: the Markdown twin of sitemap.xml.
+[outputFormats.sitemapmd]
+mediaType = "text/markdown"
+baseName = "sitemap"
+isPlainText = true
+
 [outputs]
-home = ["HTML", "md", "llmstxt", "modeljson"]
+home = ["HTML", "md", "llmstxt", "modeljson", "sitemapmd"]
 page = ["HTML", "md"]
 section = ["HTML", "md"]
+
+# AGENTS.md lives at the repository root, where agents and humans expect it,
+# and is mounted into the published site so /AGENTS.md resolves too. Declaring
+# the static mount keeps the default static/ tree alongside it.
+[[module.mounts]]
+source = "static"
+target = "static"
+
+[[module.mounts]]
+source = "AGENTS.md"
+target = "static/AGENTS.md"

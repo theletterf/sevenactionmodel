@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
 
+# The model exists to be read, quoted, and reused — by people and by agents
+# alike. Name the AI crawlers explicitly so an edge-injected or merged
+# "Disallow: /" for these user-agents cannot override the site's intent:
+# per RFC 9309 the most specific rule wins, and Allow beats Disallow on ties.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: cohere-ai
+Allow: /
+
 Sitemap: {{ "sitemap.xml" | absURL }}

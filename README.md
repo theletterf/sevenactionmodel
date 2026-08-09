@@ -38,6 +38,25 @@ Use [7act.org](https://7act.org/) to:
 
 The guide is available in English, Spanish, French, Italian, Portuguese, German, Polish, Turkish, Russian, Japanese, Simplified Chinese, Korean, Hindi, Arabic, Urdu, and Persian. The Arabic, Urdu, and Persian editions use right-to-left layouts.
 
+## What agents get
+
+The site is built to be read by AI agents as well as people. Every page ships
+as HTML and as a Markdown mirror at `index.md` under the same path, and
+requesting a page with `Accept: text/markdown` returns that mirror instead of
+HTML. Site-wide artifacts, in every language:
+
+| Artifact | What it is |
+| --- | --- |
+| [`/llms.txt`](https://7act.org/llms.txt) | Index of the site for language models |
+| [`/model.json`](https://7act.org/model.json) | The model as data, straight from `data/<language>/model.yaml` |
+| [`/sitemap.md`](https://7act.org/sitemap.md) | Every page as Markdown links, with descriptions |
+| [`/sitemap.xml`](https://7act.org/sitemap.xml) | The same set with `<lastmod>` dates from Git |
+| [`/AGENTS.md`](https://7act.org/AGENTS.md) | How agents should read the site, and how to work on this repository |
+| [`/glossary/`](https://7act.org/glossary/) | Definitions of the seven actions and their alternative verbs |
+
+`robots.txt` allows AI crawlers explicitly. `worker.js` adds the canonical
+`Link` header, the charset, and Markdown content negotiation at the edge.
+
 ## Download the agent skill
 
 The repository also includes a skill that lets Claude apply the model while planning, writing, auditing, or restructuring documentation. Install it with the [Vercel Skills CLI](https://skills.sh/):

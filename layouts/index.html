@@ -1,5 +1,6 @@
 {{ define "main" }}
-  {{ $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") }}
+  {{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
+  {{- $navOrder := slice "appraise" "understand" "explore" "practice" "remember" "develop" "troubleshoot" -}}
   <h1 class="page-title">{{ $modelData.model.title }}</h1>
   <div class="home-tagline">
     {{ .Content }}
@@ -8,4 +9,41 @@
     {{ partial "heptagon.html" (dict "size" 820 "labels" true "active" "") }}
     <p class="home-cta"><a href="{{ "rationale/" | relLangURL }}">{{ i18n "read_introduction" }} &rarr;</a></p>
   </div>
+
+  <section class="section home-actions">
+    <h2>{{ i18n "seven_actions" }}</h2>
+    <p class="lede">{{ $modelData.model.description }}</p>
+    <dl class="glossary">
+      {{- range $navOrder }}
+        {{- $action := index (where $modelData.actions "id" .) 0 }}
+        <dt>
+          <a href="{{ printf "/actions/%s/" $action.id | relLangURL }}">{{ $action.verb }}</a>
+          <span class="hl">{{ $action.alt }}</span>
+        </dt>
+        <dd>{{ $action.definition }}</dd>
+      {{- end }}
+    </dl>
+  </section>
+
+  <section class="section home-agents">
+    <h2>{{ i18n "for_agents" }}</h2>
+    <ul class="agent-links">
+      {{- range $pageRef := slice "/rationale" "/glossary" "/skill" }}
+        {{- with site.GetPage $pageRef }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ partial "page-description.md" . }}</li>
+        {{- end }}
+      {{- end }}
+      <li><a href="{{ (.OutputFormats.Get "md").RelPermalink }}">{{ i18n "markdown_mirrors" }}</a> — {{ i18n "markdown_mirrors_desc" }}</li>
+      <li><a href="{{ "model.json" | relLangURL }}">model.json</a> — {{ i18n "machine_readable_model" }}</li>
+      <li><a href="{{ "llms.txt" | relLangURL }}">llms.txt</a> — {{ i18n "agent_index" }}</li>
+      <li><a href="{{ "sitemap.md" | relLangURL }}">sitemap.md</a> — {{ i18n "sitemap" }}</li>
+      <li><a href="{{ "AGENTS.md" | relURL }}">AGENTS.md</a> — {{ i18n "agent_guide" }}</li>
+    </ul>
+    <p class="home-provenance">
+      {{ $modelData.model.title }} · {{ $modelData.model.version }} ·
+      <a href="https://creativecommons.org/licenses/by/4.0/">{{ $modelData.model.license }}</a> ·
+      <a href="{{ $modelData.model.canonical }}">{{ i18n "introduction" }}</a> ·
+      <bdi dir="ltr">{{ site.Params.author }}</bdi>
+    </p>
+  </section>
 {{ end }}

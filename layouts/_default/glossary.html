@@ -1,0 +1,21 @@
+{{ define "main" }}
+  {{- $modelData := default site.Data.en.model (index site.Data site.Language.Lang "model") -}}
+  {{- $navOrder := slice "appraise" "understand" "explore" "practice" "remember" "develop" "troubleshoot" -}}
+  <h1 class="page-title">{{ .Title }}</h1>
+  <p class="lede">{{ .Description }}</p>
+  {{ .Content }}
+
+  <section class="section">
+    <h2>{{ i18n "actions" }}</h2>
+    <dl class="glossary">
+      {{- range $navOrder }}
+        {{- $action := index (where $modelData.actions "id" .) 0 }}
+        <dt id="{{ $action.id }}">
+          <a href="{{ printf "/actions/%s/" $action.id | relLangURL }}">{{ $action.verb }}</a>
+          <span class="hl">{{ $action.alt }}</span>
+        </dt>
+        <dd>{{ $action.definition }} {{ $action.description }}</dd>
+      {{- end }}
+    </dl>
+  </section>
+{{ end }}
