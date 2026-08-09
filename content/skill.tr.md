@@ -16,7 +16,7 @@ npx skills add theletterf/sevenactionmodel \
 Her projede kullanılabilmesi için `--global` ekleyin. Skill; dokümantasyon planlama, yazma, denetim, bilgi mimarisi ve başarı metrikleri çalışmalarında etkinleşir. Doğrudan da çağırabilirsiniz:
 
 ```text
-Kullanıcı kabul dokümanlarımızı denetlemek için $seven-action-documentation kullan.
+Onboarding dokümanlarımızı denetlemek için $seven-action-documentation kullan.
 ```
 
 Skill, ürün hakkında bilgi uydurmadan ajanın okurun temel eylemini belirlemesine, yararlı içerik türlerini seçmesine ve bir sonuç ile ölçüm tanımlamasına yardımcı olur.

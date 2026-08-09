@@ -75,9 +75,9 @@ actions:
       - "La matière de référence est dispersée entre articles de blog et journaux de discussion."
       - "Il n’existe aucune référence structurée et consultable pour la syntaxe ou les réglages du produit."
     examples:
-      - title: "Référence Dockerfile"
+      - title: "Dockerfile reference"
         url: "https://docs.docker.com/reference/dockerfile/"
-      - title: "Référence de syntaxe YAML CI/CD de GitLab"
+      - title: "GitLab CI/CD YAML syntax reference"
         url: "https://docs.gitlab.com/ee/ci/yaml/"
     frameworks:
       dita: ["<reference>", "<refsyn>", "<properties>"]

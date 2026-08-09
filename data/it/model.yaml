@@ -90,9 +90,9 @@ actions:
       - "Il materiale di riferimento è sparso tra articoli di blog e cronologie delle chat."
       - "Non esiste un riferimento strutturato e consultabile per la sintassi o le impostazioni del prodotto."
     examples:
-      - title: "Riferimento Dockerfile"
+      - title: "Dockerfile reference"
         url: "https://docs.docker.com/reference/dockerfile/"
-      - title: "Riferimento alla sintassi YAML CI/CD di GitLab"
+      - title: "GitLab CI/CD YAML syntax reference"
         url: "https://docs.gitlab.com/ee/ci/yaml/"
     frameworks:
       dita:

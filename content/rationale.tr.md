@@ -16,7 +16,7 @@ Az kaynak ve destekle hızla değişen ürünleri belgelemenin karmaşıklığı
 
 ## Odağı içerik türlerinden kullanıcı ihtiyaçlarına kaydırmak
 
-Bu durumun çözümü, odağı ne yazılması gerektiğinden hangi kullanıcı ihtiyaçlarının karşılanması gerektiğine kaydırmaktır. Bunun için önceden tanımlanmış yapısal kalıplara göre içerik üretmek yerine dokümantasyonun stratejik yönünü, yani içerik stratejisini sahiplenmek gerekir. Bu yaklaşım Diataxis, DITA ve diğer dokümantasyon çerçeveleriyle tamamen uyumludur; doküman üreticilerine yön ve amaç sağlar, onlar da ellerindeki içerik türlerini, öğeleri ve araçları kullanır.
+Bu durumun çözümü, odağı ne yazılması gerektiğinden hangi kullanıcı ihtiyaçlarının karşılanması gerektiğine kaydırmaktır. Bunun için önceden tanımlanmış yapısal kalıplara göre içerik üretmek yerine dokümantasyonun stratejik yönünü, yani içerik stratejisini sahiplenmek gerekir. Bu yaklaşım Diátaxis, DITA ve diğer dokümantasyon çerçeveleriyle tamamen uyumludur; doküman üreticilerine yön ve amaç sağlar, onlar da ellerindeki içerik türlerini, öğeleri ve araçları kullanır.
 
 Çerçevelerin, araçların ve kullanıcı ihtiyacı modellerinin nasıl bir araya geldiğine dair düşüncemi bir sandviç benzetmesiyle daha iyi anlayabilirsiniz; özellikle de henüz öğle yemeği yemediyseniz. Dokümantasyon çerçeveleri ve araçları, sandviçi bir arada tutmak ve elde taşımak için gereken malzemelerdir. Fakat sandviçe bütün tadını ve anlamını veren iç malzemedir; yani izlediğiniz kullanıcı ihtiyaçları zihinsel modeli. Bu, örtüşebilseler de paydaşlardan gelen dış taleplerle *aynı şey değildir*. OKR'lar da olsa olsa sostur.
 

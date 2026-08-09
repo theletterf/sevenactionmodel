@@ -88,9 +88,9 @@ actions:
       - "O material de referência está disperso por artigos de blogues e históricos de conversas."
       - "Não existe uma referência estruturada e pesquisável para a sintaxe ou as definições do produto."
     examples:
-      - title: "Referência do Dockerfile"
+      - title: "Dockerfile reference"
         url: "https://docs.docker.com/reference/dockerfile/"
-      - title: "Referência da sintaxe YAML de CI/CD do GitLab"
+      - title: "GitLab CI/CD YAML syntax reference"
         url: "https://docs.gitlab.com/ee/ci/yaml/"
     frameworks:
       dita:

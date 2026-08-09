@@ -53,7 +53,7 @@ weight = 11
 languageCode = "ar"
 languageName = "العربية"
 languageDirection = "rtl"
-title = "نموذج التوثيق ذي الإجراءات السبعة"
+title = "نموذج التوثيق ذو الإجراءات السبعة"
 weight = 14
 
 [fa]
@@ -66,7 +66,7 @@ weight = 16
 [ru]
 languageCode = "ru"
 languageName = "Русский"
-title = "Семиаспектная модель документации"
+title = "Модель документации на основе семи действий"
 weight = 9
 
 [pl]
@@ -84,7 +84,7 @@ weight = 8
 [ko]
 languageCode = "ko"
 languageName = "한국어"
-title = "7가지 행동 문서화 모델"
+title = "일곱 가지 행동 문서화 모델"
 weight = 12
 
 [hi]
@@ -97,5 +97,5 @@ weight = 13
 languageCode = "ur"
 languageName = "اردو"
 languageDirection = "rtl"
-title = "سات عملی دستاویزاتی نمونہ"
+title = "سات عملی دستاویزاتی ماڈل"
 weight = 15
