@@ -1,4 +1,4 @@
-# Reflete data/en/model.yaml. As etiquetas DITA e os URL dos exemplos externos
+# Reflete data/en/model.yaml. As tags DITA e os URLs dos exemplos externos
 # permanecem inalterados; o texto explicativo está integralmente traduzido.
 
 model:
@@ -6,9 +6,9 @@ model:
   license: "CC BY 4.0"
   title: "Modelo de documentação de sete ações"
   description: >-
-    Um modelo descritivo das necessidades dos utilizadores de documentação
-    técnica. Sete ações abrangem os objetivos que quem consulta a documentação
-    pode querer alcançar: Avaliar, Compreender, Explorar, Praticar, Recordar,
+    Um modelo descritivo das necessidades dos usuários de documentação técnica.
+    Sete ações abrangem os objetivos que quem consulta a documentação pode
+    querer alcançar: Avaliar, Compreender, Explorar, Praticar, Recordar,
     Desenvolver e Resolver.
   canonical: "https://passo.uno/seven-action-model/"
   source: "https://passo.uno/seven-action-model/index.md"
@@ -17,13 +17,13 @@ actions:
   - id: appraise
     verb: "Avaliar"
     alt: "Discernir"
-    definition: "Discernir as principais qualidades do produto e, se for caso disso, compará-lo com outros."
+    definition: "Discernir as principais qualidades do produto e, se for o caso, compará-lo com outros."
     description: >-
-      Os utilizadores da documentação são também potenciais clientes ou
-      adotantes. Quem lê deve conseguir discernir as principais qualidades do
-      produto e compará-lo com outros. Trata-se de um processo de descoberta.
+      Os usuários da documentação são também potenciais clientes ou adotantes.
+      Quem lê deve conseguir discernir as principais qualidades do produto e
+      compará-lo com outros. Trata-se de um processo de descoberta.
     signals:
-      - "As equipas de apoio e vendas respondem repetidamente às mesmas perguntas: «O que é isto?»"
+      - "As equipes de suporte e vendas respondem repetidamente às mesmas perguntas: “O que é isso?”"
       - "Os potenciais clientes descobrem o que o produto faz no material de marketing, não na documentação."
       - "Não existe uma página que apresente o posicionamento ou os principais pontos fortes do produto."
     examples:
@@ -47,16 +47,16 @@ actions:
   - id: explore
     verb: "Explorar"
     alt: "Descobrir"
-    definition: "Experimentar o produto e descobrir o que consegue fazer com uma baixa barreira à entrada."
+    definition: "Experimentar o produto e descobrir o que ele faz, com uma barreira de entrada baixa."
     description: >-
-      Os grandes produtos convidam os utilizadores a interagir e a experimentar
+      Os grandes produtos convidam os usuários a interagir e a experimentar
       coisas novas. A documentação deve oferecer pistas, instruções e
       possibilidades de ação que facilitem a exploração como uma das primeiras
       atividades.
     signals:
-      - "Os novos utilizadores não encontram um guia de início rápido ou um ambiente de testes onde possam experimentar o produto."
+      - "Os novos usuários não encontram um guia de início rápido nem um ambiente de testes para experimentar o produto."
       - "A primeira experiência é uma parede de material de referência, não uma visita guiada."
-      - "Os utilizadores têm de ler um manual inteiro antes de poderem utilizar o produto."
+      - "Os usuários precisam ler um manual inteiro antes de poder usar o produto."
     examples:
       - title: "React Quick Start"
         url: "https://react.dev/learn"
@@ -72,25 +72,25 @@ actions:
       good_docs:
         - "Tutorial"
     metric:
-      name: "tempo até ao primeiro valor"
+      name: "tempo até o primeiro valor"
       description: "Tempo entre a primeira visita e a primeira interação bem-sucedida."
 
   - id: remember
     verb: "Recordar"
     alt: "Relembrar"
-    definition: "Relembrar informações que não foi possível memorizar, desde parâmetros até códigos de erro."
+    definition: "Relembrar informações que não foi possível memorizar, de parâmetros a códigos de erro."
     description: >-
-      O material de referência mantém a documentação viva após anos de
-      utilização. Os utilizadores consultam manuais para recordar, relembrar,
-      recuperar ou procurar informações que não conseguiram memorizar.
+      O material de referência mantém a documentação viva depois de anos de uso.
+      Os usuários consultam manuais para recordar, relembrar, recuperar ou
+      procurar informações que não conseguiram memorizar.
     signals:
-      - "Os utilizadores procuram um parâmetro ou código de erro e não encontram nada."
-      - "O material de referência está disperso por artigos de blogues e históricos de conversas."
-      - "Não existe uma referência estruturada e pesquisável para a sintaxe ou as definições do produto."
+      - "Os usuários procuram um parâmetro ou código de erro e não encontram nada."
+      - "O material de referência está espalhado por posts de blog e históricos de conversas."
+      - "Não existe uma referência estruturada e pesquisável para a sintaxe ou as configurações do produto."
     examples:
-      - title: "Referência do Dockerfile"
+      - title: "Dockerfile reference"
         url: "https://docs.docker.com/reference/dockerfile/"
-      - title: "Referência da sintaxe YAML de CI/CD do GitLab"
+      - title: "GitLab CI/CD YAML syntax reference"
         url: "https://docs.gitlab.com/ee/ci/yaml/"
     frameworks:
       dita:
@@ -103,22 +103,22 @@ actions:
         - "Referência"
         - "Glossário"
     metric:
-      name: "taxa de sucesso das consultas"
-      description: "Percentagem das consultas ao material de referência que devolvem a página certa."
+      name: "taxa de acerto das consultas"
+      description: "Proporção das consultas ao material de referência que retornam a página certa."
 
   - id: troubleshoot
     verb: "Resolver"
     alt: "Solucionar"
     definition: "Diagnosticar e resolver problemas de forma eficiente, muitas vezes sob pressão."
     description: >-
-      Deparar-se com problemas — configurações incorretas, casos extremos ou
-      erros reais — é comum. A resolução de problemas representa a necessidade
-      de os diagnosticar e resolver de forma eficiente, muitas vezes sob
-      pressão quando os sistemas falham ou os prazos se aproximam.
+      Esbarrar em problemas — configurações incorretas, casos extremos ou erros
+      reais — é comum. A resolução de problemas representa a necessidade de
+      diagnosticá-los e resolvê-los de forma eficiente, muitas vezes sob
+      pressão, quando os sistemas falham ou os prazos se aproximam.
     signals:
-      - "Os pedidos de apoio repetem a mesma pergunta e a resposta encontra-se no histórico de uma conversa, não na documentação."
+      - "Os chamados de suporte repetem a mesma pergunta e a resposta está no histórico de uma conversa, não na documentação."
       - "As mensagens de erro aparecem no código, mas nunca na documentação."
-      - "Os utilizadores procuram uma mensagem de erro e chegam a uma página que não a menciona."
+      - "Os usuários procuram uma mensagem de erro e chegam a uma página que não a menciona."
     examples:
       - title: "Kubernetes Debug Pods"
         url: "https://kubernetes.io/docs/tasks/debug/debug-application/debug-pods/"
@@ -131,22 +131,21 @@ actions:
         - "<cause>"
         - "<remedy>"
       diataxis:
-        - "Guia prático (orientado para o problema)"
+        - "Guia prático (orientado ao problema)"
       good_docs:
         - "Guia de resolução de problemas"
     metric:
       name: "tempo de resolução"
-      description: "Tempo mediano entre o sintoma e a recuperação de um estado funcional."
+      description: "Tempo mediano entre o sintoma e a volta a um estado funcional."
 
   - id: develop
     verb: "Desenvolver"
     alt: "Integrar"
     definition: "Construir sobre o produto, ampliá-lo ou integrá-lo para criar valor adicional."
     description: >-
-      Os utilizadores precisam frequentemente de construir sobre produtos
-      existentes, ampliá-los ou integrá-los, através de integrações, extensões,
-      plugins ou aplicações totalmente novas. O objetivo é quase sempre
-      pragmático.
+      Os usuários precisam com frequência construir sobre produtos existentes,
+      ampliá-los ou integrá-los, por meio de integrações, extensões, plugins ou
+      aplicações totalmente novas. O objetivo é quase sempre pragmático.
     signals:
       - "As perguntas sobre integração e extensão ficam sem resposta ou são encaminhadas para um fórum."
       - "Não existe um guia para construir sobre o produto."
@@ -168,18 +167,18 @@ actions:
         - "Referência de API"
     metric:
       name: "crescimento do ecossistema"
-      description: "Número de integrações ou extensões criadas pelos utilizadores."
+      description: "Número de integrações ou extensões criadas pelos usuários."
 
   - id: practice
     verb: "Praticar"
     alt: "Treinar"
-    definition: "Aprender a utilizar o produto nas operações quotidianas e habituais."
+    definition: "Aprender a usar o produto nas operações cotidianas e habituais."
     description: >-
-      Os utilizadores têm de aprender a utilizar a maior parte das áreas de um
+      Os usuários precisam aprender a usar a maior parte das áreas de um
       produto. Praticar descreve a necessidade de adquirir conhecimento
-      processual: como usar o produto nas operações quotidianas e habituais.
+      procedimental: como usar o produto nas operações cotidianas e habituais.
     signals:
-      - "As mesmas perguntas sobre como fazer algo repetem-se nos canais de apoio e da comunidade."
+      - "As mesmas perguntas sobre como fazer algo se repetem nos canais de suporte e da comunidade."
       - "Os procedimentos existem apenas como conhecimento informal ou na cabeça de alguém."
       - "Não existe um guia passo a passo para tarefas administrativas comuns."
     examples:
@@ -198,20 +197,20 @@ actions:
         - "Guia prático"
     metric:
       name: "sucesso da tarefa"
-      description: "Percentagem de utilizadores que concluem um procedimento padrão sem apoio."
+      description: "Proporção de usuários que concluem um procedimento padrão sem suporte."
 
   - id: understand
     verb: "Compreender"
     alt: "Aprender"
     definition: "Compreender as abstrações e os modelos mentais em que o produto se baseia."
     description: >-
-      Os produtos de software baseiam-se em abstrações difíceis de compreender,
-      mas fundamentais para uma utilização correta. A documentação conceptual
-      consolida a aprendizagem ao lado da exploração e da prática.
+      Os produtos de software se baseiam em abstrações difíceis de compreender,
+      mas fundamentais para o uso correto. A documentação conceitual consolida o
+      aprendizado ao lado da exploração e da prática.
     signals:
-      - "Os utilizadores conseguem operar o produto, mas não explicar por que razão funciona daquela forma."
+      - "Os usuários conseguem operar o produto, mas não explicar por que ele funciona daquele jeito."
       - "Os conceitos só são explicados em comentários no código ou em wikis internos."
-      - "Não existe um glossário ou guia conceptual para as abstrações fundamentais do produto."
+      - "Não existe um glossário ou guia conceitual para as abstrações fundamentais do produto."
     examples:
       - title: "Kubernetes Concepts"
         url: "https://kubernetes.io/docs/concepts/overview/components/"
@@ -225,8 +224,8 @@ actions:
       diataxis:
         - "Explicação"
       good_docs:
-        - "Guia conceptual"
+        - "Guia conceitual"
         - "Glossário"
     metric:
       name: "cobertura de conceitos"
-      description: "Percentagem das abstrações fundamentais com uma página conceptual dedicada."
+      description: "Proporção das abstrações fundamentais com uma página conceitual dedicada."

@@ -1,6 +1,6 @@
 ---
 title: "Sieben-Aktionen-Dokumentationsmodell"
-description: "Ein beschreibendes Modell der Nutzerbedürfnisse an technische Dokumentation. Sieben Aktionen decken Ziele ab, die Konsumenten von Dokumentation erreichen möchten: Bewerten, Verstehen, Erkunden, Üben, Erinnern, Entwickeln, Fehlerbehebung."
+description: "Ein beschreibendes Modell der Nutzerbedürfnisse an technische Dokumentation. Sieben Aktionen decken Ziele ab, die Konsumenten von Dokumentation erreichen möchten: Bewerten, Verstehen, Erkunden, Üben, Erinnern, Entwickeln, Fehler beheben."
 scope: "home"
 ---
 

@@ -16,7 +16,7 @@ Faced with the complexity of documenting fast moving products with little resour
 
 ## Shifting the focus from content types to user needs
 
-A solution to this situation is shifting the focus from what should be written to what user needs should be addressed. This requires taking ownership of the strategic side of documentation (as in content strategy) instead of producing content following predefined structural patterns. Such an approach is fully compatible with documentation frameworks like Diataxis, DITA, and others, as it provides direction and purpose to the builders of docs, who'll then use content types, elements, and tools at their disposal.
+A solution to this situation is shifting the focus from what should be written to what user needs should be addressed. This requires taking ownership of the strategic side of documentation (as in content strategy) instead of producing content following predefined structural patterns. Such an approach is fully compatible with documentation frameworks like Diátaxis, DITA, and others, as it provides direction and purpose to the builders of docs, who'll then use content types, elements, and tools at their disposal.
 
 You can better understand how I think frameworks, tools, and models of user needs go together through a sandwich metaphor, especially if you haven't had lunch yet: docs frameworks and tools are essential ingredients to holding a sandwich together and handle it, but what gives a sandwich all the taste and meaning is the filling, that is, the mental model of user needs that you're following. This is *not* the same as external requests from stakeholders, though they might overlap. If anything, OKRs are the sauce.
 

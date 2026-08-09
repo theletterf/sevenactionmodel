@@ -36,7 +36,7 @@ Use [7act.org](https://7act.org/) to:
 - choose useful measures for different documentation goals; and
 - share a common vocabulary across a team.
 
-The guide is available in English, Spanish, French, Italian, Portuguese, German, Japanese, Simplified Chinese, Arabic, and Persian. The Arabic and Persian editions use right-to-left layouts.
+The guide is available in English, Spanish, French, Italian, Portuguese, German, Polish, Turkish, Russian, Japanese, Simplified Chinese, Korean, Hindi, Arabic, Urdu, and Persian. The Arabic, Urdu, and Persian editions use right-to-left layouts.
 
 ## Download the agent skill
 
@@ -53,6 +53,8 @@ Once installed, Claude can recognize when the model is relevant or you can ask i
 ## Contributing
 
 Corrections, better examples, translation improvements, and thoughtful refinements are welcome. Because every edition describes the same model, translated changes should preserve the meaning and level of detail of the English source.
+
+If you are working on a translation, read [TRANSLATING.md](TRANSLATING.md) first. It covers the terms that stay in English, how the model's name and the seven action names should be rendered, and the register and punctuation conventions each locale follows.
 
 If you want to preview a change locally, install Hugo Extended and run:
 

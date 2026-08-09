@@ -6,7 +6,7 @@ model:
     Ein beschreibendes Modell der Nutzerbedürfnisse an technische Dokumentation.
     Sieben Aktionen decken Ziele ab, die Konsumenten von Dokumentation erreichen
     möchten: Bewerten, Verstehen, Erkunden, Üben, Erinnern, Entwickeln,
-    Fehlerbehebung.
+    Fehler beheben.
   canonical: "https://passo.uno/seven-action-model/"
   source: "https://passo.uno/seven-action-model/index.md"
 
@@ -76,9 +76,9 @@ actions:
       - "Referenzmaterial ist über Blogbeiträge und Chat-Protokolle verstreut."
       - "Es gibt keine durchsuchbare, strukturierte Referenz für Syntax oder Einstellungen des Produkts."
     examples:
-      - title: "Dockerfile-Referenz"
+      - title: "Dockerfile reference"
         url: "https://docs.docker.com/reference/dockerfile/"
-      - title: "Referenz zur GitLab-CI/CD-YAML-Syntax"
+      - title: "GitLab CI/CD YAML syntax reference"
         url: "https://docs.gitlab.com/ee/ci/yaml/"
     frameworks:
       dita: ["<reference>", "<refsyn>", "<properties>"]
@@ -89,12 +89,12 @@ actions:
       description: "Anteil der Referenzsuchen, die zur richtigen Seite führen."
 
   - id: troubleshoot
-    verb: "Fehlerbehebung"
+    verb: "Fehler beheben"
     alt: "Lösen"
     definition: "Probleme effizient diagnostizieren und lösen, oft unter Druck."
     description: >-
       Auf Probleme zu stoßen – Fehlkonfigurationen, Sonderfälle oder tatsächliche
-      Fehler – ist für Nutzer alltäglich. Fehlerbehebung steht für das Bedürfnis,
+      Fehler – ist für Nutzer alltäglich. Diese Aktion steht für das Bedürfnis,
       Probleme effizient zu diagnostizieren und zu lösen, oft unter Druck, wenn
       Systeme ausfallen oder Fristen näher rücken.
     signals:
