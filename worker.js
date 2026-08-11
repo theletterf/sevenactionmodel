@@ -1,12 +1,17 @@
 const HTML_MEDIA_TYPE = "text/html; charset=utf-8";
 const MARKDOWN_MEDIA_TYPE = "text/markdown; charset=utf-8";
 
+const RATIONALE_IMAGE_ORIGIN = "https://passo.uno";
+
 /**
  * Fetch directives for the Content-Security-Policy.
  *
- * Nothing here loads from another origin — the stylesheet, both fonts, and the
- * social card all ship with the assets — so every fetch directive stays at
- * 'self'. `script-src` is the one compromise. The JSON-LD blocks in head.html
+ * The stylesheet, both fonts, and the social card all ship with the assets, so
+ * every fetch directive stays at 'self' with one exception: the rationale page
+ * embeds two illustrations hosted on the source essay's blog, and `img-src`
+ * has to name that origin or the browser blocks them. Copying those two files
+ * into `static/` would let the directive go back to 'self' alone.
+ * `script-src` is the other compromise. The JSON-LD blocks in head.html
  * are rebuilt per page from that page's permalink, title, and modification
  * date, so their hashes differ at every URL and cannot be listed ahead of
  * time. Dropping 'unsafe-inline' would stop search engines and agents from
@@ -23,7 +28,7 @@ const CSP_DIRECTIVES = [
   "form-action 'none'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self'",
-  "img-src 'self' data:",
+  `img-src 'self' data: ${RATIONALE_IMAGE_ORIGIN}`,
   "font-src 'self'",
   "connect-src 'self'",
 ];
