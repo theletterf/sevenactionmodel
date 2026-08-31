@@ -2,3 +2,8 @@ author = "Fabrizio Ferri Benedetti"
 description = "A descriptive model of user needs for technical documentation."
 license = "CC BY 4.0"
 codeLicense = "MIT"
+
+# GoatCounter endpoint for page views, shared with passo.uno; the analytics
+# partial prefixes each hit with the host so the two sites stay apart. Empty
+# or absent leaves the script out of the page.
+goatcounter = "https://passouno.goatcounter.com/count"
