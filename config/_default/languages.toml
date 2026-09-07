@@ -31,6 +31,12 @@ languageName = "Português (BR)"
 title = "Modelo de documentação de sete ações"
 weight = 5
 
+[pt-pt]
+languageCode = "pt-PT"
+languageName = "Português (PT)"
+title = "Modelo de documentação 7-Ações"
+weight = 5
+
 [de]
 languageCode = "de"
 languageName = "Deutsch"

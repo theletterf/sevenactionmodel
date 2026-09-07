@@ -53,6 +53,7 @@ fields on the same page, so a mismatch is visible to readers, not just to review
 - Italian, Spanish, Polish: informal second person (*tu*, *ty*).
 - French, German, Russian, Turkish, Hindi, Urdu: formal second person.
 - Portuguese (BR): *você*, with proclisis (*se concentra*, not *concentra-se*).
+- Portuguese (PT): impersonal/third-person register, with enclisis (*concentra-se*, not *se concentra*).
 - Korean: 합니다체.
 - Numbers in the model's name: one form only (`일곱 가지`, not also `7가지`). A heading
   that starts with a digit produces an invalid HTML `id`, which fails CI.
@@ -62,6 +63,10 @@ fields on the same page, so a mismatch is visible to readers, not just to review
 `pt-br` is Brazilian Portuguese: *usuário*, *equipe*, *suporte*, *planejar*, *baixar*,
 *configurações*, *conceitual*, *aplicativo*. The URL path is `/pt-br/` and
 `languageCode = "pt-BR"` carries the regional signal in `<html lang>` and `hreflang`.
+
+`pt-pt` is European Portuguese: *utilizador*, *equipas*, *apoio*, *planear*, *transferir*,
+*definições*, *conceptual*. The URL path is `/pt-pt/` and `languageCode = "pt-PT"`.
+Uses angular quotation marks (« ») and post-AO90 orthography.
 
 `zh-cn` is Simplified Chinese and has its own path because the script differs, not just
 the region.
