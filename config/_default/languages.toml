@@ -25,9 +25,9 @@ languageName = "Italiano"
 title = "Modello di documentazione a sette azioni"
 weight = 4
 
-[pt]
+[pt-br]
 languageCode = "pt-BR"
-languageName = "Português"
+languageName = "Português (BR)"
 title = "Modelo de documentação de sete ações"
 weight = 5
 
