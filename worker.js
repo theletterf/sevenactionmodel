@@ -3,6 +3,11 @@ const MARKDOWN_MEDIA_TYPE = "text/markdown; charset=utf-8";
 
 const RATIONALE_IMAGE_ORIGIN = "https://passo.uno";
 
+// GoatCounter: `count.js` is served from one origin and reports hits to
+// another, so the two are named separately below.
+const ANALYTICS_SCRIPT_ORIGIN = "https://gc.zgo.at";
+const ANALYTICS_COLLECTOR_ORIGIN = "https://passouno.goatcounter.com";
+
 /**
  * Fetch directives for the Content-Security-Policy.
  *
@@ -19,6 +24,11 @@ const RATIONALE_IMAGE_ORIGIN = "https://passo.uno";
  * through HTMLRewriter would close the gap; until then the other directives
  * still cut off the injection routes that do not need inline script:
  * rewriting <base>, loading a plugin, posting a form elsewhere, and framing.
+ *
+ * Page views go to GoatCounter, which needs three of its own openings:
+ * `script-src` for the counter itself, and `img-src` plus `connect-src` for
+ * the hit it sends back — `count.js` reports through an <img> and falls back
+ * to sendBeacon, and a blocked beacon fails silently.
  */
 const CSP_DIRECTIVES = [
   "default-src 'self'",
@@ -26,11 +36,11 @@ const CSP_DIRECTIVES = [
   "object-src 'none'",
   "frame-ancestors 'none'",
   "form-action 'none'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline' ${ANALYTICS_SCRIPT_ORIGIN}`,
   "style-src 'self'",
-  `img-src 'self' data: ${RATIONALE_IMAGE_ORIGIN}`,
+  `img-src 'self' data: ${RATIONALE_IMAGE_ORIGIN} ${ANALYTICS_COLLECTOR_ORIGIN}`,
   "font-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self' ${ANALYTICS_COLLECTOR_ORIGIN}`,
 ];
 
 const SECURITY_HEADERS = {

@@ -1,0 +1,17 @@
+{{- /*
+GoatCounter page views. Rendered only in production builds, so `hugo server`
+runs never reach the collector.
+
+7act.org reports into the same GoatCounter site as passo.uno, so the `path`
+callback prefixes every hit with the host that produced it. Without it,
+/rationale/ on either domain would land in the same row.
+*/ -}}
+{{- if and hugo.IsProduction site.Params.goatcounter }}
+<script>
+  window.goatcounter = {
+    path: function (p) { return location.host + p }
+  }
+</script>
+<script data-goatcounter="{{ site.Params.goatcounter }}"
+        async src="https://gc.zgo.at/count.js"></script>
+{{- end }}

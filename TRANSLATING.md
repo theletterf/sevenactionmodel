@@ -60,8 +60,8 @@ fields on the same page, so a mismatch is visible to readers, not just to review
 
 ## Locale variants
 
-`pt` is Brazilian Portuguese: *usuário*, *equipe*, *suporte*, *planejar*, *baixar*,
-*configurações*, *conceitual*, *aplicativo*. The URL path stays `/pt/` and
+`pt-br` is Brazilian Portuguese: *usuário*, *equipe*, *suporte*, *planejar*, *baixar*,
+*configurações*, *conceitual*, *aplicativo*. The URL path is `/pt-br/` and
 `languageCode = "pt-BR"` carries the regional signal in `<html lang>` and `hreflang`.
 
 `pt-pt` is European Portuguese: *utilizador*, *equipas*, *apoio*, *planear*, *transferir*,
